@@ -1,0 +1,14 @@
+import type { Interaction, Person, PersonSnapshot } from '../types.ts';
+export function dateKey(value:Date):string{return `${value.getFullYear()}-${String(value.getMonth()+1).padStart(2,'0')}-${String(value.getDate()).padStart(2,'0')}`;}
+export function peopleAtDate(snapshots:PersonSnapshot[],companyId:string,date:string):Person[]{
+ const latest=new Map<string,PersonSnapshot>();
+ for(const snapshot of snapshots){if(snapshot.person.companyId!==companyId||snapshot.date>date)continue;const old=latest.get(snapshot.personId);if(!old||old.date<=snapshot.date)latest.set(snapshot.personId,snapshot);}
+ return [...latest.values()].filter(s=>!s.deleted).map(s=>s.person);
+}
+export interface HistoryChange { date:string; text:string; id:string }
+export function historyChanges(snapshots:PersonSnapshot[],interactions:Interaction[],companyId:string,until:string):HistoryChange[]{
+ const records=snapshots.filter(s=>s.person.companyId===companyId).slice().sort((a,b)=>a.date.localeCompare(b.date));const seen=new Map<string,PersonSnapshot>();const events:HistoryChange[]=[];
+ for(const s of records){const previous=seen.get(s.personId);seen.set(s.personId,s);if(s.date>until)continue;let text:string;if(s.deleted)text=`${s.person.name}: контакт удалён`;else if(!previous||previous.deleted)text=`${s.person.name}: контакт появился`;else {const changes:string[]=[];if(previous.person.name!==s.person.name)changes.push(`имя: ${previous.person.name} → ${s.person.name}`);if(previous.person.title!==s.person.title)changes.push(`должность: ${previous.person.title} → ${s.person.title}`);if(previous.person.decisionRole!==s.person.decisionRole)changes.push('изменилась роль в решении');if(previous.person.department!==s.person.department)changes.push(`подразделение: ${previous.person.department} → ${s.person.department}`);if(previous.person.warmth!==s.person.warmth)changes.push(`теплота: ${previous.person.warmth} → ${s.person.warmth}`);if(previous.person.influence!==s.person.influence)changes.push(`влияние: ${previous.person.influence} → ${s.person.influence}`);if(previous.person.stance!==s.person.stance)changes.push('изменилась позиция');if(previous.person.owner!==s.person.owner)changes.push(`владелец: ${previous.person.owner} → ${s.person.owner}`);if(previous.person.consentMarketing!==s.person.consentMarketing)changes.push('изменилось согласие на маркетинг');if(JSON.stringify(previous.person.interests)!==JSON.stringify(s.person.interests))changes.push('изменились интересы');text=`${s.person.name}: ${changes.join(', ')||'карточка обновлена'}`;}events.push({id:`s-${s.personId}-${s.date}-${events.length}`,date:s.date,text});}
+ const names=new Map(records.map(s=>[s.personId,s.person.name]));for(const i of interactions)if(names.has(i.personId)&&i.date<=until)events.push({id:`i-${i.id}`,date:i.date,text:`${names.get(i.personId)}: ${i.channel.toLowerCase()} · ${i.ourDepartment}`});
+ return events.sort((a,b)=>b.date.localeCompare(a.date));
+}

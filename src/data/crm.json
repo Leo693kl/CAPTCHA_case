@@ -1,0 +1,7123 @@
+{
+  "companies": [
+    {
+      "id": "bank",
+      "name": "Банк «Северный контур»",
+      "industry": "Финансовые услуги",
+      "initiative": "Облачная платформа",
+      "description": "Развитие цифровой инфраструктуры"
+    },
+    {
+      "id": "retail",
+      "name": "Ритейл «Городской ряд»",
+      "industry": "Розничная торговля",
+      "initiative": "Единая платформа данных",
+      "description": "Объединение данных торговой сети"
+    },
+    {
+      "id": "industry",
+      "name": "Промышленная группа «Вектор»",
+      "industry": "Промышленность",
+      "initiative": "Модернизация инфраструктуры",
+      "description": "Обновление ИТ-ландшафта"
+    }
+  ],
+  "people": [
+    {
+      "id": "bank-p0",
+      "companyId": "bank",
+      "name": "Александр Белов",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "decision_maker",
+      "stance": "champion",
+      "influence": 1,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p1",
+      "companyId": "bank",
+      "name": "Мария Соколова",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "influencer",
+      "stance": "supporter",
+      "influence": 2,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p2",
+      "companyId": "bank",
+      "name": "Дмитрий Миронов",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "evaluator",
+      "stance": "neutral",
+      "influence": 3,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p3",
+      "companyId": "bank",
+      "name": "Анна Орлова",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "user",
+      "stance": "skeptic",
+      "influence": 4,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p4",
+      "companyId": "bank",
+      "name": "Илья Власов",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "blocker",
+      "stance": "champion",
+      "influence": 5,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p5",
+      "companyId": "bank",
+      "name": "Елена Громова",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "decision_maker",
+      "stance": "supporter",
+      "influence": 1,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p6",
+      "companyId": "bank",
+      "name": "Николай Ершов",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "influencer",
+      "stance": "neutral",
+      "influence": 2,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p7",
+      "companyId": "bank",
+      "name": "Ольга Крылова",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "evaluator",
+      "stance": "skeptic",
+      "influence": 3,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p8",
+      "companyId": "bank",
+      "name": "Андрей Данилов",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "user",
+      "stance": "champion",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p9",
+      "companyId": "bank",
+      "name": "Ирина Фомина",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "blocker",
+      "stance": "supporter",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p10",
+      "companyId": "bank",
+      "name": "Михаил Титов",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "decision_maker",
+      "stance": "neutral",
+      "influence": 1,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p11",
+      "companyId": "bank",
+      "name": "Наталья Баранова",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "influencer",
+      "stance": "skeptic",
+      "influence": 2,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p12",
+      "companyId": "bank",
+      "name": "Павел Жуков",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "evaluator",
+      "stance": "champion",
+      "influence": 3,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p13",
+      "companyId": "bank",
+      "name": "Светлана Романова",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "user",
+      "stance": "supporter",
+      "influence": 4,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p14",
+      "companyId": "bank",
+      "name": "Кирилл Морозов",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "blocker",
+      "stance": "neutral",
+      "influence": 5,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p15",
+      "companyId": "bank",
+      "name": "Вера Калинина",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "decision_maker",
+      "stance": "skeptic",
+      "influence": 1,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p16",
+      "companyId": "bank",
+      "name": "Роман Савин",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "influencer",
+      "stance": "champion",
+      "influence": 2,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p17",
+      "companyId": "bank",
+      "name": "Татьяна Котова",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "evaluator",
+      "stance": "supporter",
+      "influence": 3,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p18",
+      "companyId": "bank",
+      "name": "Максим Фролов",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "user",
+      "stance": "neutral",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p19",
+      "companyId": "bank",
+      "name": "Алина Климова",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "blocker",
+      "stance": "skeptic",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p20",
+      "companyId": "bank",
+      "name": "Виктор Быков",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "decision_maker",
+      "stance": "champion",
+      "influence": 1,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p21",
+      "companyId": "bank",
+      "name": "Полина Лебедева",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "influencer",
+      "stance": "supporter",
+      "influence": 2,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p22",
+      "companyId": "bank",
+      "name": "Сергей Осипов",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "evaluator",
+      "stance": "neutral",
+      "influence": 3,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p23",
+      "companyId": "bank",
+      "name": "Юлия Зорина",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "user",
+      "stance": "skeptic",
+      "influence": 4,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p24",
+      "companyId": "bank",
+      "name": "Артём Гущин",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "blocker",
+      "stance": "champion",
+      "influence": 5,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p25",
+      "companyId": "bank",
+      "name": "Дарья Никитина",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "decision_maker",
+      "stance": "supporter",
+      "influence": 1,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p26",
+      "companyId": "bank",
+      "name": "Игорь Комаров",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "influencer",
+      "stance": "neutral",
+      "influence": 2,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p27",
+      "companyId": "bank",
+      "name": "Ксения Лазарева",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "evaluator",
+      "stance": "skeptic",
+      "influence": 3,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "bank-p28",
+      "companyId": "bank",
+      "name": "Денис Медведев",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "user",
+      "stance": "champion",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "bank-p29",
+      "companyId": "bank",
+      "name": "Екатерина Волкова",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "blocker",
+      "stance": "supporter",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p0",
+      "companyId": "retail",
+      "name": "Елена Громова",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "decision_maker",
+      "stance": "champion",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p1",
+      "companyId": "retail",
+      "name": "Николай Ершов",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "influencer",
+      "stance": "supporter",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p2",
+      "companyId": "retail",
+      "name": "Ольга Крылова",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "evaluator",
+      "stance": "neutral",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p3",
+      "companyId": "retail",
+      "name": "Андрей Данилов",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "user",
+      "stance": "skeptic",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p4",
+      "companyId": "retail",
+      "name": "Ирина Фомина",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "blocker",
+      "stance": "champion",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p5",
+      "companyId": "retail",
+      "name": "Михаил Титов",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "decision_maker",
+      "stance": "supporter",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p6",
+      "companyId": "retail",
+      "name": "Наталья Баранова",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "influencer",
+      "stance": "neutral",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p7",
+      "companyId": "retail",
+      "name": "Павел Жуков",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "evaluator",
+      "stance": "skeptic",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p8",
+      "companyId": "retail",
+      "name": "Светлана Романова",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "user",
+      "stance": "champion",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p9",
+      "companyId": "retail",
+      "name": "Кирилл Морозов",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "blocker",
+      "stance": "supporter",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p10",
+      "companyId": "retail",
+      "name": "Вера Калинина",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "decision_maker",
+      "stance": "neutral",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p11",
+      "companyId": "retail",
+      "name": "Роман Савин",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "influencer",
+      "stance": "skeptic",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p12",
+      "companyId": "retail",
+      "name": "Татьяна Котова",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "evaluator",
+      "stance": "champion",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p13",
+      "companyId": "retail",
+      "name": "Максим Фролов",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "user",
+      "stance": "supporter",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p14",
+      "companyId": "retail",
+      "name": "Алина Климова",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "blocker",
+      "stance": "neutral",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p15",
+      "companyId": "retail",
+      "name": "Виктор Быков",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "decision_maker",
+      "stance": "skeptic",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p16",
+      "companyId": "retail",
+      "name": "Полина Лебедева",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "influencer",
+      "stance": "champion",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p17",
+      "companyId": "retail",
+      "name": "Сергей Осипов",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "evaluator",
+      "stance": "supporter",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p18",
+      "companyId": "retail",
+      "name": "Юлия Зорина",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "user",
+      "stance": "neutral",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p19",
+      "companyId": "retail",
+      "name": "Артём Гущин",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "blocker",
+      "stance": "skeptic",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p20",
+      "companyId": "retail",
+      "name": "Дарья Никитина",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "decision_maker",
+      "stance": "champion",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p21",
+      "companyId": "retail",
+      "name": "Игорь Комаров",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "influencer",
+      "stance": "supporter",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p22",
+      "companyId": "retail",
+      "name": "Ксения Лазарева",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "evaluator",
+      "stance": "neutral",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p23",
+      "companyId": "retail",
+      "name": "Денис Медведев",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "user",
+      "stance": "skeptic",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p24",
+      "companyId": "retail",
+      "name": "Екатерина Волкова",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "blocker",
+      "stance": "champion",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p25",
+      "companyId": "retail",
+      "name": "Глеб Тарасов",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "decision_maker",
+      "stance": "supporter",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p26",
+      "companyId": "retail",
+      "name": "Александра Галкина",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "influencer",
+      "stance": "neutral",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p27",
+      "companyId": "retail",
+      "name": "Борис Серов",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "evaluator",
+      "stance": "skeptic",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "retail-p28",
+      "companyId": "retail",
+      "name": "Лидия Мартынова",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "user",
+      "stance": "champion",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "retail-p29",
+      "companyId": "retail",
+      "name": "Лев Поляков",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "blocker",
+      "stance": "supporter",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p0",
+      "companyId": "industry",
+      "name": "Михаил Титов",
+      "department": "ИТ",
+      "title": "ИТ-директор (назначен недавно)",
+      "decisionRole": "decision_maker",
+      "stance": "champion",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p1",
+      "companyId": "industry",
+      "name": "Наталья Баранова",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "influencer",
+      "stance": "supporter",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p2",
+      "companyId": "industry",
+      "name": "Павел Жуков",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "evaluator",
+      "stance": "neutral",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p3",
+      "companyId": "industry",
+      "name": "Светлана Романова",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "user",
+      "stance": "skeptic",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p4",
+      "companyId": "industry",
+      "name": "Кирилл Морозов",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "blocker",
+      "stance": "champion",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p5",
+      "companyId": "industry",
+      "name": "Вера Калинина",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "decision_maker",
+      "stance": "supporter",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p6",
+      "companyId": "industry",
+      "name": "Роман Савин",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "influencer",
+      "stance": "neutral",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p7",
+      "companyId": "industry",
+      "name": "Татьяна Котова",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "evaluator",
+      "stance": "skeptic",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p8",
+      "companyId": "industry",
+      "name": "Максим Фролов",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "user",
+      "stance": "champion",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p9",
+      "companyId": "industry",
+      "name": "Алина Климова",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "blocker",
+      "stance": "supporter",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p10",
+      "companyId": "industry",
+      "name": "Виктор Быков",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "decision_maker",
+      "stance": "neutral",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p11",
+      "companyId": "industry",
+      "name": "Полина Лебедева",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "influencer",
+      "stance": "skeptic",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p12",
+      "companyId": "industry",
+      "name": "Сергей Осипов",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "evaluator",
+      "stance": "champion",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p13",
+      "companyId": "industry",
+      "name": "Юлия Зорина",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "user",
+      "stance": "supporter",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p14",
+      "companyId": "industry",
+      "name": "Артём Гущин",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "blocker",
+      "stance": "neutral",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p15",
+      "companyId": "industry",
+      "name": "Дарья Никитина",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "decision_maker",
+      "stance": "skeptic",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p16",
+      "companyId": "industry",
+      "name": "Игорь Комаров",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "influencer",
+      "stance": "champion",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p17",
+      "companyId": "industry",
+      "name": "Ксения Лазарева",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "evaluator",
+      "stance": "supporter",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p18",
+      "companyId": "industry",
+      "name": "Денис Медведев",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "user",
+      "stance": "neutral",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p19",
+      "companyId": "industry",
+      "name": "Екатерина Волкова",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "blocker",
+      "stance": "skeptic",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p20",
+      "companyId": "industry",
+      "name": "Глеб Тарасов",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "decision_maker",
+      "stance": "champion",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p21",
+      "companyId": "industry",
+      "name": "Александра Галкина",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "influencer",
+      "stance": "supporter",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p22",
+      "companyId": "industry",
+      "name": "Борис Серов",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "evaluator",
+      "stance": "neutral",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p23",
+      "companyId": "industry",
+      "name": "Лидия Мартынова",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "user",
+      "stance": "skeptic",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p24",
+      "companyId": "industry",
+      "name": "Лев Поляков",
+      "department": "ИТ",
+      "title": "Руководитель ИТ-направления",
+      "decisionRole": "blocker",
+      "stance": "champion",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p25",
+      "companyId": "industry",
+      "name": "Марина Селезнёва",
+      "department": "ИБ",
+      "title": "Эксперт по безопасности",
+      "decisionRole": "decision_maker",
+      "stance": "supporter",
+      "influence": 1,
+      "warmth": 1,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p26",
+      "companyId": "industry",
+      "name": "Александр Белов",
+      "department": "Закупки",
+      "title": "Менеджер по закупкам",
+      "decisionRole": "influencer",
+      "stance": "neutral",
+      "influence": 2,
+      "warmth": 2,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p27",
+      "companyId": "industry",
+      "name": "Мария Соколова",
+      "department": "Финансы",
+      "title": "Финансовый контролёр",
+      "decisionRole": "evaluator",
+      "stance": "skeptic",
+      "influence": 3,
+      "warmth": 3,
+      "owner": "Ирина Белова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": false
+    },
+    {
+      "id": "industry-p28",
+      "companyId": "industry",
+      "name": "Дмитрий Миронов",
+      "department": "Бизнес",
+      "title": "Руководитель направления",
+      "decisionRole": "user",
+      "stance": "champion",
+      "influence": 4,
+      "warmth": 4,
+      "owner": "Алексей Волков",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    },
+    {
+      "id": "industry-p29",
+      "companyId": "industry",
+      "name": "Анна Орлова",
+      "department": "Прочее",
+      "title": "Руководитель проекта",
+      "decisionRole": "blocker",
+      "stance": "supporter",
+      "influence": 5,
+      "warmth": 5,
+      "owner": "Мария Котова",
+      "interests": [
+        "Цифровая трансформация",
+        "Надёжность"
+      ],
+      "consentMarketing": true
+    }
+  ],
+  "relations": [
+    {
+      "id": "bank-r1",
+      "companyId": "bank",
+      "from": "bank-p1",
+      "to": "bank-p0",
+      "type": "informal",
+      "strength": 2
+    },
+    {
+      "id": "bank-r2",
+      "companyId": "bank",
+      "from": "bank-p2",
+      "to": "bank-p1",
+      "type": "reports_to",
+      "strength": 3
+    },
+    {
+      "id": "bank-r3",
+      "companyId": "bank",
+      "from": "bank-p3",
+      "to": "bank-p0",
+      "type": "works_with",
+      "strength": 4
+    },
+    {
+      "id": "bank-r4",
+      "companyId": "bank",
+      "from": "bank-p4",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 5
+    },
+    {
+      "id": "bank-r5",
+      "companyId": "bank",
+      "from": "bank-p5",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 1
+    },
+    {
+      "id": "bank-r6",
+      "companyId": "bank",
+      "from": "bank-p6",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 2
+    },
+    {
+      "id": "bank-r7",
+      "companyId": "bank",
+      "from": "bank-p7",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 3
+    },
+    {
+      "id": "bank-r8",
+      "companyId": "bank",
+      "from": "bank-p8",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 4
+    },
+    {
+      "id": "bank-r9",
+      "companyId": "bank",
+      "from": "bank-p9",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 5
+    },
+    {
+      "id": "bank-r10",
+      "companyId": "bank",
+      "from": "bank-p10",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 1
+    },
+    {
+      "id": "bank-r11",
+      "companyId": "bank",
+      "from": "bank-p11",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 2
+    },
+    {
+      "id": "bank-r12",
+      "companyId": "bank",
+      "from": "bank-p12",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 3
+    },
+    {
+      "id": "bank-r13",
+      "companyId": "bank",
+      "from": "bank-p13",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 4
+    },
+    {
+      "id": "bank-r14",
+      "companyId": "bank",
+      "from": "bank-p14",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 5
+    },
+    {
+      "id": "bank-r15",
+      "companyId": "bank",
+      "from": "bank-p15",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 1
+    },
+    {
+      "id": "bank-r16",
+      "companyId": "bank",
+      "from": "bank-p16",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 2
+    },
+    {
+      "id": "bank-r17",
+      "companyId": "bank",
+      "from": "bank-p17",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 3
+    },
+    {
+      "id": "bank-r18",
+      "companyId": "bank",
+      "from": "bank-p18",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 4
+    },
+    {
+      "id": "bank-r19",
+      "companyId": "bank",
+      "from": "bank-p19",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 5
+    },
+    {
+      "id": "bank-r20",
+      "companyId": "bank",
+      "from": "bank-p20",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 1
+    },
+    {
+      "id": "bank-r21",
+      "companyId": "bank",
+      "from": "bank-p21",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 2
+    },
+    {
+      "id": "bank-r22",
+      "companyId": "bank",
+      "from": "bank-p22",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 3
+    },
+    {
+      "id": "bank-r23",
+      "companyId": "bank",
+      "from": "bank-p23",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 4
+    },
+    {
+      "id": "bank-r24",
+      "companyId": "bank",
+      "from": "bank-p24",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 5
+    },
+    {
+      "id": "bank-r25",
+      "companyId": "bank",
+      "from": "bank-p25",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 1
+    },
+    {
+      "id": "bank-r26",
+      "companyId": "bank",
+      "from": "bank-p26",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 2
+    },
+    {
+      "id": "bank-r27",
+      "companyId": "bank",
+      "from": "bank-p27",
+      "to": "bank-p3",
+      "type": "works_with",
+      "strength": 3
+    },
+    {
+      "id": "bank-r28",
+      "companyId": "bank",
+      "from": "bank-p28",
+      "to": "bank-p3",
+      "type": "informal",
+      "strength": 4
+    },
+    {
+      "id": "bank-r29",
+      "companyId": "bank",
+      "from": "bank-p29",
+      "to": "bank-p3",
+      "type": "reports_to",
+      "strength": 5
+    },
+    {
+      "id": "retail-r1",
+      "companyId": "retail",
+      "from": "retail-p1",
+      "to": "retail-p0",
+      "type": "informal",
+      "strength": 2
+    },
+    {
+      "id": "retail-r2",
+      "companyId": "retail",
+      "from": "retail-p2",
+      "to": "retail-p1",
+      "type": "reports_to",
+      "strength": 3
+    },
+    {
+      "id": "retail-r3",
+      "companyId": "retail",
+      "from": "retail-p3",
+      "to": "retail-p0",
+      "type": "works_with",
+      "strength": 4
+    },
+    {
+      "id": "retail-r4",
+      "companyId": "retail",
+      "from": "retail-p4",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 5
+    },
+    {
+      "id": "retail-r5",
+      "companyId": "retail",
+      "from": "retail-p5",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 1
+    },
+    {
+      "id": "retail-r6",
+      "companyId": "retail",
+      "from": "retail-p6",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 2
+    },
+    {
+      "id": "retail-r7",
+      "companyId": "retail",
+      "from": "retail-p7",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 3
+    },
+    {
+      "id": "retail-r8",
+      "companyId": "retail",
+      "from": "retail-p8",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 4
+    },
+    {
+      "id": "retail-r9",
+      "companyId": "retail",
+      "from": "retail-p9",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 5
+    },
+    {
+      "id": "retail-r10",
+      "companyId": "retail",
+      "from": "retail-p10",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 1
+    },
+    {
+      "id": "retail-r11",
+      "companyId": "retail",
+      "from": "retail-p11",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 2
+    },
+    {
+      "id": "retail-r12",
+      "companyId": "retail",
+      "from": "retail-p12",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 3
+    },
+    {
+      "id": "retail-r13",
+      "companyId": "retail",
+      "from": "retail-p13",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 4
+    },
+    {
+      "id": "retail-r14",
+      "companyId": "retail",
+      "from": "retail-p14",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 5
+    },
+    {
+      "id": "retail-r15",
+      "companyId": "retail",
+      "from": "retail-p15",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 1
+    },
+    {
+      "id": "retail-r16",
+      "companyId": "retail",
+      "from": "retail-p16",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 2
+    },
+    {
+      "id": "retail-r17",
+      "companyId": "retail",
+      "from": "retail-p17",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 3
+    },
+    {
+      "id": "retail-r18",
+      "companyId": "retail",
+      "from": "retail-p18",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 4
+    },
+    {
+      "id": "retail-r19",
+      "companyId": "retail",
+      "from": "retail-p19",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 5
+    },
+    {
+      "id": "retail-r20",
+      "companyId": "retail",
+      "from": "retail-p20",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 1
+    },
+    {
+      "id": "retail-r21",
+      "companyId": "retail",
+      "from": "retail-p21",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 2
+    },
+    {
+      "id": "retail-r22",
+      "companyId": "retail",
+      "from": "retail-p22",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 3
+    },
+    {
+      "id": "retail-r23",
+      "companyId": "retail",
+      "from": "retail-p23",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 4
+    },
+    {
+      "id": "retail-r24",
+      "companyId": "retail",
+      "from": "retail-p24",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 5
+    },
+    {
+      "id": "retail-r25",
+      "companyId": "retail",
+      "from": "retail-p25",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 1
+    },
+    {
+      "id": "retail-r26",
+      "companyId": "retail",
+      "from": "retail-p26",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 2
+    },
+    {
+      "id": "retail-r27",
+      "companyId": "retail",
+      "from": "retail-p27",
+      "to": "retail-p3",
+      "type": "works_with",
+      "strength": 3
+    },
+    {
+      "id": "retail-r28",
+      "companyId": "retail",
+      "from": "retail-p28",
+      "to": "retail-p3",
+      "type": "informal",
+      "strength": 4
+    },
+    {
+      "id": "retail-r29",
+      "companyId": "retail",
+      "from": "retail-p29",
+      "to": "retail-p3",
+      "type": "reports_to",
+      "strength": 5
+    },
+    {
+      "id": "industry-r1",
+      "companyId": "industry",
+      "from": "industry-p1",
+      "to": "industry-p0",
+      "type": "informal",
+      "strength": 2
+    },
+    {
+      "id": "industry-r2",
+      "companyId": "industry",
+      "from": "industry-p2",
+      "to": "industry-p1",
+      "type": "reports_to",
+      "strength": 3
+    },
+    {
+      "id": "industry-r3",
+      "companyId": "industry",
+      "from": "industry-p3",
+      "to": "industry-p0",
+      "type": "works_with",
+      "strength": 4
+    },
+    {
+      "id": "industry-r4",
+      "companyId": "industry",
+      "from": "industry-p4",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 5
+    },
+    {
+      "id": "industry-r5",
+      "companyId": "industry",
+      "from": "industry-p5",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 1
+    },
+    {
+      "id": "industry-r6",
+      "companyId": "industry",
+      "from": "industry-p6",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 2
+    },
+    {
+      "id": "industry-r7",
+      "companyId": "industry",
+      "from": "industry-p7",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 3
+    },
+    {
+      "id": "industry-r8",
+      "companyId": "industry",
+      "from": "industry-p8",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 4
+    },
+    {
+      "id": "industry-r9",
+      "companyId": "industry",
+      "from": "industry-p9",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 5
+    },
+    {
+      "id": "industry-r10",
+      "companyId": "industry",
+      "from": "industry-p10",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 1
+    },
+    {
+      "id": "industry-r11",
+      "companyId": "industry",
+      "from": "industry-p11",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 2
+    },
+    {
+      "id": "industry-r12",
+      "companyId": "industry",
+      "from": "industry-p12",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 3
+    },
+    {
+      "id": "industry-r13",
+      "companyId": "industry",
+      "from": "industry-p13",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 4
+    },
+    {
+      "id": "industry-r14",
+      "companyId": "industry",
+      "from": "industry-p14",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 5
+    },
+    {
+      "id": "industry-r15",
+      "companyId": "industry",
+      "from": "industry-p15",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 1
+    },
+    {
+      "id": "industry-r16",
+      "companyId": "industry",
+      "from": "industry-p16",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 2
+    },
+    {
+      "id": "industry-r17",
+      "companyId": "industry",
+      "from": "industry-p17",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 3
+    },
+    {
+      "id": "industry-r18",
+      "companyId": "industry",
+      "from": "industry-p18",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 4
+    },
+    {
+      "id": "industry-r19",
+      "companyId": "industry",
+      "from": "industry-p19",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 5
+    },
+    {
+      "id": "industry-r20",
+      "companyId": "industry",
+      "from": "industry-p20",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 1
+    },
+    {
+      "id": "industry-r21",
+      "companyId": "industry",
+      "from": "industry-p21",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 2
+    },
+    {
+      "id": "industry-r22",
+      "companyId": "industry",
+      "from": "industry-p22",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 3
+    },
+    {
+      "id": "industry-r23",
+      "companyId": "industry",
+      "from": "industry-p23",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 4
+    },
+    {
+      "id": "industry-r24",
+      "companyId": "industry",
+      "from": "industry-p24",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 5
+    },
+    {
+      "id": "industry-r25",
+      "companyId": "industry",
+      "from": "industry-p25",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 1
+    },
+    {
+      "id": "industry-r26",
+      "companyId": "industry",
+      "from": "industry-p26",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 2
+    },
+    {
+      "id": "industry-r27",
+      "companyId": "industry",
+      "from": "industry-p27",
+      "to": "industry-p3",
+      "type": "works_with",
+      "strength": 3
+    },
+    {
+      "id": "industry-r28",
+      "companyId": "industry",
+      "from": "industry-p28",
+      "to": "industry-p3",
+      "type": "informal",
+      "strength": 4
+    },
+    {
+      "id": "industry-r29",
+      "companyId": "industry",
+      "from": "industry-p29",
+      "to": "industry-p3",
+      "type": "reports_to",
+      "strength": 5
+    }
+  ],
+  "interactions": [
+    {
+      "id": "bank-p0-i0",
+      "personId": "bank-p0",
+      "date": "2026-10-27",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p0-i1",
+      "personId": "bank-p0",
+      "date": "2026-07-19",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p0-i2",
+      "personId": "bank-p0",
+      "date": "2026-04-10",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p1-i0",
+      "personId": "bank-p1",
+      "date": "2026-10-14",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p1-i1",
+      "personId": "bank-p1",
+      "date": "2026-07-06",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p1-i2",
+      "personId": "bank-p1",
+      "date": "2026-03-28",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p2-i0",
+      "personId": "bank-p2",
+      "date": "2026-10-01",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p2-i1",
+      "personId": "bank-p2",
+      "date": "2026-06-23",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p2-i2",
+      "personId": "bank-p2",
+      "date": "2026-03-15",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p3-i0",
+      "personId": "bank-p3",
+      "date": "2026-09-18",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p3-i1",
+      "personId": "bank-p3",
+      "date": "2026-06-10",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p3-i2",
+      "personId": "bank-p3",
+      "date": "2026-03-02",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p4-i0",
+      "personId": "bank-p4",
+      "date": "2026-09-05",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p4-i1",
+      "personId": "bank-p4",
+      "date": "2026-05-28",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p4-i2",
+      "personId": "bank-p4",
+      "date": "2026-02-17",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p5-i0",
+      "personId": "bank-p5",
+      "date": "2026-08-23",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p5-i1",
+      "personId": "bank-p5",
+      "date": "2026-05-15",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p5-i2",
+      "personId": "bank-p5",
+      "date": "2026-02-04",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p6-i0",
+      "personId": "bank-p6",
+      "date": "2026-08-10",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p6-i1",
+      "personId": "bank-p6",
+      "date": "2026-05-02",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p6-i2",
+      "personId": "bank-p6",
+      "date": "2026-01-22",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p7-i0",
+      "personId": "bank-p7",
+      "date": "2026-07-28",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p7-i1",
+      "personId": "bank-p7",
+      "date": "2026-04-19",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p7-i2",
+      "personId": "bank-p7",
+      "date": "2026-01-09",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p8-i0",
+      "personId": "bank-p8",
+      "date": "2026-07-15",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p8-i1",
+      "personId": "bank-p8",
+      "date": "2026-04-06",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p8-i2",
+      "personId": "bank-p8",
+      "date": "2025-12-27",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p9-i0",
+      "personId": "bank-p9",
+      "date": "2026-07-02",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p9-i1",
+      "personId": "bank-p9",
+      "date": "2026-03-24",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p9-i2",
+      "personId": "bank-p9",
+      "date": "2025-12-14",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p10-i0",
+      "personId": "bank-p10",
+      "date": "2026-06-19",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p10-i1",
+      "personId": "bank-p10",
+      "date": "2026-03-11",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p10-i2",
+      "personId": "bank-p10",
+      "date": "2025-12-01",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p11-i0",
+      "personId": "bank-p11",
+      "date": "2026-06-06",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p11-i1",
+      "personId": "bank-p11",
+      "date": "2026-02-26",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p11-i2",
+      "personId": "bank-p11",
+      "date": "2025-11-18",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p12-i0",
+      "personId": "bank-p12",
+      "date": "2026-05-24",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p12-i1",
+      "personId": "bank-p12",
+      "date": "2026-02-13",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p12-i2",
+      "personId": "bank-p12",
+      "date": "2025-11-05",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p13-i0",
+      "personId": "bank-p13",
+      "date": "2026-05-11",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p13-i1",
+      "personId": "bank-p13",
+      "date": "2026-01-31",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p13-i2",
+      "personId": "bank-p13",
+      "date": "2025-10-23",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p14-i0",
+      "personId": "bank-p14",
+      "date": "2026-04-28",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p14-i1",
+      "personId": "bank-p14",
+      "date": "2026-01-18",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p14-i2",
+      "personId": "bank-p14",
+      "date": "2025-10-10",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p15-i0",
+      "personId": "bank-p15",
+      "date": "2026-04-15",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p15-i1",
+      "personId": "bank-p15",
+      "date": "2026-01-05",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p15-i2",
+      "personId": "bank-p15",
+      "date": "2025-09-27",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p16-i0",
+      "personId": "bank-p16",
+      "date": "2026-04-02",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p16-i1",
+      "personId": "bank-p16",
+      "date": "2025-12-23",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p16-i2",
+      "personId": "bank-p16",
+      "date": "2025-09-14",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p17-i0",
+      "personId": "bank-p17",
+      "date": "2026-03-20",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p17-i1",
+      "personId": "bank-p17",
+      "date": "2025-12-10",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p17-i2",
+      "personId": "bank-p17",
+      "date": "2025-09-01",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p18-i0",
+      "personId": "bank-p18",
+      "date": "2026-03-07",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p18-i1",
+      "personId": "bank-p18",
+      "date": "2025-11-27",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p18-i2",
+      "personId": "bank-p18",
+      "date": "2025-08-19",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p19-i0",
+      "personId": "bank-p19",
+      "date": "2026-02-22",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p19-i1",
+      "personId": "bank-p19",
+      "date": "2025-11-14",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p19-i2",
+      "personId": "bank-p19",
+      "date": "2025-08-06",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p20-i0",
+      "personId": "bank-p20",
+      "date": "2026-02-09",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p20-i1",
+      "personId": "bank-p20",
+      "date": "2025-11-01",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p20-i2",
+      "personId": "bank-p20",
+      "date": "2025-07-24",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p21-i0",
+      "personId": "bank-p21",
+      "date": "2026-01-27",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p21-i1",
+      "personId": "bank-p21",
+      "date": "2025-10-19",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p21-i2",
+      "personId": "bank-p21",
+      "date": "2025-07-11",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p22-i0",
+      "personId": "bank-p22",
+      "date": "2026-01-14",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p22-i1",
+      "personId": "bank-p22",
+      "date": "2025-10-06",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p22-i2",
+      "personId": "bank-p22",
+      "date": "2025-06-28",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p23-i0",
+      "personId": "bank-p23",
+      "date": "2026-01-01",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p23-i1",
+      "personId": "bank-p23",
+      "date": "2025-09-23",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p23-i2",
+      "personId": "bank-p23",
+      "date": "2025-06-15",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p24-i0",
+      "personId": "bank-p24",
+      "date": "2025-12-19",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p24-i1",
+      "personId": "bank-p24",
+      "date": "2025-09-10",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p24-i2",
+      "personId": "bank-p24",
+      "date": "2025-06-02",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p25-i0",
+      "personId": "bank-p25",
+      "date": "2025-12-06",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p25-i1",
+      "personId": "bank-p25",
+      "date": "2025-08-28",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p25-i2",
+      "personId": "bank-p25",
+      "date": "2025-05-20",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p26-i0",
+      "personId": "bank-p26",
+      "date": "2025-11-23",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p26-i1",
+      "personId": "bank-p26",
+      "date": "2025-08-15",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p26-i2",
+      "personId": "bank-p26",
+      "date": "2025-05-07",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p27-i0",
+      "personId": "bank-p27",
+      "date": "2025-11-10",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p27-i1",
+      "personId": "bank-p27",
+      "date": "2025-08-02",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p27-i2",
+      "personId": "bank-p27",
+      "date": "2025-04-24",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p28-i0",
+      "personId": "bank-p28",
+      "date": "2025-10-28",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p28-i1",
+      "personId": "bank-p28",
+      "date": "2025-07-20",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p28-i2",
+      "personId": "bank-p28",
+      "date": "2025-04-11",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p29-i0",
+      "personId": "bank-p29",
+      "date": "2025-10-15",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "bank-p29-i1",
+      "personId": "bank-p29",
+      "date": "2025-07-07",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "bank-p29-i2",
+      "personId": "bank-p29",
+      "date": "2025-03-29",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p0-i0",
+      "personId": "retail-p0",
+      "date": "2026-10-27",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p0-i1",
+      "personId": "retail-p0",
+      "date": "2026-07-19",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p0-i2",
+      "personId": "retail-p0",
+      "date": "2026-04-10",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p1-i0",
+      "personId": "retail-p1",
+      "date": "2026-10-14",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p1-i1",
+      "personId": "retail-p1",
+      "date": "2026-07-06",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p1-i2",
+      "personId": "retail-p1",
+      "date": "2026-03-28",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p2-i0",
+      "personId": "retail-p2",
+      "date": "2026-10-01",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p2-i1",
+      "personId": "retail-p2",
+      "date": "2026-06-23",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p2-i2",
+      "personId": "retail-p2",
+      "date": "2026-03-15",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p3-i0",
+      "personId": "retail-p3",
+      "date": "2026-09-18",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p3-i1",
+      "personId": "retail-p3",
+      "date": "2026-06-10",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p3-i2",
+      "personId": "retail-p3",
+      "date": "2026-03-02",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p4-i0",
+      "personId": "retail-p4",
+      "date": "2026-09-05",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p4-i1",
+      "personId": "retail-p4",
+      "date": "2026-05-28",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p4-i2",
+      "personId": "retail-p4",
+      "date": "2026-02-17",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p5-i0",
+      "personId": "retail-p5",
+      "date": "2026-08-23",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p5-i1",
+      "personId": "retail-p5",
+      "date": "2026-05-15",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p5-i2",
+      "personId": "retail-p5",
+      "date": "2026-02-04",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p6-i0",
+      "personId": "retail-p6",
+      "date": "2026-08-10",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p6-i1",
+      "personId": "retail-p6",
+      "date": "2026-05-02",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p6-i2",
+      "personId": "retail-p6",
+      "date": "2026-01-22",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p7-i0",
+      "personId": "retail-p7",
+      "date": "2026-07-28",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p7-i1",
+      "personId": "retail-p7",
+      "date": "2026-04-19",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p7-i2",
+      "personId": "retail-p7",
+      "date": "2026-01-09",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p8-i0",
+      "personId": "retail-p8",
+      "date": "2026-07-15",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p8-i1",
+      "personId": "retail-p8",
+      "date": "2026-04-06",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p8-i2",
+      "personId": "retail-p8",
+      "date": "2025-12-27",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p9-i0",
+      "personId": "retail-p9",
+      "date": "2026-07-02",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p9-i1",
+      "personId": "retail-p9",
+      "date": "2026-03-24",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p9-i2",
+      "personId": "retail-p9",
+      "date": "2025-12-14",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p10-i0",
+      "personId": "retail-p10",
+      "date": "2026-06-19",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p10-i1",
+      "personId": "retail-p10",
+      "date": "2026-03-11",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p10-i2",
+      "personId": "retail-p10",
+      "date": "2025-12-01",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p11-i0",
+      "personId": "retail-p11",
+      "date": "2026-06-06",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p11-i1",
+      "personId": "retail-p11",
+      "date": "2026-02-26",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p11-i2",
+      "personId": "retail-p11",
+      "date": "2025-11-18",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p12-i0",
+      "personId": "retail-p12",
+      "date": "2026-05-24",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p12-i1",
+      "personId": "retail-p12",
+      "date": "2026-02-13",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p12-i2",
+      "personId": "retail-p12",
+      "date": "2025-11-05",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p13-i0",
+      "personId": "retail-p13",
+      "date": "2026-05-11",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p13-i1",
+      "personId": "retail-p13",
+      "date": "2026-01-31",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p13-i2",
+      "personId": "retail-p13",
+      "date": "2025-10-23",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p14-i0",
+      "personId": "retail-p14",
+      "date": "2026-04-28",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p14-i1",
+      "personId": "retail-p14",
+      "date": "2026-01-18",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p14-i2",
+      "personId": "retail-p14",
+      "date": "2025-10-10",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p15-i0",
+      "personId": "retail-p15",
+      "date": "2026-04-15",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p15-i1",
+      "personId": "retail-p15",
+      "date": "2026-01-05",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p15-i2",
+      "personId": "retail-p15",
+      "date": "2025-09-27",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p16-i0",
+      "personId": "retail-p16",
+      "date": "2026-04-02",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p16-i1",
+      "personId": "retail-p16",
+      "date": "2025-12-23",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p16-i2",
+      "personId": "retail-p16",
+      "date": "2025-09-14",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p17-i0",
+      "personId": "retail-p17",
+      "date": "2026-03-20",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p17-i1",
+      "personId": "retail-p17",
+      "date": "2025-12-10",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p17-i2",
+      "personId": "retail-p17",
+      "date": "2025-09-01",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p18-i0",
+      "personId": "retail-p18",
+      "date": "2026-03-07",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p18-i1",
+      "personId": "retail-p18",
+      "date": "2025-11-27",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p18-i2",
+      "personId": "retail-p18",
+      "date": "2025-08-19",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p19-i0",
+      "personId": "retail-p19",
+      "date": "2026-02-22",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p19-i1",
+      "personId": "retail-p19",
+      "date": "2025-11-14",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p19-i2",
+      "personId": "retail-p19",
+      "date": "2025-08-06",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p20-i0",
+      "personId": "retail-p20",
+      "date": "2026-02-09",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p20-i1",
+      "personId": "retail-p20",
+      "date": "2025-11-01",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p20-i2",
+      "personId": "retail-p20",
+      "date": "2025-07-24",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p21-i0",
+      "personId": "retail-p21",
+      "date": "2026-01-27",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p21-i1",
+      "personId": "retail-p21",
+      "date": "2025-10-19",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p21-i2",
+      "personId": "retail-p21",
+      "date": "2025-07-11",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p22-i0",
+      "personId": "retail-p22",
+      "date": "2026-01-14",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p22-i1",
+      "personId": "retail-p22",
+      "date": "2025-10-06",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p22-i2",
+      "personId": "retail-p22",
+      "date": "2025-06-28",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p23-i0",
+      "personId": "retail-p23",
+      "date": "2026-01-01",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p23-i1",
+      "personId": "retail-p23",
+      "date": "2025-09-23",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p23-i2",
+      "personId": "retail-p23",
+      "date": "2025-06-15",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p24-i0",
+      "personId": "retail-p24",
+      "date": "2025-12-19",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p24-i1",
+      "personId": "retail-p24",
+      "date": "2025-09-10",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p24-i2",
+      "personId": "retail-p24",
+      "date": "2025-06-02",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p25-i0",
+      "personId": "retail-p25",
+      "date": "2025-12-06",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p25-i1",
+      "personId": "retail-p25",
+      "date": "2025-08-28",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p25-i2",
+      "personId": "retail-p25",
+      "date": "2025-05-20",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p26-i0",
+      "personId": "retail-p26",
+      "date": "2025-11-23",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p26-i1",
+      "personId": "retail-p26",
+      "date": "2025-08-15",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p26-i2",
+      "personId": "retail-p26",
+      "date": "2025-05-07",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p27-i0",
+      "personId": "retail-p27",
+      "date": "2025-11-10",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p27-i1",
+      "personId": "retail-p27",
+      "date": "2025-08-02",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p27-i2",
+      "personId": "retail-p27",
+      "date": "2025-04-24",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p28-i0",
+      "personId": "retail-p28",
+      "date": "2025-10-28",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p28-i1",
+      "personId": "retail-p28",
+      "date": "2025-07-20",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p28-i2",
+      "personId": "retail-p28",
+      "date": "2025-04-11",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p29-i0",
+      "personId": "retail-p29",
+      "date": "2025-10-15",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "retail-p29-i1",
+      "personId": "retail-p29",
+      "date": "2025-07-07",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "retail-p29-i2",
+      "personId": "retail-p29",
+      "date": "2025-03-29",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p0-i0",
+      "personId": "industry-p0",
+      "date": "2025-10-12",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p0-i1",
+      "personId": "industry-p0",
+      "date": "2025-09-13",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p0-i2",
+      "personId": "industry-p0",
+      "date": "2025-08-15",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p1-i0",
+      "personId": "industry-p1",
+      "date": "2026-10-14",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p1-i1",
+      "personId": "industry-p1",
+      "date": "2026-07-06",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p1-i2",
+      "personId": "industry-p1",
+      "date": "2026-03-28",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p2-i0",
+      "personId": "industry-p2",
+      "date": "2026-10-01",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p2-i1",
+      "personId": "industry-p2",
+      "date": "2026-06-23",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p2-i2",
+      "personId": "industry-p2",
+      "date": "2026-03-15",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p3-i0",
+      "personId": "industry-p3",
+      "date": "2026-09-18",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p3-i1",
+      "personId": "industry-p3",
+      "date": "2026-06-10",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p3-i2",
+      "personId": "industry-p3",
+      "date": "2026-03-02",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p4-i0",
+      "personId": "industry-p4",
+      "date": "2025-08-29",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p4-i1",
+      "personId": "industry-p4",
+      "date": "2025-07-31",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p4-i2",
+      "personId": "industry-p4",
+      "date": "2025-07-02",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p5-i0",
+      "personId": "industry-p5",
+      "date": "2026-08-23",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p5-i1",
+      "personId": "industry-p5",
+      "date": "2026-05-15",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p5-i2",
+      "personId": "industry-p5",
+      "date": "2026-02-04",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p6-i0",
+      "personId": "industry-p6",
+      "date": "2026-08-10",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p6-i1",
+      "personId": "industry-p6",
+      "date": "2026-05-02",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p6-i2",
+      "personId": "industry-p6",
+      "date": "2026-01-22",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p7-i0",
+      "personId": "industry-p7",
+      "date": "2026-07-28",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p7-i1",
+      "personId": "industry-p7",
+      "date": "2026-04-19",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p7-i2",
+      "personId": "industry-p7",
+      "date": "2026-01-09",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p8-i0",
+      "personId": "industry-p8",
+      "date": "2025-07-16",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p8-i1",
+      "personId": "industry-p8",
+      "date": "2025-06-17",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p8-i2",
+      "personId": "industry-p8",
+      "date": "2025-05-19",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p9-i0",
+      "personId": "industry-p9",
+      "date": "2026-07-02",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p9-i1",
+      "personId": "industry-p9",
+      "date": "2026-03-24",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p9-i2",
+      "personId": "industry-p9",
+      "date": "2025-12-14",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p10-i0",
+      "personId": "industry-p10",
+      "date": "2026-06-19",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p10-i1",
+      "personId": "industry-p10",
+      "date": "2026-03-11",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p10-i2",
+      "personId": "industry-p10",
+      "date": "2025-12-01",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p11-i0",
+      "personId": "industry-p11",
+      "date": "2026-06-06",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p11-i1",
+      "personId": "industry-p11",
+      "date": "2026-02-26",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p11-i2",
+      "personId": "industry-p11",
+      "date": "2025-11-18",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p12-i0",
+      "personId": "industry-p12",
+      "date": "2025-06-02",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p12-i1",
+      "personId": "industry-p12",
+      "date": "2025-05-04",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p12-i2",
+      "personId": "industry-p12",
+      "date": "2025-04-05",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p13-i0",
+      "personId": "industry-p13",
+      "date": "2026-05-11",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p13-i1",
+      "personId": "industry-p13",
+      "date": "2026-01-31",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p13-i2",
+      "personId": "industry-p13",
+      "date": "2025-10-23",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p14-i0",
+      "personId": "industry-p14",
+      "date": "2026-04-28",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p14-i1",
+      "personId": "industry-p14",
+      "date": "2026-01-18",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p14-i2",
+      "personId": "industry-p14",
+      "date": "2025-10-10",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p15-i0",
+      "personId": "industry-p15",
+      "date": "2026-04-15",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p15-i1",
+      "personId": "industry-p15",
+      "date": "2026-01-05",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p15-i2",
+      "personId": "industry-p15",
+      "date": "2025-09-27",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p16-i0",
+      "personId": "industry-p16",
+      "date": "2025-04-19",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p16-i1",
+      "personId": "industry-p16",
+      "date": "2025-03-21",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p16-i2",
+      "personId": "industry-p16",
+      "date": "2025-02-20",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p17-i0",
+      "personId": "industry-p17",
+      "date": "2026-03-20",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p17-i1",
+      "personId": "industry-p17",
+      "date": "2025-12-10",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p17-i2",
+      "personId": "industry-p17",
+      "date": "2025-09-01",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p18-i0",
+      "personId": "industry-p18",
+      "date": "2026-03-07",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p18-i1",
+      "personId": "industry-p18",
+      "date": "2025-11-27",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p18-i2",
+      "personId": "industry-p18",
+      "date": "2025-08-19",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p19-i0",
+      "personId": "industry-p19",
+      "date": "2026-02-22",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p19-i1",
+      "personId": "industry-p19",
+      "date": "2025-11-14",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p19-i2",
+      "personId": "industry-p19",
+      "date": "2025-08-06",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p20-i0",
+      "personId": "industry-p20",
+      "date": "2025-03-06",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p20-i1",
+      "personId": "industry-p20",
+      "date": "2025-02-05",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p20-i2",
+      "personId": "industry-p20",
+      "date": "2025-01-07",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p21-i0",
+      "personId": "industry-p21",
+      "date": "2026-01-27",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p21-i1",
+      "personId": "industry-p21",
+      "date": "2025-10-19",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p21-i2",
+      "personId": "industry-p21",
+      "date": "2025-07-11",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p22-i0",
+      "personId": "industry-p22",
+      "date": "2026-01-14",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p22-i1",
+      "personId": "industry-p22",
+      "date": "2025-10-06",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p22-i2",
+      "personId": "industry-p22",
+      "date": "2025-06-28",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p23-i0",
+      "personId": "industry-p23",
+      "date": "2026-01-01",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p23-i1",
+      "personId": "industry-p23",
+      "date": "2025-09-23",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p23-i2",
+      "personId": "industry-p23",
+      "date": "2025-06-15",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p24-i0",
+      "personId": "industry-p24",
+      "date": "2025-01-21",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p24-i1",
+      "personId": "industry-p24",
+      "date": "2024-12-23",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p24-i2",
+      "personId": "industry-p24",
+      "date": "2026-10-25",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p25-i0",
+      "personId": "industry-p25",
+      "date": "2025-12-06",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p25-i1",
+      "personId": "industry-p25",
+      "date": "2025-08-28",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p25-i2",
+      "personId": "industry-p25",
+      "date": "2025-05-20",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p26-i0",
+      "personId": "industry-p26",
+      "date": "2025-11-23",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p26-i1",
+      "personId": "industry-p26",
+      "date": "2025-08-15",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p26-i2",
+      "personId": "industry-p26",
+      "date": "2025-05-07",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p27-i0",
+      "personId": "industry-p27",
+      "date": "2025-11-10",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p27-i1",
+      "personId": "industry-p27",
+      "date": "2025-08-02",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p27-i2",
+      "personId": "industry-p27",
+      "date": "2025-04-24",
+      "channel": "Звонок",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p28-i0",
+      "personId": "industry-p28",
+      "date": "2026-11-08",
+      "channel": "Встреча",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p28-i1",
+      "personId": "industry-p28",
+      "date": "2026-10-10",
+      "channel": "Почта",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p28-i2",
+      "personId": "industry-p28",
+      "date": "2026-09-11",
+      "channel": "Звонок",
+      "ourOwner": "Алексей Волков",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p29-i0",
+      "personId": "industry-p29",
+      "date": "2025-10-15",
+      "channel": "Встреча",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили приоритеты инициативы и дальнейшие шаги.",
+      "sentiment": "Позитивная"
+    },
+    {
+      "id": "industry-p29-i1",
+      "personId": "industry-p29",
+      "date": "2025-07-07",
+      "channel": "Почта",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Проектный офис",
+      "summary": "Согласовали материалы и вопросы к команде.",
+      "sentiment": "Нейтральная"
+    },
+    {
+      "id": "industry-p29-i2",
+      "personId": "industry-p29",
+      "date": "2025-03-29",
+      "channel": "Звонок",
+      "ourOwner": "Мария Котова",
+      "ourDepartment": "Архитектура",
+      "summary": "Уточнили требования и сроки проекта.",
+      "sentiment": "Позитивная"
+    }
+  ],
+  "snapshots": [
+    {
+      "personId": "bank-p0",
+      "date": "2026-04-10",
+      "person": {
+        "id": "bank-p0",
+        "companyId": "bank",
+        "name": "Александр Белов",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p1",
+      "date": "2026-03-28",
+      "person": {
+        "id": "bank-p1",
+        "companyId": "bank",
+        "name": "Мария Соколова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "influencer",
+        "stance": "supporter",
+        "influence": 2,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p1",
+      "date": "2026-08-25",
+      "person": {
+        "id": "bank-p1",
+        "companyId": "bank",
+        "name": "Мария Соколова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "influencer",
+        "stance": "supporter",
+        "influence": 2,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p2",
+      "date": "2026-03-15",
+      "person": {
+        "id": "bank-p2",
+        "companyId": "bank",
+        "name": "Дмитрий Миронов",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "evaluator",
+        "stance": "neutral",
+        "influence": 3,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p3",
+      "date": "2026-03-02",
+      "person": {
+        "id": "bank-p3",
+        "companyId": "bank",
+        "name": "Анна Орлова",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "user",
+        "stance": "skeptic",
+        "influence": 4,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p4",
+      "date": "2026-02-17",
+      "person": {
+        "id": "bank-p4",
+        "companyId": "bank",
+        "name": "Илья Власов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "blocker",
+        "stance": "champion",
+        "influence": 5,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p5",
+      "date": "2026-02-04",
+      "person": {
+        "id": "bank-p5",
+        "companyId": "bank",
+        "name": "Елена Громова",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "decision_maker",
+        "stance": "supporter",
+        "influence": 1,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p6",
+      "date": "2026-01-22",
+      "person": {
+        "id": "bank-p6",
+        "companyId": "bank",
+        "name": "Николай Ершов",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "influencer",
+        "stance": "neutral",
+        "influence": 2,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p7",
+      "date": "2026-01-09",
+      "person": {
+        "id": "bank-p7",
+        "companyId": "bank",
+        "name": "Ольга Крылова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "evaluator",
+        "stance": "skeptic",
+        "influence": 3,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p8",
+      "date": "2025-12-27",
+      "person": {
+        "id": "bank-p8",
+        "companyId": "bank",
+        "name": "Андрей Данилов",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "user",
+        "stance": "champion",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p9",
+      "date": "2025-12-14",
+      "person": {
+        "id": "bank-p9",
+        "companyId": "bank",
+        "name": "Ирина Фомина",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "blocker",
+        "stance": "supporter",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p10",
+      "date": "2025-12-01",
+      "person": {
+        "id": "bank-p10",
+        "companyId": "bank",
+        "name": "Михаил Титов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "decision_maker",
+        "stance": "neutral",
+        "influence": 1,
+        "warmth": 3,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p10",
+      "date": "2026-04-30",
+      "person": {
+        "id": "bank-p10",
+        "companyId": "bank",
+        "name": "Михаил Титов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "decision_maker",
+        "stance": "neutral",
+        "influence": 1,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p11",
+      "date": "2025-11-18",
+      "person": {
+        "id": "bank-p11",
+        "companyId": "bank",
+        "name": "Наталья Баранова",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "influencer",
+        "stance": "skeptic",
+        "influence": 2,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p12",
+      "date": "2025-11-05",
+      "person": {
+        "id": "bank-p12",
+        "companyId": "bank",
+        "name": "Павел Жуков",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "evaluator",
+        "stance": "champion",
+        "influence": 3,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p13",
+      "date": "2025-10-23",
+      "person": {
+        "id": "bank-p13",
+        "companyId": "bank",
+        "name": "Светлана Романова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "user",
+        "stance": "supporter",
+        "influence": 4,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p14",
+      "date": "2025-10-10",
+      "person": {
+        "id": "bank-p14",
+        "companyId": "bank",
+        "name": "Кирилл Морозов",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "blocker",
+        "stance": "neutral",
+        "influence": 5,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p15",
+      "date": "2025-09-27",
+      "person": {
+        "id": "bank-p15",
+        "companyId": "bank",
+        "name": "Вера Калинина",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "decision_maker",
+        "stance": "skeptic",
+        "influence": 1,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p16",
+      "date": "2025-09-14",
+      "person": {
+        "id": "bank-p16",
+        "companyId": "bank",
+        "name": "Роман Савин",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "influencer",
+        "stance": "champion",
+        "influence": 2,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p17",
+      "date": "2025-09-01",
+      "person": {
+        "id": "bank-p17",
+        "companyId": "bank",
+        "name": "Татьяна Котова",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "evaluator",
+        "stance": "supporter",
+        "influence": 3,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p18",
+      "date": "2025-08-19",
+      "person": {
+        "id": "bank-p18",
+        "companyId": "bank",
+        "name": "Максим Фролов",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "user",
+        "stance": "neutral",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p19",
+      "date": "2025-08-06",
+      "person": {
+        "id": "bank-p19",
+        "companyId": "bank",
+        "name": "Алина Климова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "blocker",
+        "stance": "skeptic",
+        "influence": 5,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p19",
+      "date": "2026-01-03",
+      "person": {
+        "id": "bank-p19",
+        "companyId": "bank",
+        "name": "Алина Климова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "blocker",
+        "stance": "skeptic",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p20",
+      "date": "2025-07-24",
+      "person": {
+        "id": "bank-p20",
+        "companyId": "bank",
+        "name": "Виктор Быков",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p21",
+      "date": "2025-07-11",
+      "person": {
+        "id": "bank-p21",
+        "companyId": "bank",
+        "name": "Полина Лебедева",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "influencer",
+        "stance": "supporter",
+        "influence": 2,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p22",
+      "date": "2025-06-28",
+      "person": {
+        "id": "bank-p22",
+        "companyId": "bank",
+        "name": "Сергей Осипов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "evaluator",
+        "stance": "neutral",
+        "influence": 3,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p23",
+      "date": "2025-06-15",
+      "person": {
+        "id": "bank-p23",
+        "companyId": "bank",
+        "name": "Юлия Зорина",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "user",
+        "stance": "skeptic",
+        "influence": 4,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p24",
+      "date": "2025-06-02",
+      "person": {
+        "id": "bank-p24",
+        "companyId": "bank",
+        "name": "Артём Гущин",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "blocker",
+        "stance": "champion",
+        "influence": 5,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p25",
+      "date": "2025-05-20",
+      "person": {
+        "id": "bank-p25",
+        "companyId": "bank",
+        "name": "Дарья Никитина",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "decision_maker",
+        "stance": "supporter",
+        "influence": 1,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p26",
+      "date": "2025-05-07",
+      "person": {
+        "id": "bank-p26",
+        "companyId": "bank",
+        "name": "Игорь Комаров",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "influencer",
+        "stance": "neutral",
+        "influence": 2,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p27",
+      "date": "2025-04-24",
+      "person": {
+        "id": "bank-p27",
+        "companyId": "bank",
+        "name": "Ксения Лазарева",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "evaluator",
+        "stance": "skeptic",
+        "influence": 3,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "bank-p28",
+      "date": "2025-04-11",
+      "person": {
+        "id": "bank-p28",
+        "companyId": "bank",
+        "name": "Денис Медведев",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "user",
+        "stance": "champion",
+        "influence": 4,
+        "warmth": 3,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p28",
+      "date": "2025-09-08",
+      "person": {
+        "id": "bank-p28",
+        "companyId": "bank",
+        "name": "Денис Медведев",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "user",
+        "stance": "champion",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "bank-p29",
+      "date": "2025-03-29",
+      "person": {
+        "id": "bank-p29",
+        "companyId": "bank",
+        "name": "Екатерина Волкова",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "blocker",
+        "stance": "supporter",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p0",
+      "date": "2026-04-10",
+      "person": {
+        "id": "retail-p0",
+        "companyId": "retail",
+        "name": "Елена Громова",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p1",
+      "date": "2026-03-28",
+      "person": {
+        "id": "retail-p1",
+        "companyId": "retail",
+        "name": "Николай Ершов",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "influencer",
+        "stance": "supporter",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p2",
+      "date": "2026-03-15",
+      "person": {
+        "id": "retail-p2",
+        "companyId": "retail",
+        "name": "Ольга Крылова",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "evaluator",
+        "stance": "neutral",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p3",
+      "date": "2026-03-02",
+      "person": {
+        "id": "retail-p3",
+        "companyId": "retail",
+        "name": "Андрей Данилов",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "user",
+        "stance": "skeptic",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p4",
+      "date": "2026-02-17",
+      "person": {
+        "id": "retail-p4",
+        "companyId": "retail",
+        "name": "Ирина Фомина",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "blocker",
+        "stance": "champion",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p5",
+      "date": "2026-02-04",
+      "person": {
+        "id": "retail-p5",
+        "companyId": "retail",
+        "name": "Михаил Титов",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "decision_maker",
+        "stance": "supporter",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p6",
+      "date": "2026-01-22",
+      "person": {
+        "id": "retail-p6",
+        "companyId": "retail",
+        "name": "Наталья Баранова",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "influencer",
+        "stance": "neutral",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p7",
+      "date": "2026-01-09",
+      "person": {
+        "id": "retail-p7",
+        "companyId": "retail",
+        "name": "Павел Жуков",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "evaluator",
+        "stance": "skeptic",
+        "influence": 3,
+        "warmth": 2,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p7",
+      "date": "2026-06-08",
+      "person": {
+        "id": "retail-p7",
+        "companyId": "retail",
+        "name": "Павел Жуков",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "evaluator",
+        "stance": "skeptic",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p8",
+      "date": "2025-12-27",
+      "person": {
+        "id": "retail-p8",
+        "companyId": "retail",
+        "name": "Светлана Романова",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "user",
+        "stance": "champion",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p9",
+      "date": "2025-12-14",
+      "person": {
+        "id": "retail-p9",
+        "companyId": "retail",
+        "name": "Кирилл Морозов",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "blocker",
+        "stance": "supporter",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p10",
+      "date": "2025-12-01",
+      "person": {
+        "id": "retail-p10",
+        "companyId": "retail",
+        "name": "Вера Калинина",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "decision_maker",
+        "stance": "neutral",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p11",
+      "date": "2025-11-18",
+      "person": {
+        "id": "retail-p11",
+        "companyId": "retail",
+        "name": "Роман Савин",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "influencer",
+        "stance": "skeptic",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p12",
+      "date": "2025-11-05",
+      "person": {
+        "id": "retail-p12",
+        "companyId": "retail",
+        "name": "Татьяна Котова",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "evaluator",
+        "stance": "champion",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p13",
+      "date": "2025-10-23",
+      "person": {
+        "id": "retail-p13",
+        "companyId": "retail",
+        "name": "Максим Фролов",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "user",
+        "stance": "supporter",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p14",
+      "date": "2025-10-10",
+      "person": {
+        "id": "retail-p14",
+        "companyId": "retail",
+        "name": "Алина Климова",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "blocker",
+        "stance": "neutral",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p15",
+      "date": "2025-09-27",
+      "person": {
+        "id": "retail-p15",
+        "companyId": "retail",
+        "name": "Виктор Быков",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "decision_maker",
+        "stance": "skeptic",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p16",
+      "date": "2025-09-14",
+      "person": {
+        "id": "retail-p16",
+        "companyId": "retail",
+        "name": "Полина Лебедева",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "influencer",
+        "stance": "champion",
+        "influence": 2,
+        "warmth": 1,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p16",
+      "date": "2026-02-11",
+      "person": {
+        "id": "retail-p16",
+        "companyId": "retail",
+        "name": "Полина Лебедева",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "influencer",
+        "stance": "champion",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p17",
+      "date": "2025-09-01",
+      "person": {
+        "id": "retail-p17",
+        "companyId": "retail",
+        "name": "Сергей Осипов",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "evaluator",
+        "stance": "supporter",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p18",
+      "date": "2025-08-19",
+      "person": {
+        "id": "retail-p18",
+        "companyId": "retail",
+        "name": "Юлия Зорина",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "user",
+        "stance": "neutral",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p19",
+      "date": "2025-08-06",
+      "person": {
+        "id": "retail-p19",
+        "companyId": "retail",
+        "name": "Артём Гущин",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "blocker",
+        "stance": "skeptic",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p20",
+      "date": "2025-07-24",
+      "person": {
+        "id": "retail-p20",
+        "companyId": "retail",
+        "name": "Дарья Никитина",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p21",
+      "date": "2025-07-11",
+      "person": {
+        "id": "retail-p21",
+        "companyId": "retail",
+        "name": "Игорь Комаров",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "influencer",
+        "stance": "supporter",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p22",
+      "date": "2025-06-28",
+      "person": {
+        "id": "retail-p22",
+        "companyId": "retail",
+        "name": "Ксения Лазарева",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "evaluator",
+        "stance": "neutral",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p23",
+      "date": "2025-06-15",
+      "person": {
+        "id": "retail-p23",
+        "companyId": "retail",
+        "name": "Денис Медведев",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "user",
+        "stance": "skeptic",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p24",
+      "date": "2025-06-02",
+      "person": {
+        "id": "retail-p24",
+        "companyId": "retail",
+        "name": "Екатерина Волкова",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "blocker",
+        "stance": "champion",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p25",
+      "date": "2025-05-20",
+      "person": {
+        "id": "retail-p25",
+        "companyId": "retail",
+        "name": "Глеб Тарасов",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "decision_maker",
+        "stance": "supporter",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p25",
+      "date": "2025-10-17",
+      "person": {
+        "id": "retail-p25",
+        "companyId": "retail",
+        "name": "Глеб Тарасов",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "decision_maker",
+        "stance": "supporter",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p26",
+      "date": "2025-05-07",
+      "person": {
+        "id": "retail-p26",
+        "companyId": "retail",
+        "name": "Александра Галкина",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "influencer",
+        "stance": "neutral",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p27",
+      "date": "2025-04-24",
+      "person": {
+        "id": "retail-p27",
+        "companyId": "retail",
+        "name": "Борис Серов",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "evaluator",
+        "stance": "skeptic",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "retail-p28",
+      "date": "2025-04-11",
+      "person": {
+        "id": "retail-p28",
+        "companyId": "retail",
+        "name": "Лидия Мартынова",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "user",
+        "stance": "champion",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "retail-p29",
+      "date": "2025-03-29",
+      "person": {
+        "id": "retail-p29",
+        "companyId": "retail",
+        "name": "Лев Поляков",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "blocker",
+        "stance": "supporter",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p0",
+      "date": "2025-08-15",
+      "person": {
+        "id": "industry-p0",
+        "companyId": "industry",
+        "name": "Михаил Титов",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p0",
+      "date": "2026-09-01",
+      "person": {
+        "id": "industry-p0",
+        "companyId": "industry",
+        "name": "Михаил Титов",
+        "department": "ИТ",
+        "title": "ИТ-директор (назначен недавно)",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p1",
+      "date": "2026-03-28",
+      "person": {
+        "id": "industry-p1",
+        "companyId": "industry",
+        "name": "Наталья Баранова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "influencer",
+        "stance": "supporter",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p2",
+      "date": "2026-03-15",
+      "person": {
+        "id": "industry-p2",
+        "companyId": "industry",
+        "name": "Павел Жуков",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "evaluator",
+        "stance": "neutral",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p3",
+      "date": "2026-03-02",
+      "person": {
+        "id": "industry-p3",
+        "companyId": "industry",
+        "name": "Светлана Романова",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "user",
+        "stance": "skeptic",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p4",
+      "date": "2025-07-02",
+      "person": {
+        "id": "industry-p4",
+        "companyId": "industry",
+        "name": "Кирилл Морозов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "blocker",
+        "stance": "champion",
+        "influence": 5,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p4",
+      "date": "2025-11-29",
+      "person": {
+        "id": "industry-p4",
+        "companyId": "industry",
+        "name": "Кирилл Морозов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "blocker",
+        "stance": "champion",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p5",
+      "date": "2026-02-04",
+      "person": {
+        "id": "industry-p5",
+        "companyId": "industry",
+        "name": "Вера Калинина",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "decision_maker",
+        "stance": "supporter",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p6",
+      "date": "2026-01-22",
+      "person": {
+        "id": "industry-p6",
+        "companyId": "industry",
+        "name": "Роман Савин",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "influencer",
+        "stance": "neutral",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p7",
+      "date": "2026-01-09",
+      "person": {
+        "id": "industry-p7",
+        "companyId": "industry",
+        "name": "Татьяна Котова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "evaluator",
+        "stance": "skeptic",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p8",
+      "date": "2025-05-19",
+      "person": {
+        "id": "industry-p8",
+        "companyId": "industry",
+        "name": "Максим Фролов",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "user",
+        "stance": "champion",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p9",
+      "date": "2025-12-14",
+      "person": {
+        "id": "industry-p9",
+        "companyId": "industry",
+        "name": "Алина Климова",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "blocker",
+        "stance": "supporter",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p10",
+      "date": "2025-12-01",
+      "person": {
+        "id": "industry-p10",
+        "companyId": "industry",
+        "name": "Виктор Быков",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "decision_maker",
+        "stance": "neutral",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p11",
+      "date": "2025-11-18",
+      "person": {
+        "id": "industry-p11",
+        "companyId": "industry",
+        "name": "Полина Лебедева",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "influencer",
+        "stance": "skeptic",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p12",
+      "date": "2025-04-05",
+      "person": {
+        "id": "industry-p12",
+        "companyId": "industry",
+        "name": "Сергей Осипов",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "evaluator",
+        "stance": "champion",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p13",
+      "date": "2025-10-23",
+      "person": {
+        "id": "industry-p13",
+        "companyId": "industry",
+        "name": "Юлия Зорина",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "user",
+        "stance": "supporter",
+        "influence": 4,
+        "warmth": 3,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p13",
+      "date": "2026-03-22",
+      "person": {
+        "id": "industry-p13",
+        "companyId": "industry",
+        "name": "Юлия Зорина",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "user",
+        "stance": "supporter",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p14",
+      "date": "2025-10-10",
+      "person": {
+        "id": "industry-p14",
+        "companyId": "industry",
+        "name": "Артём Гущин",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "blocker",
+        "stance": "neutral",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p15",
+      "date": "2025-09-27",
+      "person": {
+        "id": "industry-p15",
+        "companyId": "industry",
+        "name": "Дарья Никитина",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "decision_maker",
+        "stance": "skeptic",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p16",
+      "date": "2025-02-20",
+      "person": {
+        "id": "industry-p16",
+        "companyId": "industry",
+        "name": "Игорь Комаров",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "influencer",
+        "stance": "champion",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p17",
+      "date": "2025-09-01",
+      "person": {
+        "id": "industry-p17",
+        "companyId": "industry",
+        "name": "Ксения Лазарева",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "evaluator",
+        "stance": "supporter",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p18",
+      "date": "2025-08-19",
+      "person": {
+        "id": "industry-p18",
+        "companyId": "industry",
+        "name": "Денис Медведев",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "user",
+        "stance": "neutral",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p19",
+      "date": "2025-08-06",
+      "person": {
+        "id": "industry-p19",
+        "companyId": "industry",
+        "name": "Екатерина Волкова",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "blocker",
+        "stance": "skeptic",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p20",
+      "date": "2025-01-07",
+      "person": {
+        "id": "industry-p20",
+        "companyId": "industry",
+        "name": "Глеб Тарасов",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p21",
+      "date": "2025-07-11",
+      "person": {
+        "id": "industry-p21",
+        "companyId": "industry",
+        "name": "Александра Галкина",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "influencer",
+        "stance": "supporter",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p22",
+      "date": "2025-06-28",
+      "person": {
+        "id": "industry-p22",
+        "companyId": "industry",
+        "name": "Борис Серов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "evaluator",
+        "stance": "neutral",
+        "influence": 3,
+        "warmth": 2,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p22",
+      "date": "2025-11-25",
+      "person": {
+        "id": "industry-p22",
+        "companyId": "industry",
+        "name": "Борис Серов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "evaluator",
+        "stance": "neutral",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p23",
+      "date": "2025-06-15",
+      "person": {
+        "id": "industry-p23",
+        "companyId": "industry",
+        "name": "Лидия Мартынова",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "user",
+        "stance": "skeptic",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p24",
+      "date": "2024-12-23",
+      "person": {
+        "id": "industry-p24",
+        "companyId": "industry",
+        "name": "Лев Поляков",
+        "department": "ИТ",
+        "title": "Руководитель ИТ-направления",
+        "decisionRole": "blocker",
+        "stance": "champion",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p25",
+      "date": "2025-05-20",
+      "person": {
+        "id": "industry-p25",
+        "companyId": "industry",
+        "name": "Марина Селезнёва",
+        "department": "ИБ",
+        "title": "Эксперт по безопасности",
+        "decisionRole": "decision_maker",
+        "stance": "supporter",
+        "influence": 1,
+        "warmth": 1,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p26",
+      "date": "2025-05-07",
+      "person": {
+        "id": "industry-p26",
+        "companyId": "industry",
+        "name": "Александр Белов",
+        "department": "Закупки",
+        "title": "Менеджер по закупкам",
+        "decisionRole": "influencer",
+        "stance": "neutral",
+        "influence": 2,
+        "warmth": 2,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p27",
+      "date": "2025-04-24",
+      "person": {
+        "id": "industry-p27",
+        "companyId": "industry",
+        "name": "Мария Соколова",
+        "department": "Финансы",
+        "title": "Финансовый контролёр",
+        "decisionRole": "evaluator",
+        "stance": "skeptic",
+        "influence": 3,
+        "warmth": 3,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-p28",
+      "date": "2026-09-11",
+      "person": {
+        "id": "industry-p28",
+        "companyId": "industry",
+        "name": "Дмитрий Миронов",
+        "department": "Бизнес",
+        "title": "Руководитель направления",
+        "decisionRole": "user",
+        "stance": "champion",
+        "influence": 4,
+        "warmth": 4,
+        "owner": "Алексей Волков",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-p29",
+      "date": "2025-03-29",
+      "person": {
+        "id": "industry-p29",
+        "companyId": "industry",
+        "name": "Анна Орлова",
+        "department": "Прочее",
+        "title": "Руководитель проекта",
+        "decisionRole": "blocker",
+        "stance": "supporter",
+        "influence": 5,
+        "warmth": 5,
+        "owner": "Мария Котова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": true
+      }
+    },
+    {
+      "personId": "industry-former",
+      "date": "2025-01-01",
+      "person": {
+        "id": "industry-former",
+        "companyId": "industry",
+        "name": "Аркадий Ветров",
+        "department": "ИТ",
+        "title": "Бывший ИТ-директор",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 3,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      }
+    },
+    {
+      "personId": "industry-former",
+      "date": "2026-08-31",
+      "person": {
+        "id": "industry-former",
+        "companyId": "industry",
+        "name": "Аркадий Ветров",
+        "department": "ИТ",
+        "title": "Бывший ИТ-директор",
+        "decisionRole": "decision_maker",
+        "stance": "champion",
+        "influence": 1,
+        "warmth": 3,
+        "owner": "Ирина Белова",
+        "interests": [
+          "Цифровая трансформация",
+          "Надёжность"
+        ],
+        "consentMarketing": false
+      },
+      "deleted": true
+    }
+  ]
+}

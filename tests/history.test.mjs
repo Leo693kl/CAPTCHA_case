@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { peopleAtDate, historyChanges } from '../src/lib/history.ts';
+const person=(id,title='Сотрудник')=>({id,companyId:'c',name:id,title,department:'ИТ',decisionRole:'user',stance:'neutral',influence:3,warmth:3,owner:'',interests:[],consentMarketing:false});
+const snap=(id,date,title,deleted=false)=>({personId:id,date,person:person(id,title),deleted});
+test('reconstructs latest snapshot including same-day changes and deletion',()=>{const snapshots=[snap('a','2025-01-01','Старый'),snap('a','2025-04-01','Новый'),snap('a','2025-04-01','Директор'),snap('b','2025-02-01','Сотрудник'),snap('b','2025-06-01','Сотрудник',true)];assert.deepEqual(peopleAtDate(snapshots,'c','2024-12-31'),[]);assert.equal(peopleAtDate(snapshots,'c','2025-04-01')[0].title,'Директор');assert.deepEqual(peopleAtDate(snapshots,'c','2025-06-01').map(p=>p.id),['a']);});
+test('change list respects date and reports snapshot changes and interactions',()=>{const snapshots=[snap('a','2025-01-01','Старый'),snap('a','2025-04-01','Новый')];const interactions=[{id:'i',personId:'a',date:'2025-03-01',channel:'Встреча',ourDepartment:'Продажи',ourOwner:'',summary:'',sentiment:''}];const old=historyChanges(snapshots,interactions,'c','2025-03-02');assert.equal(old.length,2);assert.match(old[0].text,/встреча/);const current=historyChanges(snapshots,interactions,'c','2025-04-02');assert.match(current[0].text,/должность: Старый → Новый/);});

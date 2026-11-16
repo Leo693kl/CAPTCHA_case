@@ -1,0 +1,9 @@
+import { useState } from 'react';
+import type { HistoryChange } from '../lib/history';
+const format=(value:string)=>value.split('-').reverse().join('.');
+const dayNumber=(value:string)=>Math.floor(Date.parse(value+'T00:00:00Z')/86400000);
+const fromDay=(value:number)=>new Date(value*86400000).toISOString().slice(0,10);
+export function TimeControls({date,today,min,changes,onDate}:{date:string;today:string;min:string;changes:HistoryChange[];onDate:(value:string)=>void}){
+ const [expanded,setExpanded]=useState(false);
+ return <section className="time-controls" aria-label="История карты"><div className="time-top" data-tour="history"><div><div className="eyebrow">ИСТОРИЯ КАРТЫ <span>/</span> ВРЕМЯ</div><h3>Состояние на <time>{format(date)}</time></h3></div><button onClick={()=>onDate(today)} disabled={date===today}>Вернуться к текущей карте</button></div><div className="time-slider"><span>{format(min)}</span><input type="range" aria-label="Дата состояния карты" min={dayNumber(min)} max={dayNumber(today)} value={dayNumber(date)} onChange={event=>onDate(fromDay(Number(event.target.value)))}/><span>{format(today)}</span></div><p className="time-note">Контакты восстановлены по снимкам, история касаний — по датам. Связи показаны по текущим данным CRM: их прошлое состояние неизвестно. Редактирование доступно на текущей карте.</p><details><summary>Изменения до выбранной даты <span>{changes.length}</span></summary><ul className="history-list">{changes.slice(0,expanded?undefined:8).map(change=><li key={change.id}><time>{format(change.date)}</time><span>{change.text}</span></li>)}</ul>{changes.length>8&&<button onClick={()=>setExpanded(!expanded)}>{expanded?'Показать меньше':`Показать все (${changes.length})`}</button>}{changes.length===0&&<p className="muted">До этой даты изменений нет.</p>}</details></section>
+}

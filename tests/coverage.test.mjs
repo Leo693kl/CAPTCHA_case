@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { calculateCoverage } from '../src/lib/coverage.ts';
+const now=new Date('2026-11-16T12:00:00Z');
+const person=(id,department,role='user',warmth=3)=>({id,companyId:'c',name:id,department,title:'',decisionRole:role,stance:'neutral',influence:3,warmth,owner:'',interests:[],consentMarketing:false});
+const interaction=(personId,date)=>({id:personId+date,personId,date,channel:'',ourOwner:'',ourDepartment:'',summary:'',sentiment:''});
+test('empty client has zero score and no division by zero',()=>{const result=calculateCoverage([],[],now); assert.equal(result.score,0); assert.deepEqual(result.components.map(c=>c.points),[0,0,0,0]);});
+test('all four components reach 25 points and score 100',()=>{const people=['ИТ','ИБ','Закупки','Финансы','Бизнес','Прочее'].map((d,i)=>person(String(i),d,i===0?'decision_maker':'user',4)); const result=calculateCoverage(people,people.map(p=>interaction(p.id,'2026-11-16')),now); assert.equal(result.score,100); assert.deepEqual(result.components.map(c=>c.points),[25,25,25,25]);});
+test('uses latest non-future interaction and includes the 365-day boundary',()=>{const people=[person('a','ИТ','decision_maker',5),person('b','ИТ','decision_maker',3),person('c','ИБ','user',3)]; const history=[interaction('a','2025-11-16'),interaction('a','2027-01-01'),interaction('b','2025-11-15'),interaction('c','2026-11-17')]; const result=calculateCoverage(people,history,now); assert.deepEqual(result.components.map(c=>[c.numerator,c.denominator]),[[2,6],[2,2],[1,3],[1,3]]); assert.equal(result.score,50);});
+test('unknown departments and other clients interactions do not inflate components',()=>{const people=[person('a','Другое')]; const result=calculateCoverage(people,[interaction('other','2026-11-16')],now); assert.equal(result.score,0);});
