@@ -1,0 +1,23 @@
+/* Motion is limited to presentation; the orbit calculation remains unchanged. */
+.person-bubble{transition:background-color var(--dur-slow) var(--ease),color var(--dur-slow) var(--ease),width var(--dur-slow) var(--ease),height var(--dur-slow) var(--ease),box-shadow var(--dur-slow) var(--ease),transform var(--dur-slow) var(--ease),outline-color var(--dur-base) var(--ease)}
+.person-wrap{animation:node-enter var(--dur-slow) var(--ease) backwards;animation-delay:var(--entrance-delay,0ms)}
+@keyframes node-enter{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+.radar-ring{stroke-dasharray:1;stroke-dashoffset:0;animation:ring-draw 500ms var(--ease) both;transform-origin:center}
+@keyframes ring-draw{from{stroke-dashoffset:1;transform:scale(.9);opacity:0}to{stroke-dashoffset:0;transform:scale(1);opacity:1}}
+.person-wrap.filter-flash:not(.dim) .person-bubble{animation:filter-glint var(--dur-slow) var(--ease)}
+@keyframes filter-glint{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}
+.map-area.hover-active .react-flow__edge,.map-area .react-flow__edge{transition:opacity var(--dur-base) var(--ease)}
+.map-area.hover-active .react-flow__node .person-wrap{transition:opacity var(--dur-base) var(--ease)}
+.panel{animation:panel-enter var(--dur-slow) var(--ease) both}
+@keyframes panel-enter{from{transform:translateX(100%);opacity:.7}to{transform:translateX(0);opacity:1}}
+.map-area::after{content:'';position:absolute;inset:0;z-index:4;background:var(--overlay);opacity:0;pointer-events:none;transition:opacity var(--dur-slow) var(--ease)}
+.app:has(.panel) .map-area::after{opacity:.24}
+.path-target .person-bubble::before{content:'';position:absolute;inset:-7px;border:2px solid var(--brand-green);border-radius:50%;pointer-events:none;animation:target-pulse 700ms var(--ease) infinite alternate}
+@keyframes target-pulse{from{transform:scale(1);opacity:.65}to{transform:scale(1.17);opacity:.15}}
+.react-flow__edge.path-highlight .react-flow__edge-path{animation-duration:700ms}
+.decision::before{animation:none}.loading span{animation-duration:700ms}.skeleton-line,.skeleton-block{animation-duration:700ms}
+button:not(:disabled){transition:transform var(--dur-fast) var(--ease),background-color var(--dur-fast) var(--ease),border-color var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease)}button:not(:disabled):active{transform:scale(.98)}
+@media(prefers-reduced-motion:reduce){.person-wrap,.radar-ring,.person-wrap.filter-flash:not(.dim) .person-bubble,.panel,.path-target .person-bubble::before,.react-flow__edge.path-highlight .react-flow__edge-path,.loading span,.skeleton-line,.skeleton-block{animation:none!important}.person-bubble,.person-wrap,.map-area::after,.map-area .react-flow__edge,button:not(:disabled){transition:none!important}.person-bubble{transition:background-color 0s,color 0s!important}}
+
+.person-bubble:not(:disabled){transition:background-color var(--dur-slow) var(--ease),color var(--dur-slow) var(--ease),width var(--dur-slow) var(--ease),height var(--dur-slow) var(--ease),box-shadow var(--dur-slow) var(--ease),transform var(--dur-slow) var(--ease),outline-color var(--dur-base) var(--ease)}
+@media(prefers-reduced-motion:reduce){.person-bubble:not(:disabled){transition:background-color 0s,color 0s!important}}

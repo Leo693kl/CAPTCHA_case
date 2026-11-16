@@ -21,6 +21,6 @@ export function lensRing(p:Person,lens:Lens,interactions:Interaction[],now:Date)
  }
 }
 export function lensColor(p:Person,lens:Lens,ring:number):string {
- if(lens==='decisions')return ['#496977','#527b7b','#6c887b','#a79565','#daa65f'][p.warmth-1]??'#496977';
- return (lens==='risks'?['#c48755','#a99467','#718c80','#518b81']:['#518b81','#718c80','#a99467','#806b55'])[ring];
+ if(lens==='decisions')return ['var(--heat-1)','var(--heat-2)','var(--heat-3)','var(--heat-4)','var(--heat-5)'][p.warmth-1]??'var(--heat-1)';
+ return (lens==='risks'?['var(--risk-high)','var(--risk-warn)','var(--heat-2)','var(--heat-3)']:['var(--heat-3)','var(--heat-2)','var(--risk-warn)','var(--heat-1)'])[ring];
 }
