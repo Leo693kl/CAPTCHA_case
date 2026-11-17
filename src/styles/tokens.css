@@ -18,8 +18,9 @@
   --on-heat-4: #08151D; --on-heat-5: #08151D;
   --text-accent: #1BC27A; --text-sky: #8ED1FC; --text-danger: #FF5A5F; --text-warn: #F2A93B;
   --overlay: #08151D; --map-grid: #1F3A49; --map-ring: #2C5064;
-  --font-ui: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  --font-ui: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  --type-caption: 12px; --type-section: 13px; --type-body: 15px; --type-title: 20px; --type-metric: 32px;
   --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
   --space-5: 24px; --space-6: 32px;
   --radius-s: 6px; --radius-m: 10px; --radius-l: 14px;
