@@ -78,3 +78,28 @@ test('map strength handoff preselects the pair and still requires explicit confi
  assert.equal(calls[0][1].evidence.signals,undefined); // A confirmation is not another independent witness.
  await act(async()=>view.unmount());
 });
+
+test('preferred channel and explicit signals survive a real save and reload independently of touch channel',async()=>{
+ const storage=new Map();globalThis.localStorage={getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)};
+ let current={companies:[{id:'bank',name:'Банк'}],people:structuredClone(people),relations:structuredClone(relations),interactions:[],snapshots:[]};
+ let completion;
+ const {view,root}=await setup((...args)=>{completion=crmApi.saveInteraction(current,...args,'2026-11-19',next=>{current=next});return completion});
+ await change(root,'Дата','2026-11-04');await change(root,'Канал касания','Встреча');await change(root,'Предпочтительный канал связи','Почта');
+ await change(root,'Контакт предложил следующий шаг',true);await change(root,'Контакт вернулся к обсуждению',true);await change(root,'Согласование состоялось',true);await change(root,'Дата запроса согласования','2026-11-01');
+ await click(root,'Сохранить');await act(async()=>{await completion});
+ const reloaded=await crmApi.load();assert.equal(reloaded.interactions.length,1);
+ const record=reloaded.interactions[0];assert.equal(record.channel,'Встреча');assert.equal(record.evidence.preferences.channel,'Почта');
+ assert.deepEqual(record.evidence.signals,[{kind:'initiative'},{kind:'resumption'},{kind:'approval',requestedOn:'2026-11-01'}]);
+ await act(async()=>view.unmount());
+});
+
+test('approval needs a request date no later than the touch and invalid input preserves the draft',async()=>{
+ const calls=[];const {view,root}=await setup(async(...args)=>{calls.push(args);return {ok:true,interactionId:'saved'}});
+ await change(root,'Дата','2026-11-04');await change(root,'Согласование состоялось',true);
+ await click(root,'Сохранить');assert.equal(calls.length,0);assert.match(JSON.stringify(view.toJSON()),/дату запроса не позже/);
+ await change(root,'Дата запроса согласования','2026-11-05');await click(root,'Сохранить');assert.equal(calls.length,0);
+ assert.equal(findLabel(root,'Дата запроса согласования').findByType('input').props.value,'2026-11-05');
+ await change(root,'Дата запроса согласования','2026-11-04');await click(root,'Сохранить');assert.equal(calls.length,1);
+ assert.deepEqual(calls[0][1].evidence.signals,[{kind:'approval',requestedOn:'2026-11-04'}]);
+ await act(async()=>view.unmount());
+});

@@ -2,6 +2,7 @@ import { AlertTriangle, ArrowUpRight, Route } from 'lucide-react';
 import { Button } from './ui';
 import { findMissingRoles } from '../lib/signals';
 import { mapSignals } from '../lib/mapSignals';
+import { sourcePerson } from '../lib/interactionSource';
 import { mapMetrics, relationEvidence, supplierEvidence, warmthHistory } from '../lib/mapMetrics';
 import type { EvidenceChange, Interaction, MapSlice, Relation } from '../types';
 import '../styles/map-evidence.css';
@@ -86,7 +87,7 @@ export function SupplierLines({ slice, companyName, onOpenSource }: SourceProps 
         </span>
         <small>{outcomes[supplier.outcome]} · {dateLabel(record.date)}</small>
       </summary>
-      <p>{slice.people.find(person => person.id === record.personId)?.name} · {record.ourOwner} · {record.ourDepartment}</p>
+      <p>{sourcePerson(slice, record.personId)?.name ?? 'Имя недоступно'} · {record.ourOwner} · {record.ourDepartment}</p>
       <p>{supplier.reason || 'Причина не указана'}</p>
       <blockquote>{record.evidence?.sourceExcerpt}</blockquote>
       <SourceLink record={record} onOpenSource={onOpenSource}/>
