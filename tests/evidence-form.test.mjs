@@ -49,6 +49,7 @@ test('form uses the real A transaction and opens the same source after a durable
  const storage=new Map();
  globalThis.localStorage={getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)};
  let current={companies:[{id:'bank',name:'Банк',industry:'Демо',initiative:'Поддержка',description:'Синтетика'}],people:structuredClone(people),relations:structuredClone(relations),interactions:[],snapshots:[]};
+ localStorage.setItem('decision-radar-v1',JSON.stringify(current));
  let completion;const calls=[];const opened=[];
  const saveInteraction=(...args)=>{calls.push(args);completion=crmApi.saveInteraction(current,...args,'2026-11-19',next=>{current=next});return completion};
  const {view,root}=await setup(saveInteraction);
@@ -81,7 +82,8 @@ test('map strength handoff preselects the pair and still requires explicit confi
 
 test('preferred channel and explicit signals survive a real save and reload independently of touch channel',async()=>{
  const storage=new Map();globalThis.localStorage={getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)};
- let current={companies:[{id:'bank',name:'Банк'}],people:structuredClone(people),relations:structuredClone(relations),interactions:[],snapshots:[]};
+ let current={companies:[{id:'bank',name:'Банк',industry:'Демо',initiative:'Поддержка',description:'Синтетика'}],people:structuredClone(people),relations:structuredClone(relations),interactions:[],snapshots:[]};
+ localStorage.setItem('decision-radar-v1',JSON.stringify(current));
  let completion;
  const {view,root}=await setup((...args)=>{completion=crmApi.saveInteraction(current,...args,'2026-11-19',next=>{current=next});return completion});
  await change(root,'Дата','2026-11-04');await change(root,'Канал касания','Встреча');await change(root,'Предпочтительный канал связи','Почта');

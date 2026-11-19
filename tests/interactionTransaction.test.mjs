@@ -111,6 +111,7 @@ test('source of a newly added then deleted person survives CRM preview and confi
   const deleted = { ...transaction.data, people: transaction.data.people.filter(p => p.id !== person.id), snapshots: [...transaction.data.snapshots, { personId: person.id, person, date: today, deleted: true }] };
   const preview = crmDiff(fresh(), deleted, 'bank');
   assert.equal(preview.length, 1); assert.ok(preview[0].name.includes(person.name));
+  localStorage.setItem('decision-radar-v1',JSON.stringify(deleted));
   const confirmed = await crmApi.confirmCompany(deleted, 'bank');
   assert.ok(confirmed.interactions.some(i => i.id === transaction.result.interactionId));
   assert.equal(transact(await crmApi.reset(), { ...draft(), personId: person.id }).result.interactionId, transaction.result.interactionId);
