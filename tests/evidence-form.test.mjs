@@ -18,8 +18,8 @@ const relations=[{id:'r1',companyId:'bank',from:'titov',to:'belov',type:'works_w
 const findLabel=(root,text)=>root.findAllByType('label').find(label=>label.children[0]===text);
 const change=async(root,label,value)=>{const el=findLabel(root,label); assert.ok(el,`Нет поля ${label}`);const field=el.findAll(node=>node.type==='input'||node.type==='select')[0];await act(async()=>field.props.onChange({target:{value,checked:value}}));};
 const click=async(root,text)=>{const button=root.findAllByType('button').find(b=>b.children.includes(text));assert.ok(button,`Нет кнопки ${text}`);await act(async()=>{await button.props.onClick()})};
-async function setup(saveInteraction){
- let view; await act(async()=>{view=create(createElement(EvidenceForm,{companyId:'bank',people,relations,selectedPersonId:'titov',asOf:'2026-11-19',saveInteraction,onOpenSaved:()=>{}}))});
+async function setup(saveInteraction, overrides={}){
+ let view; await act(async()=>{view=create(createElement(EvidenceForm,{companyId:'bank',people,relations,selectedPersonId:'titov',asOf:'2026-11-19',saveInteraction,onOpenSaved:()=>{},...overrides}))});
  const root=view.root;
  for(const [label,value] of [['Источник','Интервью'],['Автор со стороны КРОК','Ирина'],['Подразделение КРОК','Проекты'],['Краткое содержание','Белов согласует поддержку']]) await change(root,label,value);
  const excerpt=root.findByType('textarea');await act(async()=>excerpt.props.onChange({target:{value:'Александр Белов согласует поддержку.'}}));await click(root,'Разобрать и проверить');return {view,root};
@@ -64,4 +64,17 @@ test('form uses the real A transaction and opens the same source after a durable
  await act(async()=>view.update(createElement(EvidenceForm,{companyId:'bank',people:current.people,relations,selectedPersonId:'titov',asOf:'2026-11-19',saveInteraction,onOpenSaved:id=>opened.push(id)})));
  await click(root,'Открыть на карте');await click(root,'Открыть на карте');
  assert.deepEqual(opened,[id,id]);await act(async()=>view.unmount());
+});
+
+test('map strength handoff preselects the pair and still requires explicit confirmation',async()=>{
+ const calls=[];
+ const {view,root}=await setup(async(...args)=>{calls.push(args);return {ok:true,interactionId:'strength-source'}},{initialChange:{kind:'relation-strength',relationId:'r1',strength:5}});
+ assert.equal(findLabel(root,'Связь').findByType('select').props.value,'r1');
+ assert.equal(findLabel(root,'Новая сила').findByType('select').props.value,'5');
+ await click(root,'Сохранить');assert.equal(calls.length,0);assert.match(JSON.stringify(view.toJSON()),/Подтвердите выбранное изменение/);
+ const checkbox=root.findAllByType('input').find(i=>i.props.type==='checkbox'&&i.parent.children.includes(' Подтверждаю эту правку вместе с интервью'));
+ await act(async()=>checkbox.props.onChange({target:{checked:true}}));await click(root,'Сохранить');
+ assert.deepEqual(calls[0][2],{kind:'relation-strength',relationId:'r1',strength:5});
+ assert.equal(calls[0][1].evidence.signals,undefined); // A confirmation is not another independent witness.
+ await act(async()=>view.unmount());
 });

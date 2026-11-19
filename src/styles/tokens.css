@@ -1,4 +1,5 @@
 :root {
+  --layer-panel-overlay: 14;
   --bg-0: #08151D; --bg-1: #0D1F2A; --bg-2: #132A37;
   --border: #1F3A49; --border-strong: #2C5064;
   --text-1: #E8F1F5; --text-2: #9DB4C0; --text-3: #6A8290;

@@ -7,9 +7,10 @@ export interface EvidenceFormProps {
  companyId: string; people: readonly Person[]; relations?: readonly Relation[]; saveInteraction: SaveInteraction;
  selectedPersonId?: string | null; asOf: string; disabled?: boolean;
  onOpenSaved: (interactionId: string) => void;
+ initialChange?: EvidenceChange;
 }
 const newRequestId = () => crypto.randomUUID();
-export function EvidenceForm({companyId, people, relations = [], saveInteraction, selectedPersonId, asOf, disabled, onOpenSaved}: EvidenceFormProps) {
+export function EvidenceForm({companyId, people, relations = [], saveInteraction, selectedPersonId, asOf, disabled, onOpenSaved, initialChange}: EvidenceFormProps) {
  const requestId = useRef(newRequestId());
  const [personId,setPersonId]=useState(selectedPersonId ?? ''); const [date,setDate]=useState(asOf);
  const [kind,setKind]=useState<'interview'|'feedback'>('interview'); const [source,setSource]=useState('');
@@ -20,9 +21,9 @@ export function EvidenceForm({companyId, people, relations = [], saveInteraction
  const [ambiguous,setAmbiguous]=useState<string[]>([]); const [reviewed,setReviewed]=useState(false); const [saving,setSaving]=useState(false);
  const [error,setError]=useState(''); const [saved,setSaved]=useState('');
  const inFlight=useRef(false);
- const [changeKind,setChangeKind]=useState<'none'|'role'|'relation-strength'>('none');
- const [changePersonId,setChangePersonId]=useState(''); const [newRole,setNewRole]=useState<Role|''>('');
- const [changeRelationId,setChangeRelationId]=useState(''); const [newStrength,setNewStrength]=useState('');
+ const [changeKind,setChangeKind]=useState<'none'|'role'|'relation-strength'>(initialChange?.kind ?? 'none');
+ const [changePersonId,setChangePersonId]=useState(initialChange?.kind==='role'?initialChange.personId:''); const [newRole,setNewRole]=useState<Role|''>(initialChange?.kind==='role'?initialChange.role:'');
+ const [changeRelationId,setChangeRelationId]=useState(initialChange?.kind==='relation-strength'?initialChange.relationId:''); const [newStrength,setNewStrength]=useState(initialChange?.kind==='relation-strength'?String(initialChange.strength):'');
  const [confirmed,setConfirmed]=useState(false);
  const companyPeople=people.filter(p=>p.companyId===companyId);
  const companyRelations=relations.filter(r=>r.companyId===companyId && companyPeople.some(p=>p.id===r.from) && companyPeople.some(p=>p.id===r.to));
