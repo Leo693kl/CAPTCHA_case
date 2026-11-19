@@ -59,7 +59,9 @@ export interface MapSlice {
 }
 
 export interface PersonSnapshot { personId:string; date:string; person:Person; deleted?:boolean }
-export interface CRMData { companies:Company[]; people:Person[]; relations:Relation[]; interactions:Interaction[]; snapshots:PersonSnapshot[] }
+// Optional metadata keeps old localStorage readable; never shown as CRM fields.
+export interface InteractionRequest { companyId:string; requestId:string; interactionId:string; payload:string }
+export interface CRMData { companies:Company[]; people:Person[]; relations:Relation[]; interactions:Interaction[]; snapshots:PersonSnapshot[]; interactionRequests?:InteractionRequest[] }
 export const departments=['ИТ','ИБ','Закупки','Финансы','Бизнес','Прочее'];
 export const roles:Record<Role,string>={decision_maker:'ЛПР',influencer:'Влияющий',evaluator:'Эксперт',user:'Пользователь',blocker:'Блокирующий'};
 export const stances:Record<Stance,string>={champion:'Лидер поддержки',supporter:'Сторонник',neutral:'Нейтрален',skeptic:'Скептик'};
