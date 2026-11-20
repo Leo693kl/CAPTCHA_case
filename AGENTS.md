@@ -36,6 +36,8 @@ influence 1–5, interests[], consentMarketing), Relation (from, to, type:
 reports_to | works_with | informal, strength 1–5), Interaction (personId, date,
 channel, ourOwner, ourDepartment, summary, sentiment), PersonSnapshot для истории.
 ## Визуальная идентичность
+
+**Уточнение для `feat/kapcha-redesign` (прямое задание пользователя 19.11):** действуют светлая палитра/красный акцент из [новой спеки](docs/design/kapcha-2026-11-19/SPEC.md) и `docs/12-design-contract.md`. Тёмная палитра ниже описывает прежнюю MVP, не возвращать её в редизайн. Точка продолжения и непроверенное — [передача 20.11](docs/plans/CONTEXT-2026-11-20.md).
 Стиль вдохновлён фирменным стилем КРОК, но не копирует его.
 - Тема: тёмная «радарная диспетчерская», основной фон #08151D.
 - Главный акцент: зелёный #00A460 (кнопки, активные состояния, тёплые связи). Текст на зелёном всегда тёмный #08151D.
