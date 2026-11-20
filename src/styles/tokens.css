@@ -64,6 +64,7 @@
   --radius-s: 4px;
   --radius-m: 6px;
   --radius-l: 8px;
+  --radius-pill: 999px;
   --dur-fast: 150ms;
   --dur-base: 220ms;
   --dur-slow: 300ms;

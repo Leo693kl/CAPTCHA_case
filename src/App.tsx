@@ -96,7 +96,14 @@ function useAnimatedNodes(nodes:Node[]):Node[]{
 function usePresenceNodes(nodes:Node[]):Node[]{
  const previous=useRef<Node[]>([]); const [exiting,setExiting]=useState<Node[]>([]); const ids=nodes.map(node=>node.id).sort().join('|');
  const present=new Set(nodes.map(node=>node.id));
- const removed=previous.current.filter(node=>!present.has(node.id)).map(node=>({...node,selectable:false,draggable:false,style:{...node.style,opacity:0,pointerEvents:'none' as const,transition:'opacity .3s ease'}}));
+ const removed=previous.current.filter(node=>!present.has(node.id)).map(node=>({
+  ...node,
+  selectable:false,
+  draggable:false,
+  focusable:false,
+  domAttributes:{...node.domAttributes,inert:true,'aria-hidden':true},
+  style:{...node.style,opacity:0,pointerEvents:'none' as const,transition:'opacity var(--dur-slow) var(--ease)'},
+ }));
  useEffect(()=>{previous.current=nodes;setExiting(removed);if(!removed.length)return;const timer=setTimeout(()=>setExiting([]),320);return()=>clearTimeout(timer);},[ids]);
  const retained=new Map([...exiting,...removed].filter(node=>!present.has(node.id)).map(node=>[node.id,node]));return [...nodes,...retained.values()];
 }
