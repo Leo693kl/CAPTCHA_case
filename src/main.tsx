@@ -1,8 +1,4 @@
-import '@fontsource/golos-text/cyrillic-400.css';
-import '@fontsource/golos-text/cyrillic-500.css';
-import '@fontsource/golos-text/cyrillic-600.css';
-import '@fontsource/ibm-plex-mono/cyrillic-400.css';
-import '@fontsource/ibm-plex-mono/cyrillic-500.css';
+import '@fontsource-variable/manrope';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';

@@ -14,7 +14,7 @@ export function MapLegend({ lens }: { lens: Lens }) {
       <li><i className="legend-stance" aria-hidden="true"/>Обводка — позиция</li>
       <li><i className="map-legend-edge is-strong" aria-hidden="true"/>Толщина — сила связи</li>
       <li><i className="map-legend-edge is-informal" aria-hidden="true"/>Пунктир — неформальная</li>
-      <li><i className="map-legend-edge is-active" aria-hidden="true"/>Красный контур и подпись — выбор</li>
+      <li><i className="map-legend-edge is-active" aria-hidden="true"/>Зелёный контур с обводкой и подпись — выбор</li>
     </ul><details className="legend-more"><summary>Линзы и другие обозначения</summary>
       <p><strong>{label} · кольца от центра</strong><br/>{rings.join(' → ')}</p>
       <ul className="map-legend-items"><li><Star size={16} strokeWidth={1.75} aria-hidden="true"/>Звезда — ЛПР</li><li><CircleHelp size={16} strokeWidth={1.75} aria-hidden="true"/>Вопрос — роль предстоит найти</li><li><b className="legend-conflict" aria-hidden="true">!</b>Пересечение команд</li><li><i className="map-legend-edge is-highlight" aria-hidden="true"/>Зелёный пунктир — маршрут</li><li><Route size={16} strokeWidth={1.75} aria-hidden="true"/>Линия поставщика — наблюдение</li></ul>
