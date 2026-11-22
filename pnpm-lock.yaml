@@ -8,10 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@fontsource/golos-text':
-        specifier: ^5.3.0
-        version: 5.3.0
-      '@fontsource/ibm-plex-mono':
+      '@fontsource-variable/manrope':
         specifier: ^5.3.0
         version: 5.3.0
       '@xyflow/react':
@@ -42,6 +39,12 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.7.0(vite@6.4.6(jiti@2.7.0)(lightningcss@1.33.0))
+      esbuild:
+        specifier: ^0.25.12
+        version: 0.25.12
+      react-test-renderer:
+        specifier: ^19.3.1
+        version: 19.3.1(react@19.3.1)
       tailwindcss:
         specifier: ^4.0.0
         version: 4.3.5
@@ -293,11 +296,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/golos-text@5.3.0':
-    resolution: {integrity: sha512-R+gM4qOZSrge4TtEGps0zTpU8X4e7e32L+3yy0J/2LnVB/IERlidEpXPWSZVGzTaL5QnPRVmoebRXSuVtjUIVg==}
-
-  '@fontsource/ibm-plex-mono@5.3.0':
-    resolution: {integrity: sha512-eTgnZjZEGk1QtD3ZstF+Vclo2HLAni8YMy34/DxllwZvyz1lR/1RF/xTiAquOBO7MvqBx8D2Ig2WCPMVfdZu7Q==}
+  '@fontsource-variable/manrope@5.3.0':
+    resolution: {integrity: sha512-6D5dgokHsWDDMtmXHznKa0hK229NN+1a4BLPmUCLqcO1Pw5EEhWY5RFt0AcXnVRAljFFPfRtLkJePQj6LSsV6g==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -861,9 +861,17 @@ packages:
     peerDependencies:
       react: ^19.3.1
 
+  react-is@19.3.1:
+    resolution: {integrity: sha512-RRieF6IyxQBkcK6pP8xOHprLTPW6QjRkbGdImtqNme+/hYVwCZkLQLdlZGOhUqXwkS9IEynaGvPJtv6XB/cz0Q==}
+
   react-refresh@0.17.0:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
+
+  react-test-renderer@19.3.1:
+    resolution: {integrity: sha512-YcNewwmnZMd0wTb2nkb4hQ58NmX/u1hW2OJsNpen8CnV+jNkmEjYd1R6wJrOMSgb8bIF5HAJv4iL+S3PwNptOA==}
+    peerDependencies:
+      react: ^19.3.1
 
   react@19.3.1:
     resolution: {integrity: sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==}
@@ -1180,9 +1188,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-  '@fontsource/golos-text@5.3.0': {}
-
-  '@fontsource/ibm-plex-mono@5.3.0': {}
+  '@fontsource-variable/manrope@5.3.0': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
@@ -1641,7 +1647,15 @@ snapshots:
       react: 19.3.1
       scheduler: 0.28.0
 
+  react-is@19.3.1: {}
+
   react-refresh@0.17.0: {}
+
+  react-test-renderer@19.3.1(react@19.3.1):
+    dependencies:
+      react: 19.3.1
+      react-is: 19.3.1
+      scheduler: 0.28.0
 
   react@19.3.1: {}
 

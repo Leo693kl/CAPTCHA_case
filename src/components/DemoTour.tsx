@@ -1,16 +1,126 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-const steps=[
- {role:'Продажи',title:'Найдите путь к нужному человеку',text:'После экскурсии выберите цель: карта подсветит доступную цепочку через тёплые контакты и объяснит стоимость каждого шага.',target:'[data-tour="sales"]'},
- {role:'Маркетинг',title:'Оцените готовность к коммуникации',text:'Линза «Маркетинг» группирует контакты по согласию и интересам. В карточке человека проверьте темы перед обращением.',target:'[data-tour="lenses"]'},
- {role:'Проектный офис',title:'Посмотрите историю клиента',text:'После экскурсии переместите слайдер, чтобы увидеть доступные снимки людей и касания на дату. Прошлое состояние связей не хранится.',target:'[data-tour="history"]'},
- {role:'Производство',title:'Найдите технических экспертов',text:'Линза «Технологии» выделяет ИТ, ИБ, технические интересы и экспертную роль. После экскурсии откройте контакт для деталей.',target:'[data-tour="lenses"]'},
- {role:'Руководитель',title:'Оцените охват и зависимость',text:'Индекс охвата раскрывается по компонентам. Красная плашка при наличии показывает концентрацию тёплых отношений.',target:'[data-tour="coverage"]'}
+import { useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
+import '../styles/map-evidence.css';
+
+const steps = [
+  {
+    role: 'Карта',
+    title: 'Прочитайте легенду',
+    text: 'Размер узла показывает влияние, заливка — теплоту, обводка — позицию. Звезда отмечает ЛПР. Толщина ребра показывает силу связи, пунктир — её тип или маршрут. Откройте легенду для образцов.',
+    target: '[data-tour="legend"], .map-legend',
+  },
+  {
+    role: 'Маркетинг и производство',
+    title: 'Смените линзу',
+    text: 'В «Маркетинге» кольца показывают согласие и интересы. В «Технологиях» они помогают найти технических экспертов. Откройте карточку человека, чтобы проверить детали.',
+    target: '[data-tour="lenses"]',
+  },
+  {
+    role: 'Проектный офис',
+    title: 'Посмотрите историю клиента',
+    text: 'Переместите слайдер после тура. Карта покажет снимки людей и касания на эту дату. Линии между людьми взяты из текущей CRM.',
+    target: '[data-tour="history"]',
+  },
+  {
+    role: 'Ввод наблюдения',
+    title: 'Добавьте интервью или обратную связь',
+    text: 'Откройте «Входящие» для выбранного клиента. Выберите контакт и проверьте исходный фрагмент перед сохранением. После подтверждения запись можно открыть на карте.',
+    target: '[data-tour="observation-entry"]',
+    fallback: '.header-nav button:nth-child(2)',
+  },
+  {
+    role: 'Продажи и руководитель',
+    title: 'Оцените охват и найдите точку входа',
+    text: 'Откройте индекс охвата, чтобы увидеть его составляющие. В сигналах проверьте зависимость от одного тёплого ЛПР. В разделе «Как выйти на человека» выберите цель, чтобы построить маршрут.',
+    target: '[data-tour="coverage"]',
+  },
 ] as const;
-export function DemoTour({step,onStep,onClose}:{step:number;onStep:(step:number)=>void;onClose:()=>void}){
- const [rect,setRect]=useState<DOMRect|null>(null);const dialog=useRef<HTMLDivElement>(null);const current=steps[step];
- useLayoutEffect(()=>{const el=document.querySelector(current.target);if(!(el instanceof HTMLElement)){setRect(null);return;}el.scrollIntoView({block:'center',behavior:'instant'});const measure=()=>setRect(el.getBoundingClientRect());measure();window.addEventListener('resize',measure);window.addEventListener('scroll',measure,true);return()=>{window.removeEventListener('resize',measure);window.removeEventListener('scroll',measure,true)}},[current]);
- useEffect(()=>{dialog.current?.querySelector<HTMLButtonElement>('[data-tour-next]')?.focus();},[step]);
- const gap=8;const left=Math.max(4,(rect?.left??0)-gap);const top=Math.max(4,(rect?.top??0)-gap);const width=Math.min(window.innerWidth-left-4,(rect?.width??0)+gap*2);const height=Math.min(window.innerHeight-top-4,(rect?.height??0)+gap*2);const cardWidth=Math.min(390,window.innerWidth-32);const cardLeft=Math.max(16,Math.min(window.innerWidth-cardWidth-16,rect?.left??16));const below=top+height+16;const cardTop=below+260<=window.innerHeight?below:Math.max(16,top-260);
- const keyDown=(event:React.KeyboardEvent<HTMLDivElement>)=>{if(event.key==='Escape'){event.preventDefault();onClose()}else if(event.key==='ArrowRight'){event.preventDefault();step<steps.length-1?onStep(step+1):onClose()}else if(event.key==='ArrowLeft'&&step>0){event.preventDefault();onStep(step-1)}else if(event.key==='Tab'){const controls=Array.from(dialog.current?.querySelectorAll<HTMLButtonElement>('button:not(:disabled)')??[]);if(!controls.length)return;const i=controls.indexOf(document.activeElement as HTMLButtonElement);if(event.shiftKey&&(i===0||i===-1)){event.preventDefault();controls.at(-1)?.focus()}else if(!event.shiftKey&&i===controls.length-1){event.preventDefault();controls[0].focus()}}};
- return <div className="tour-overlay" onKeyDown={keyDown}><div className="tour-blocker" aria-hidden="true"/>{rect&&<div className="tour-spotlight" style={{left,top,width,height}} aria-hidden="true"/>}<div className="tour-card" ref={dialog} role="dialog" aria-modal="true" aria-labelledby="tour-title" aria-describedby="tour-description" style={{top:cardTop,left:cardLeft,width:cardWidth}}><div className="tour-kicker"><span>{current.role}</span><span>{step+1} / {steps.length}</span></div><h2 id="tour-title">{current.title}</h2><p id="tour-description">{current.text}</p><div className="tour-controls"><button onClick={onClose}>Завершить</button><div><button disabled={step===0} onClick={()=>onStep(step-1)}>Назад</button><button className="primary" data-tour-next onClick={()=>step<steps.length-1?onStep(step+1):onClose()}>{step===steps.length-1?'Готово':'Далее'}</button></div></div><small>← → переход между шагами · Esc закрыть</small></div></div>
+
+export function DemoTour({ step, onStep, onClose }: { step: number; onStep: (step: number) => void; onClose: () => void }) {
+  const [layout, setLayout] = useState<{ rect: DOMRect | null; cardHeight: number }>({ rect: null, cardHeight: 0 });
+  const dialog = useRef<HTMLDivElement>(null);
+  const current = steps[step];
+  const last = step === steps.length - 1;
+  const next = () => last ? onClose() : onStep(step + 1);
+
+  useLayoutEffect(() => {
+    const preferred = document.querySelector(current.target);
+    const anchor = preferred?.getClientRects().length ? preferred
+      : 'fallback' in current ? document.querySelector(current.fallback) : null;
+    const card = dialog.current;
+    if (!card) return;
+
+    const measure = () => setLayout({ rect: anchor?.getBoundingClientRect() ?? null, cardHeight: card.offsetHeight });
+    anchor?.scrollIntoView({ block: 'center', behavior: 'instant' });
+    measure();
+    card.querySelector<HTMLButtonElement>('[data-tour-next]')?.focus({ preventScroll: true });
+    const observer = new ResizeObserver(measure);
+    observer.observe(card);
+    if (anchor) observer.observe(anchor);
+    window.addEventListener('resize', measure);
+    window.addEventListener('scroll', measure, true);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', measure);
+      window.removeEventListener('scroll', measure, true);
+    };
+  }, [current]);
+
+  const { rect, cardHeight } = layout;
+  const inset = 16;
+  const gap = 8;
+  const viewportWidth = document.documentElement.clientWidth;
+  const viewportHeight = document.documentElement.clientHeight;
+  const cardWidth = Math.min(390, viewportWidth - 2 * inset);
+  const left = Math.max(0, (rect?.left ?? 0) - gap);
+  const top = Math.max(0, (rect?.top ?? 0) - gap);
+  const right = Math.min(viewportWidth, (rect?.right ?? 0) + gap);
+  const bottom = Math.min(viewportHeight, (rect?.bottom ?? 0) + gap);
+  const cardLeft = Math.max(inset, Math.min(viewportWidth - cardWidth - inset, rect?.left ?? inset));
+  const below = bottom + inset;
+  const above = top - cardHeight - inset;
+  const cardTop = below + cardHeight <= viewportHeight - inset ? below : Math.max(inset, above);
+
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape' || event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.key === 'Escape') onClose();
+      if (event.key === 'ArrowRight') next();
+      if (event.key === 'ArrowLeft' && step > 0) onStep(step - 1);
+    }
+    if (event.key === 'Tab') {
+      const buttons = dialog.current?.querySelectorAll<HTMLButtonElement>('button:not(:disabled)');
+      if (!buttons?.length) return;
+      const first = buttons[0];
+      const final = buttons[buttons.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        final.focus();
+      } else if (!event.shiftKey && document.activeElement === final) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  };
+
+  return <div className="tour-overlay" onKeyDown={onKeyDown}>
+    <div className="tour-blocker" aria-hidden="true"/>
+    {rect && right > left && bottom > top && <div className="tour-spotlight"
+      style={{ left, top, width: right - left, height: bottom - top }} aria-hidden="true"/>}
+    <div className="tour-card map-tour-card" ref={dialog} role="dialog" aria-modal="true"
+      aria-labelledby="tour-title" aria-describedby="tour-description" style={{ top: cardTop, left: cardLeft, width: cardWidth }}>
+      <div className="tour-kicker"><span>{current.role}</span><span>{step + 1} / {steps.length}</span></div>
+      <h2 id="tour-title">{current.title}</h2>
+      <p id="tour-description">{current.text}</p>
+      <div className="tour-controls">
+        <button onClick={onClose}>Завершить</button>
+        <div>
+          <button disabled={step === 0} onClick={() => onStep(step - 1)}>Назад</button>
+          <button className="primary" data-tour-next onClick={next}>{last ? 'Готово' : 'Далее'}</button>
+        </div>
+      </div>
+      <small>← → переход между шагами · Esc закрыть</small>
+    </div>
+  </div>;
 }

@@ -2406,7 +2406,7 @@
     {
       "id": "bank-p5-i0",
       "personId": "bank-p5",
-      "date": "2026-08-23",
+      "date": "2026-08-20",
       "channel": "Встреча",
       "ourOwner": "Ирина Белова",
       "ourDepartment": "Продажи",
@@ -4952,6 +4952,154 @@
       "ourDepartment": "Архитектура",
       "summary": "Уточнили требования и сроки проекта.",
       "sentiment": "Позитивная"
+    },
+    {
+      "personId": "bank-p0",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "sentiment": "Нейтральная",
+      "id": "bank-demo-mail-1",
+      "date": "2026-10-21",
+      "summary": "Синтетическое письмо: материалы по требованиям к поддержке.",
+      "opened": true,
+      "openObservedOn": "2026-10-22"
+    },
+    {
+      "personId": "bank-p0",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "sentiment": "Нейтральная",
+      "id": "bank-demo-mail-2",
+      "date": "2026-10-29",
+      "summary": "Синтетическое письмо: материалы по требованиям к поддержке.",
+      "opened": true,
+      "openObservedOn": "2026-11-01"
+    },
+    {
+      "personId": "bank-p0",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "sentiment": "Нейтральная",
+      "id": "bank-demo-mail-3",
+      "date": "2026-11-10",
+      "summary": "Синтетическое письмо: материалы по требованиям к поддержке.",
+      "opened": false,
+      "openObservedOn": "2026-11-11"
+    },
+    {
+      "personId": "bank-p0",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "sentiment": "Нейтральная",
+      "id": "bank-demo-mail-4",
+      "date": "2026-11-18",
+      "summary": "Синтетическое письмо: материалы по требованиям к поддержке."
+    },
+    {
+      "id": "bank-demo-evidence-1",
+      "personId": "bank-p0",
+      "date": "2026-11-01",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проекты",
+      "summary": "Александр Белов вернулся к обсуждению требований к поддержке и сам предложил встречу.",
+      "sentiment": "Нейтральная",
+      "evidence": {
+        "kind": "feedback",
+        "sourceLabel": "Синтетическая запись команды №1",
+        "sourceExcerpt": "Александр Белов вернулся к обсуждению требований к поддержке и сам предложил встречу.",
+        "mentionedPersonIds": [
+          "bank-p0"
+        ],
+        "signals": [
+          {
+            "kind": "initiative"
+          },
+          {
+            "kind": "resumption"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bank-demo-evidence-2",
+      "personId": "bank-p2",
+      "date": "2026-11-04",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проекты",
+      "summary": "Запрос согласования получен 01.11.2026, ответ подготовлен 04.11.2026.",
+      "sentiment": "Нейтральная",
+      "evidence": {
+        "kind": "feedback",
+        "sourceLabel": "Синтетическая запись команды №2",
+        "sourceExcerpt": "Запрос согласования получен 01.11.2026, ответ подготовлен 04.11.2026.",
+        "mentionedPersonIds": [],
+        "signals": [
+          {
+            "kind": "approval",
+            "requestedOn": "2026-11-01"
+          }
+        ]
+      }
+    },
+    {
+      "personId": "bank-p2",
+      "channel": "Почта",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Продажи",
+      "sentiment": "Нейтральная",
+      "id": "bank-demo-mail-zero",
+      "date": "2026-11-12",
+      "summary": "Синтетическое письмо: статус измерен, открытие не зарегистрировано.",
+      "opened": false,
+      "openObservedOn": "2026-11-13"
+    },
+    {
+      "id": "bank-pair-source-1",
+      "personId": "bank-p1",
+      "date": "2026-09-01",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проекты",
+      "summary": "Мария Соколова: «С Александром Беловым регулярно согласуем требования к поддержке».",
+      "sentiment": "Нейтральная",
+      "evidence": {
+        "kind": "feedback",
+        "sourceLabel": "Синтетическое свидетельство о рабочей паре · 01.09",
+        "sourceExcerpt": "Мария Соколова: «С Александром Беловым регулярно согласуем требования к поддержке».",
+        "signals": [
+          {
+            "kind": "relation",
+            "relationId": "bank-r1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bank-pair-source-2",
+      "personId": "bank-p0",
+      "date": "2026-09-02",
+      "channel": "Встреча",
+      "ourOwner": "Ирина Белова",
+      "ourDepartment": "Проекты",
+      "summary": "Александр Белов: «Вместе с Марией Соколовой проверили требования и договорились о совместной сверке».",
+      "sentiment": "Нейтральная",
+      "evidence": {
+        "kind": "feedback",
+        "sourceLabel": "Синтетическое свидетельство о рабочей паре · 02.09",
+        "sourceExcerpt": "Александр Белов: «Вместе с Марией Соколовой проверили требования и договорились о совместной сверке».",
+        "signals": [
+          {
+            "kind": "relation",
+            "relationId": "bank-r1"
+          }
+        ]
+      }
     }
   ],
   "snapshots": [
