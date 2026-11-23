@@ -4,7 +4,7 @@
 
 ## С чего начать работу над MVP
 
-**[Передача проекта и промпты для трёх Codex](docs/plans/HANDOFF.md)**
+**[Передача проекта](docs/plans/HANDOFF.md)**
 
 1. [Состояние проекта](docs/09-status.md) и [журнал решений](docs/10-decisions.md).
 2. [Что должно работать на защите](docs/11-prd.md), [контракт интерфейса](docs/12-design-contract.md) и [источники](docs/13-sources.md).
