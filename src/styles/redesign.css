@@ -25,6 +25,7 @@
 .map-main[data-graph-expanded="true"] :is(.workspace-head,.lens-bar,.layout-switch,.map-tool-bar,.map-footer) { display:none; }
 .redesign-app .map-legend.map-legend-c { position:static; width:auto; max-width:none; max-height:none; padding:var(--space-2) var(--space-4) var(--space-4); border:0; border-bottom:var(--border-width) solid var(--border); border-radius:0; background:transparent; overflow:visible; }
 .map-legend > summary { font-size:var(--type-body); font-weight:600; }
+.map-legend-c .legend-edge-visibility { margin:var(--space-2) 0; color:var(--text-2); font-size:var(--type-caption); }
 .map-legend-items { font-size:var(--type-caption); }
 .map-legend-items li { padding-block:var(--space-1); line-height:1.4; }
 .map-legend-items .legend-size { background:transparent; border:var(--focus-width) solid var(--border-strong); }

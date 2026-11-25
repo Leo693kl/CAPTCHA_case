@@ -6,7 +6,7 @@ import '../styles/map-evidence.css';
 export function MapLegend({ lens }: { lens?: Lens }) {
   return <details open className="map-legend map-legend-c" data-tour="legend">
     <summary>Легенда карты</summary>
-    <div><ul className="map-legend-items">
+    <div><p className="legend-edge-visibility">Наведите курсор на контакт или выберите его клавишей Tab, чтобы увидеть его связи. Кнопка «Все связи» показывает линии всей карты.</p><ul className="map-legend-items">
       <li><i className="legend-size" aria-hidden="true"/>Размер — влияние 1–5</li>
       <li><i className="legend-heat" aria-hidden="true"/>Заливка — теплота 1–5</li>
       <li><i className="legend-stance" aria-hidden="true"/>Обводка — позиция</li>
