@@ -11,8 +11,10 @@ export function SourceRecord({ interaction, slice, onBack }: { interaction: Inte
   const speaker = sourcePerson(slice, interaction.personId);
   return <section className="panel-section" aria-label="Источник наблюдения">
     <h2 ref={heading} tabIndex={-1}>Источник наблюдения</h2><Button onClick={onBack}>Вернуться к месту открытия</Button>
-    <p>Собеседник: {speaker?.name ?? 'Имя недоступно'}{speaker && !slice.people.some(person => person.id === interaction.personId) && ' · контакт удалён из активной карты'}</p>
-    <p><time>{interaction.date.split('-').reverse().join('.')}</time> · {interaction.ourOwner} · {interaction.ourDepartment}</p><p>Канал касания · {interaction.channel}</p><p>{interaction.summary}</p>
+    <p><strong>{speaker?.name ?? 'Имя недоступно'}</strong>{speaker && !slice.people.some(person => person.id === interaction.personId) && ' · контакт удалён из активной карты'}</p>
+    <p><time dateTime={interaction.date}>{interaction.date.split('-').reverse().join('.')}</time> · Канал касания: {interaction.channel}</p>
+    <p className="muted">{interaction.ourOwner} · {interaction.ourDepartment}</p>
+    <p>{interaction.summary}</p>
     {evidence && <><ObservationDetails record={interaction} initiallyOpen/>
       {!!evidence.mentionedPersonIds?.length && <p>Упомянуты: {evidence.mentionedPersonIds.map(id => sourcePerson(slice, id)?.name ?? 'Контакт недоступен в этом срезе').join(', ')}</p>}
       </>}

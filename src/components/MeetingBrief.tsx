@@ -4,9 +4,37 @@ import { Button, Card } from './ui';
 import { roles, stances, relationTypes, type Person, type Relation, type Interaction } from '../types';
 const date=(s:string)=>s.split('-').reverse().join('.');
 export function MeetingBrief({person,people,relations,interactions,companyName,initiative,asOf,onBack,onOpenSource}:{onOpenSource?:(interactionId:string)=>void;person:Person;companyName:string;initiative:string;people:Person[];relations:Relation[];interactions:Interaction[];asOf:string;onBack:()=>void}){
- const [copied,setCopied]=useState('');const history=interactions.filter(i=>i.personId===person.id).sort((a,b)=>b.date.localeCompare(a.date));const related=relations.filter(r=>r.from===person.id||r.to===person.id);const names=new Map(people.map(p=>[p.id,p.name]));const last=history[0];
+ const [copied,setCopied]=useState('');const history=interactions.filter(i=>i.personId===person.id).sort((a,b)=>b.date.localeCompare(a.date));const related=relations.filter(r=>r.from===person.id||r.to===person.id);const names=new Map(people.map(p=>[p.id,p.name]));
  const evidence=history.find(i=>i.evidence?.preferences?.topics?.some(t=>/поддержк/i.test(t))||i.evidence?.competitor?.reason?.toLocaleLowerCase('ru').includes('поддержк'));
  const next=evidence?'Уточнить приемлемый срок реакции поддержки и подготовить сравнение на одной странице.':null;
  const text=`Бриф на ${date(asOf)}\n${person.name} — ${person.title}, ${person.department}; ${companyName}.\nРоль: ${roles[person.decisionRole]}, позиция: ${stances[person.stance]}, влияние ${person.influence}/5, теплота ${person.warmth}/5.\nИнтересы: ${person.interests.join(', ')||'не указаны'}. Согласие на маркетинг: ${person.consentMarketing?'да':'нет'}.\nСвязи: ${related.map(r=>`${names.get(r.from===person.id?r.to:r.from)??'Неизвестный контакт'} (${relationTypes[r.type]}, ${r.strength}/5)`).join('; ')||'не указаны'}.\nПоследние касания:\n${history.slice(0,3).map(i=>`${date(i.date)} · ${i.channel}: ${i.summary}`).join('\n')||'Нет данных'}\nИстория не подтверждает, какие темы точно не обсуждались.\n${next??'Рекомендуется уточнить роль и участников решения'}${person.interests.length?`, обсудить ${person.interests.join(', ')}`:''}.`;
- return <div className="meeting-brief advanced-brief"><div className="eyebrow">Встреча / бриф на {date(asOf)}</div><h2>Бриф на встречу</h2><p className="muted">{companyName} · {initiative}</p><Button variant="ghost" onClick={onBack}>← К карточке контакта</Button><Card className="brief-card"><div className="brief-number">01 / Кто это</div><h3>{person.name}</h3><p>{person.title} · {person.department}</p><p>{roles[person.decisionRole]} · {stances[person.stance]} · влияние {person.influence}/5 · теплота {person.warmth}/5</p><p>Владелец: {person.owner||'не указан'} · согласие на маркетинг: {person.consentMarketing?'да':'нет'}</p>{related.length>0&&<p>Связи: {related.map(r=>`${names.get(r.from===person.id?r.to:r.from)??'Неизвестный контакт'} (${relationTypes[r.type]}, ${r.strength}/5)`).join('; ')}</p>}</Card><Card className="brief-card"><div className="brief-number">02 / История</div>{history.length?history.slice(0,3).map(i=><article className="brief-item" key={i.id}><strong>{date(i.date)} · {i.channel}</strong><p>{i.summary}</p><small>{i.ourDepartment} · {i.ourOwner} · {i.sentiment}</small></article>):<p>Взаимодействий до выбранной даты нет.</p>}</Card><Card className="brief-card"><div className="brief-number">03 / О чём не говорили</div><p>История не подтверждает, какие темы точно не обсуждались. Уточните это на встрече.</p></Card><Card className="brief-card"><div className="brief-number">04 / Рекомендуемая тема</div><p>{person.interests.length?`Обсудить приоритеты по темам: ${person.interests.join(', ')}.`:'Уточнить приоритеты и интересы контакта.'}</p>{next&&evidence&&<><p>{next}</p><p>Основание: {evidence.evidence?.sourceExcerpt}</p>{onOpenSource&&<Button onClick={()=>onOpenSource(evidence.id)}>Открыть источник от {date(evidence.date)}</Button>}</>}<p>{last?`Уточнить дальнейшие шаги после взаимодействия ${date(last.date)}. `:''}Подтвердить роль и участников принятия решения.</p></Card><Button onClick={()=>{void navigator.clipboard.writeText(text).then(()=>setCopied('Бриф скопирован')).catch(()=>setCopied('Не удалось скопировать бриф'))}}><Copy size={16} strokeWidth={1.75}/> Копировать</Button><span role="status" className="copy-status">{copied}</span></div>
+ return <div className="meeting-brief advanced-brief">
+  <h2>Бриф на встречу</h2>
+  <p>{companyName} · {date(asOf)}</p>
+  <Button variant="ghost" onClick={onBack}>← К карточке контакта</Button>
+  <Card className="brief-card">
+   <h3>{person.name}</h3>
+   <p>{person.title} · {person.department}</p>
+   <p>{roles[person.decisionRole]} · {stances[person.stance]} · влияние {person.influence}/5 · теплота {person.warmth}/5</p>
+   <p>Владелец: {person.owner||'не указан'} · согласие на маркетинг: {person.consentMarketing?'да':'нет'}</p>
+   {related.length>0&&<details><summary>Связи · {related.length}</summary><ul>{related.map(r=><li key={r.id}>{names.get(r.from===person.id?r.to:r.from)??'Неизвестный контакт'} · {relationTypes[r.type]} · {r.strength}/5</li>)}</ul></details>}
+  </Card>
+  <Card className="brief-card">
+   <h3>Что обсудить</h3>
+   {initiative&&<p>{initiative}</p>}
+   <p>{next||'Уточнить роль и участников принятия решения.'}</p>
+   <p>{person.interests.length?`Уточнить приоритеты: ${person.interests.join(', ')}.`:'Уточнить интересы контакта.'}</p>
+   {next&&evidence&&<>
+    {onOpenSource&&<Button variant="ghost" className="source-action" onClick={()=>onOpenSource(evidence.id)}>Открыть источник от {date(evidence.date)}</Button>}
+    <details><summary>Фрагмент источника</summary><blockquote>{evidence.evidence?.sourceExcerpt}</blockquote></details>
+   </>}
+  </Card>
+  <Card className="brief-card">
+   <details><summary>Последние касания · {Math.min(history.length,3)}</summary>
+    {history.length?history.slice(0,3).map(i=><article className="brief-item" key={i.id}><strong>{date(i.date)} · {i.channel}</strong><p>{i.summary}</p><small>{i.ourDepartment} · {i.ourOwner} · {i.sentiment}</small></article>):<p>Касаний пока нет.</p>}
+    <p className="map-evidence-note">По истории нельзя определить, какие темы ещё предстоит обсудить.</p>
+   </details>
+  </Card>
+  <Button onClick={()=>{void navigator.clipboard.writeText(text).then(()=>setCopied('Бриф скопирован')).catch(()=>setCopied('Не удалось скопировать бриф'))}}><Copy size={16} strokeWidth={1.75}/> Копировать</Button><span role="status" className="copy-status">{copied}</span>
+ </div>
 }

@@ -31,32 +31,32 @@ export function MapIndicators({ slice, personId, onOpenSource }: SourceProps & {
 
   return <section className="map-indicators" aria-label={personId ? 'Показатели контакта' : 'Показатели компании'}>
     <h3>Показатели {personId ? 'контакта' : 'компании'}</h3>
-    <p className="map-evidence-note">
-      {personId ? 'Упоминания по всей компании. Письма и касания по контакту.' : 'По всей компании при любых фильтрах людей.'}
-      {' '}30 дней · {period(metrics.start, metrics.end)}
-    </p>
     <dl className="map-indicator-values">
       <div>
         <dt>Открываемость</dt>
         <dd>{openRate.percent === null ? 'Нет данных' : `${openRate.percent}% · ${openRate.opened} / ${openRate.measured}`}</dd>
-        <small>Открытые из писем со статусом на дату среза</small>
       </div>
       {personId && <div>
         <dt>Упоминаемость</dt>
         <dd>{metrics.observations.length ? `${metrics.mentions.length} / ${metrics.observations.length}` : 'Нет данных'}</dd>
-        <small>Наблюдения с упоминанием из всех подтверждённых</small>
       </div>}
       <div>
         <dt>Интенсивность</dt>
         <dd>{intensity.previous} → {intensity.current} касаний</dd>
-        <small>Предыдущее окно · {period(metrics.previousStart, metrics.previousEnd)}</small>
       </div>
       {personId && <div>
         <dt>Теплота по снимкам</dt>
         <dd>{!first || !last ? 'Нет данных' : first === last ? `${last.person.warmth} / 5` : `${first.person.warmth} → ${last.person.warmth} / 5`}</dd>
-        {first && last && <small>{first === last ? `Один снимок · ${dateLabel(last.date)}` : period(first.date, last.date)}</small>}
       </div>}
     </dl>
+    <details>
+      <summary>Как считаются показатели</summary>
+      <p>{personId ? 'Письма и касания по контакту.' : 'Все контакты компании, независимо от фильтров.'} Текущие 30 дней: {period(metrics.start, metrics.end)}.</p>
+      <p>Открываемость: доля открытых писем среди писем с известным статусом на дату среза.</p>
+      <p>Интенсивность: число касаний в предыдущие 30 дней ({period(metrics.previousStart, metrics.previousEnd)}) и в текущем периоде.</p>
+      {personId && <p>Упоминаемость: доля подтверждённых наблюдений компании с упоминанием контакта.</p>}
+      {first && last && <p>Теплота по снимкам: {first === last ? dateLabel(last.date) : period(first.date, last.date)}.</p>}
+    </details>
     {metrics.mentions.length > 0 && <details>
       <summary>Записи с упоминанием</summary>
       <ul>{metrics.mentions.map(record => <li key={record.id}><SourceLink record={record} onOpenSource={onOpenSource}/></li>)}</ul>
@@ -75,7 +75,7 @@ const outcomes = { current: 'Текущий поставщик', previous: 'Пр
 
 export function SupplierLines({ slice, companyName, onOpenSource }: SourceProps & { companyName: string }) {
   const entries = supplierEvidence(slice);
-  if (!entries.length) return null;
+  if (!entries.length) return <p className="muted">Нет подтверждённых наблюдений о поставщиках.</p>;
 
   return <section className="map-indicators supplier-lines" aria-label="Связи с поставщиками">
     <h3>Связи с поставщиками</h3>
@@ -95,34 +95,36 @@ export function SupplierLines({ slice, companyName, onOpenSource }: SourceProps 
   </section>;
 }
 
-export function MapEvidenceSignals({ slice, onOpenPerson, onOpenSource }: SourceProps & { onOpenPerson: OpenPerson }) {
+export function MapEvidenceSignals({ slice, onOpenPerson, onOpenSource, onFindRole }: SourceProps & { onOpenPerson: OpenPerson; onFindRole: (id: string) => void }) {
   const { makers, warm, stale, conflicts, duplicates } = mapSignals(slice);
   const missing = findMissingRoles(slice.people.filter(person => person.companyId === slice.companyId));
   const onlyWarm = warm.length === 1 ? warm[0] : undefined;
 
-  return <section className="map-indicators" aria-label="Сигналы по компании">
-    <h3>Сигналы по компании</h3>
-    <p className="map-evidence-note">По всей компании · на {dateLabel(slice.asOf)}</p>
-    <p className="map-evidence-note">Тёплый ЛПР · теплота 4–5 из 5 и прямое касание не более 90 дней назад</p>
-    <p>Тёплые ЛПР · {warm.length} из {makers}</p>
+  return <div className="map-signals">
     {onlyWarm && <div className="map-warm-risk">
       <h4><AlertTriangle size={18} strokeWidth={1.75} aria-hidden="true"/> Риск зависимости от одного ЛПР</h4>
-      <Button variant="ghost" onClick={() => onOpenPerson(onlyWarm.person.id)}>{onlyWarm.person.name}</Button>
-      <p>Теплота {onlyWarm.person.warmth} / 5 · последнее касание {dateLabel(onlyWarm.last.date)}</p>
+      <Button variant="ghost" onClick={() => onOpenPerson(onlyWarm.person.id)}>{onlyWarm.person.name} · теплота {onlyWarm.person.warmth}/5</Button>
       <SourceLink record={onlyWarm.last} onOpenSource={onOpenSource}/>
     </div>}
     <details>
+      <summary>Тёплые ЛПР · {warm.length} из {makers}</summary>
+      <ul>{warm.map(({ person, last }) => <li key={person.id}>
+        <Button variant="ghost" onClick={() => onOpenPerson(person.id)}>{person.name}</Button>
+        <SourceLink record={last} onOpenSource={onOpenSource}/>
+      </li>)}</ul>
+      <p className="map-evidence-note">Теплота 4–5 из 5 и прямое касание за последние 90 дней на {dateLabel(slice.asOf)}.</p>
+    </details>
+    <details>
       <summary>Давние контакты или без касаний · {stale.length}</summary>
-      <p>Последнее касание более года назад или история отсутствует.</p>
       <ul>{stale.map(({ person, last }) => <li key={person.id}>
         <Button variant="ghost" onClick={() => onOpenPerson(person.id)}>{person.name}</Button>
         <span>{last ? dateLabel(last.date) : 'Нет касаний'}</span>
         {last && <SourceLink record={last} onOpenSource={onOpenSource}/>}
       </li>)}</ul>
+      <p className="map-evidence-note">Последнее касание более года назад или история отсутствует.</p>
     </details>
     <details>
       <summary>Пересечения команд · {conflicts.length}</summary>
-      <p>Две или больше команд общались с одним контактом в последние 30 дней.</p>
       {conflicts.map(({ person, departments, recent }) => <div className="map-conflict" key={person.id}>
         <Button variant="ghost" onClick={() => onOpenPerson(person.id)}>{person.name}</Button>
         <p>{departments.join(', ')}</p>
@@ -130,21 +132,23 @@ export function MapEvidenceSignals({ slice, onOpenPerson, onOpenSource }: Source
           <span>{record.ourDepartment}</span><SourceLink record={record} onOpenSource={onOpenSource}/>
         </li>)}</ul>
       </div>)}
+      <p className="map-evidence-note">Две или больше команд общались с одним контактом за 30 дней. Согласуйте дальнейшие действия между командами.</p>
     </details>
     <details>
-      <summary>Роли, которые предстоит найти · {missing.length}</summary>
-      <p>Закупки и финансы определяются по отделу. Для CISO учитывается должность, для бизнес-заказчика — должность или роль ЛПР в бизнес-подразделении.</p>
-      <ul>{missing.map(role => <li key={role.id}>{role.label} · {role.description}</li>)}</ul>
+      <summary>Отсутствующие роли · {missing.length}</summary>
+      <ul>{missing.map(role => <li key={role.id} className="missing-row">
+        <strong>{role.label}</strong><Button variant="ghost" onClick={() => onFindRole(role.id)}>Найти точку входа</Button>
+      </li>)}</ul>
     </details>
     <details>
       <summary>Кандидаты в дубли · {duplicates.length}</summary>
-      <p>Совпали имя и подразделение. Сверьте карточки контактов.</p>
       {duplicates.map(group => <ul key={group[0].id}>{group.map(person => <li key={person.id}>
         <Button variant="ghost" onClick={() => onOpenPerson(person.id)}>{person.name}</Button>
         <span>{person.department} · {person.title} · {person.owner}</span>
       </li>)}</ul>)}
+      <p className="map-evidence-note">Совпали имя и подразделение. Сверьте карточки контактов.</p>
     </details>
-  </section>;
+  </div>;
 }
 
 export function RelationStrengthEvidence({ slice, relation, onOpenSource, onConfirmStrength }: SourceProps & {
