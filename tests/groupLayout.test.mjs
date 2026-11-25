@@ -6,3 +6,17 @@ function verify(plan,people,ghosts){const entries=[...people.map(p=>({id:p.id,de
 test('one contact, empty departments and a ghost fit without overlap',()=>{const people=[person(1)],ghosts=[{id:'g',department:'ИТ'}];const plan=planGroups(people,ghosts,[],'2026-11-25');verify(plan,people,ghosts);assert.ok(plan.zones.find(z=>z.department==='ИБ').lowCoverage)});
 test('forty contacts and long department names fit without overlaps',()=>{const people=Array.from({length:40},(_,i)=>person(i,i<30?'Очень длинное название подразделения клиентской компании':'ИТ'));const ghosts=[{id:'g',department:'ИТ'}];verify(planGroups(people,ghosts,[],'2026-11-25'),people,ghosts)});
 test('contacts are ordered by influence and counts reflect period and explicit participants',()=>{const people=[person(0),person(4),person(2)];const interactions=[{id:'x',personId:'p0',date:'2026-11-20',participantIds:['p2']},{id:'old',personId:'p4',date:'2024-01-01'}];const plan=planGroups(people,[],interactions,'2026-11-25','90');const z=plan.zones.find(z=>z.department==='ИТ');assert.equal(z.count,3);assert.equal(z.active,2);assert.equal(z.lowCoverage,false);assert.ok(plan.positions.p4.x<plan.positions.p2.x);assert.ok(plan.positions.p2.x<plan.positions.p0.x);const old=planGroups(people,[],interactions,'2026-11-25','old').zones.find(z=>z.department==='ИТ');assert.equal(old.active,1);assert.equal(old.lowCoverage,true)});
+
+test('a department with 50 contacts grows in both directions and retains space from neighbours',()=>{
+ const sample=Array.from({length:50},(_,i)=>person(i));
+ const crowded=planGroups(sample,[],[],'2026-11-25');
+ const initial=planGroups(sample.slice(0,5),[],[],'2026-11-25');
+ const zone=crowded.zones.find(z=>z.department==='ИТ');
+ const small=initial.zones.find(z=>z.department==='ИТ');
+ const next=crowded.zones.find(z=>z.department==='ИБ');
+ verify(crowded,sample,[]);
+ assert.ok(zone.width>small.width&&zone.height>small.height);
+ assert.equal(next.x-zone.x-zone.width,groupGeometry.zoneGap);
+ assert.equal(new Set(sample.map(p=>crowded.positions[p.id].x)).size,8);
+ assert.ok(crowded.halfWidth>=next.x+next.width);
+});

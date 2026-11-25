@@ -43,7 +43,7 @@ test('source card shows snapshot identity, separate channels, explicit signals a
  const record={...interactionSource(slice,id),evidence:{...draft.evidence,preferences:{channel:'Почта'},signals:[{kind:'initiative'},{kind:'resumption'},{kind:'approval',requestedOn:'2026-11-16'}]}};
  let returned=0,view;await act(async()=>{view=create(createElement(SourceRecord,{interaction:record,slice,onBack:()=>returned++}))});
  const plain=node=>typeof node==='string'?node:Array.isArray(node)?node.map(plain).join(''):node?.children?plain(node.children):'';
- const text=plain(view.toJSON());for(const expected of ['Михаил Титов (бывший контакт)','контакт удалён из активной карты','Канал касания','Встреча','Канал связи · ','Почта','Контакт предложил следующий шаг','Контакт вернулся к обсуждению','3 дн.'])assert.ok(text.includes(expected),expected);
+ const text=plain(view.toJSON());for(const expected of ['Михаил Титов (бывший контакт)','контакт удалён из активной карты','Канал касания','Встреча','Канал связи: ','Почта','Контакт предложил следующий шаг','Контакт вернулся к обсуждению','3 дн.'])assert.ok(text.includes(expected),expected);
  await act(async()=>view.root.findAllByType('button').find(b=>b.children.includes('Вернуться к месту открытия')).props.onClick());assert.equal(returned,1);
  assert.ok(!slice.people.some(p=>p.id===draft.personId));await act(async()=>view.unmount());
 });

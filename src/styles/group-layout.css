@@ -1,2 +1,27 @@
-.layout-switch{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;padding:0 var(--space-4)}
-.group-layer{position:absolute;left:0;top:0;pointer-events:none;z-index:-1}.group-zone{position:absolute;display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3);border-radius:var(--radius-l);background:var(--bg-2);color:var(--text-1);overflow:hidden}.group-zone strong{font-size:var(--type-title);overflow-wrap:anywhere;line-height:1.15}.group-zone span,.group-zone small,.group-zone b{font-size:var(--type-caption);line-height:1.2}.group-zone small{color:var(--text-2)}.group-zone b{color:var(--text-danger)}
+.layout-switch { display:flex; align-items:center; gap:var(--space-2); flex-wrap:wrap; padding:0 var(--space-4); }
+.group-layer { position:absolute; inset:0 auto auto 0; pointer-events:none; }
+.group-zone {
+  --group-fill:var(--group-green);
+  --group-outline:var(--group-border);
+  position:absolute; color:var(--text-1);
+}
+.group-zone.low-coverage { --group-fill:var(--group-violet); --group-outline:var(--violet-border); }
+.group-zone::before {
+  content:''; position:absolute; inset:0; z-index:-1;
+  border-radius:var(--group-radius); border:var(--border-width) solid var(--group-outline); background:var(--group-fill);
+}
+.group-zone-heading {
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  height:var(--group-header); padding-inline:var(--space-5); line-height:1.15; overflow-wrap:anywhere;
+  gap:min(var(--space-4),calc(var(--space-2) / var(--map-zoom,.25)));
+}
+.group-zone-heading strong, .group-zone-heading time { position:relative; z-index:1; border-radius:var(--group-radius); }
+.group-zone-heading strong {
+  padding:var(--space-1) var(--space-3); background:var(--group-fill);
+  font-size:min(calc(var(--type-title) / var(--map-zoom,.25)),calc(var(--group-header) * .27));
+}
+.group-zone-heading time {
+  padding:var(--space-2) var(--space-4); border-radius:var(--group-radius);
+  background:var(--bg-0); color:var(--violet-ink); font-weight:700;
+  font-size:min(calc(var(--type-body) / var(--map-zoom,.25)),calc(var(--group-header) * .20)); white-space:nowrap;
+}

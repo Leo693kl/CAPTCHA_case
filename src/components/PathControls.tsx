@@ -38,7 +38,7 @@ export function PathControls({ people, target, onTarget, path, onShowMap }: {
       <label htmlFor="path-target">К кому хотите выйти</label>
       <Select id="path-target" disabled={people.length === 0} value={target} onChange={event => changeTarget(event.target.value)}>
         <option value="">Выберите цель</option>
-        {people.map(person => <option key={person.id} value={person.id}>{person.name} · {person.department}</option>)}
+        {people.map(person => <option key={person.id} value={person.id}>{person.name} ({person.department})</option>)}
       </Select>
       {target && <Button variant="ghost" onClick={() => changeTarget('')}>Очистить</Button>}
     </div>
@@ -55,7 +55,7 @@ export function PathControls({ people, target, onTarget, path, onShowMap }: {
           <div>
             <span className="mini-avatar" aria-hidden="true">{person?.name.split(' ').map(word => word[0]).slice(0, 2).join('')}</span>
             <span><b>{person?.name ?? id}</b><small>
-              {step ? `Сила связи ${step.relation.strength}/5${step.penalty ? ` · штраф ${step.penalty}` : ''}` : 'Тёплый контакт · точка входа'}
+              {step ? `Сила связи ${step.relation.strength}/5${step.penalty ? `, штраф ${step.penalty}` : ''}` : 'Точка входа'}
             </small></span>
           </div>
         </div>;

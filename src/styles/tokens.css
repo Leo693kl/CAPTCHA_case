@@ -15,6 +15,13 @@
   --brand-green-soft: #BCEC8D;
   --brand-blue: #768173;
   --accent-violet: #623CFA;
+  --violet-ink: #52358A;
+  --violet-soft: #EEE7FF;
+  --violet-border: #D8C9F2;
+  --violet-bar: #9074D9;
+  --group-green: #F0F5ED;
+  --group-violet: #F5F0FC;
+  --group-border: #B6C9B1;
   --brand-sky: var(--accent-violet);
   --heat-1: #E3EBDF;
   --heat-2: #BED9B6;
@@ -93,6 +100,10 @@
   --node-outline-width: 3px;
   --control-height: 34px;
   --node-label-width: 102px;
+  --node-detail-width: 176px;
+  --group-radius: 22px;
+  --chart-month-width: 28px;
+  --chart-plot-height: 128px;
   --map-center-size: 104px;
   --notice-height: 72px;
   --graph-min-height: 240px;

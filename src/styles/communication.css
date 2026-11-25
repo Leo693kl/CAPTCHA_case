@@ -1,6 +1,29 @@
-.communication-overview{padding:var(--space-5);background:var(--bg-1);color:var(--text-1)}
-.communication-heading{display:flex;justify-content:space-between;gap:var(--space-3);align-items:center;flex-wrap:wrap}.communication-heading h2,.communication-overview h3{margin:var(--space-2) 0}.communication-overview small{color:var(--text-2);font-size:var(--type-caption)}
-.communication-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,calc(var(--space-6)*8)),1fr));gap:var(--space-5);margin-top:var(--space-5)}
-.communication-channel{display:grid;grid-template-columns:1fr auto;gap:var(--space-1);margin-top:var(--space-3)}.communication-track{grid-column:1/-1;height:var(--space-2);background:var(--bg-2)}.communication-track i{display:block;height:100%;background:var(--heat-4)}
-.communication-months{height:calc(var(--space-6)*5);display:flex;gap:var(--space-1);align-items:stretch;margin-top:var(--space-3)}.communication-months>div{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:var(--space-1);font-size:var(--type-caption)}.communication-months i{width:70%;max-height:70%;background:var(--heat-4)}.communication-months small{writing-mode:vertical-rl}
-.communication-person.ui-button{display:block;text-align:left;width:100%;margin-top:var(--space-1)}
+.communication-overview { container-type:inline-size; padding:var(--space-5); color:var(--text-1); }
+.communication-heading { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-3); margin-bottom:var(--space-5); }
+.communication-heading > div { display:flex; gap:var(--space-2); }
+.communication-dates { display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-2); margin:0; color:var(--text-2); }
+.communication-dates time { border-radius:var(--radius-s); padding:var(--space-1) var(--space-2); background:var(--violet-soft); color:var(--violet-ink); font-weight:600; }
+.communication-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-5) var(--space-6); }
+.communication-grid > section { min-width:0; border-top:var(--border-width) solid var(--border); padding-top:var(--space-3); }
+.communication-grid h3 { margin:0 0 var(--space-3); font-size:var(--type-body); }
+.communication-grid .communication-trend { grid-column:2; grid-row:1 / span 2; }
+.communication-channels, .communication-months { list-style:none; margin:0; padding:0; }
+.communication-channels { display:grid; gap:var(--space-3); }
+.communication-channels li { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:var(--space-1) var(--space-3); align-items:baseline; }
+.communication-channels strong, .communication-person strong { color:var(--text-accent); font-variant-numeric:tabular-nums; }
+.communication-track { grid-column:1/-1; height:var(--space-2); border-radius:var(--radius-pill); background:var(--bg-2); overflow:hidden; }
+.communication-track i { display:block; height:100%; border-radius:inherit; background:var(--heat-4); }
+.communication-chart-scroll { overflow-x:auto; padding-top:var(--space-3); }
+.communication-months { display:grid; gap:var(--space-1); }
+.communication-months > li { min-width:0; text-align:center; }
+.communication-month-plot { position:relative; display:flex; justify-content:center; align-items:flex-end; height:var(--chart-plot-height); margin-top:var(--space-4); border-bottom:var(--border-width) solid var(--border); }
+.communication-month-bar { position:relative; width:72%; border-radius:var(--radius-s) var(--radius-s) 0 0; background:var(--violet-bar); }
+.communication-month-bar span { position:absolute; bottom:100%; inset-inline:0; color:var(--violet-ink); font-size:var(--type-caption); font-variant-numeric:tabular-nums; }
+.communication-months time { display:grid; gap:var(--space-1); margin-top:var(--space-2); color:var(--text-1); font-size:var(--type-caption); line-height:1.1; white-space:nowrap; }
+.communication-months time small { color:var(--text-2); }
+.communication-person.ui-button { display:flex; width:100%; justify-content:space-between; gap:var(--space-2); white-space:normal; text-align:start; }
+.communication-source { margin-top:var(--space-5); color:var(--text-2); font-size:var(--type-caption); }
+@container (max-width: 680px) {
+  .communication-grid { grid-template-columns:minmax(0,1fr); }
+  .communication-grid .communication-trend { grid-column:auto; grid-row:auto; }
+}

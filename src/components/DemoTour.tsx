@@ -120,7 +120,7 @@ export function DemoTour({ step, onStep, onClose }: { step: number; onStep: (ste
           <button className="primary" data-tour-next onClick={next}>{last ? 'Готово' : 'Далее'}</button>
         </div>
       </div>
-      <small>← → переход между шагами · Esc закрыть</small>
+      <small className="record-meta"><span>← → Между шагами</span><span>Esc Закрыть</span></small>
     </div>
   </div>;
 }

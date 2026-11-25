@@ -15,30 +15,29 @@ export function RatingEvidence({ subjectId, subjectType, fields, bases, changes,
     basis: bases.find(item => item.subjectId === subjectId && item.subjectType === subjectType && item.field === field && item.value === value),
     history: changes.filter(item => item.subjectId === subjectId && item.subjectType === subjectType && item.field === field),
   }));
-  const missing = ratings.filter(({ basis }) => !basis).length;
-
   return <details className="panel-disclosure rating-evidence">
-    <summary>Основания оценок{missing > 0 && <small> · без основания {missing} из {ratings.length}</small>}</summary>
+    <summary>Основания оценок</summary>
     {ratings.map(({ field, value, basis, history }) => <details key={field}>
       <summary aria-label={`Основание: ${labels[field]}`}>
-        {labels[field]} · {display(field, value)}
+        {labels[field]} <strong>{display(field, value)}</strong>
       </summary>
       {basis ? <>
-        <p>{basis.authorId} · {dateLabel(basis.date)}</p>
+        <p className="record-meta"><span>{basis.authorId}</span><time dateTime={basis.date}>{dateLabel(basis.date)}</time></p>
         <p>{basis.rationale || 'Причина не указана'}</p>
         {basis.sourceIds.map(id => {
           const record = records.find(item => item.id === id);
           return record
             ? <Button variant="ghost" className="source-action" key={id} onClick={() => onOpenSource(id)}>
-                {dateLabel(record.date)} · {record.channel} · {record.summary.split('\n')[0]}
+                <span>{record.summary.split('\n')[0]}</span><time dateTime={record.date}>{dateLabel(record.date)}</time>
               </Button>
             : <p key={id} className="muted">Источник недоступен</p>;
         })}
       </> : <p className="muted">Основание не указано.</p>}
       {history.length > 0 && <>
         <h4>История изменений</h4>
-        {history.map(item => <p key={item.id}>
-          {display(field, item.before)} → {display(field, item.after)} · {item.authorId} · {dateLabel(item.date)}
+        {history.map(item => <p className="record-meta" key={item.id}>
+          <strong>{display(field, item.before)} → {display(field, item.after)}</strong>
+          <span>{item.authorId}</span><time dateTime={item.date}>{dateLabel(item.date)}</time>
         </p>)}
       </>}
     </details>)}

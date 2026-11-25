@@ -29,6 +29,7 @@
 .map-legend-items li { padding-block:var(--space-1); line-height:1.4; }
 .map-legend-items .legend-size { background:transparent; border:var(--focus-width) solid var(--border-strong); }
 .map-legend-items :is(.legend-selected,.legend-candidate) { flex:none; width:var(--space-3); height:var(--space-3); border-radius:50%; background:var(--heat-3); }
+.legend-low-coverage { flex:none; width:var(--space-4); height:var(--space-3); border:var(--border-width) solid var(--violet-border); border-radius:var(--radius-s); background:var(--group-violet); }
 .legend-selected { outline:var(--focus-width) solid var(--brand-green); }
 .legend-candidate { outline:var(--border-width) dashed var(--text-1); outline-offset:var(--border-width); }
 .legend-more { margin-top:var(--space-2); color:var(--text-2); font-size:var(--type-caption); }
@@ -144,10 +145,13 @@
 .communication dl > div { display:grid; grid-template-columns:1fr auto; gap:var(--space-3); align-items:start; padding-block:var(--space-1); }
 .communication dt { font-size:var(--type-caption); color:var(--text-2); }
 .communication dd { margin:0; font-size:var(--type-caption); text-align:right; }
-.warmth-value { display:flex; align-items:center; gap:var(--space-2); font-variant-numeric:tabular-nums; }
-.warmth-dots { display:flex; gap:calc(var(--space-1) / 2); }
-.warmth-dots i { display:block; width:var(--space-2); height:var(--space-2); border-radius:50%; background:var(--border); }
-.warmth-dots .filled { background:var(--heat-4); }
+.warmth-rating { display:inline-block; padding:var(--space-1) var(--space-2); border-radius:var(--radius-s); background:var(--group-green); color:var(--text-accent); font-variant-numeric:tabular-nums; }
+.record-meta { display:flex; align-items:baseline; flex-wrap:wrap; gap:var(--space-1) var(--space-3); }
+.record-meta time, .redesign-app :is(.map-source-link,.preference-source,.rating-evidence .source-action) time { color:var(--violet-ink); font-weight:600; white-space:nowrap; }
+.record-note { display:block; margin-top:var(--space-1); color:var(--text-2); }
+.redesign-app .last-touch p { flex-wrap:wrap; }
+.redesign-app .last-touch time { color:var(--violet-ink); font-weight:600; }
+.redesign-app :is(.map-source-link,.preference-source,.rating-evidence .source-action) { flex-wrap:wrap; gap:var(--space-1) var(--space-2); max-width:100%; text-align:start; }
 .warmth-change { font-size:var(--type-caption); margin:var(--space-2) 0; }
 .warmth-change small { display:block; color:var(--text-2); }
 .communication .communication-preferences { margin-top:var(--space-3); }
@@ -169,6 +173,7 @@
 .redesign-app .panel-row { width:100%; justify-content:space-between; text-align:start; white-space:normal; }
 .panel-row small, .rating-evidence small { color:var(--text-2); font-weight:400; }
 .rating-evidence details { padding-block:var(--space-2); }
+.rating-evidence summary strong, .map-signals summary small, .panel-disclosure > summary small, .panel-dependencies summary small { margin-inline-start:var(--space-1); color:var(--text-accent); font-size:var(--type-caption); }
 .redesign-app :is(.rating-evidence,.candidate-summary) .source-action { white-space:normal; text-align:start; }
 .candidate-summary h3 { color:var(--accent-violet); }
 .candidate-summary .profile-actions { flex-wrap:wrap; margin:0 0 var(--space-2); }
@@ -189,6 +194,8 @@
 .redesign-app .map-indicator-values small { grid-column:1/-1; margin-top:var(--space-1); }
 .redesign-app .panel .map-evidence-note { font-size:var(--type-caption); }
 .redesign-app .supplier-lines details, .redesign-app .map-warm-risk { border:0; border-left:var(--focus-width) solid var(--border); padding:0 0 0 var(--space-3); border-radius:0; }
+.redesign-app .map-warm-risk { border-color:var(--risk-warn); }
+.map-warm-risk h4 svg { color:var(--risk-warn); }
 .full-contact > summary { margin-bottom:var(--space-3); }
 .full-contact .profile-head { display:none; }
 .redesign-app .profile-actions-sticky { position:static; padding:var(--space-3) 0; background:var(--bg-0); }
@@ -274,6 +281,14 @@
 .redesign-app .person-wrap:is(:hover,:focus-within):not(.selected) .node-name { background:var(--bg-0); border-color:var(--border); }
 .redesign-app .node-name b { white-space:normal; overflow:visible; text-overflow:clip; }
 .redesign-app .selected .node-name { background:var(--action-soft); }
+.redesign-app .person-wrap:is(.selected,:hover,:focus-within) .node-name { width:min(var(--node-detail-width),60cqi); padding:var(--space-2); }
+.redesign-app .person-wrap:is(.selected,:hover,:focus-within) .node-name b { font-size:var(--type-caption); }
+.redesign-app .person-wrap:is(.selected,:hover,:focus-within) .node-specialty {
+  display:block; margin-top:var(--space-1); padding:var(--space-1); border-radius:var(--radius-s);
+  background:var(--violet-soft); color:var(--violet-ink); font-size:var(--type-caption); font-weight:600;
+  white-space:normal; overflow:visible; overflow-wrap:anywhere; text-overflow:clip;
+}
+.redesign-app .map-area[data-layout="group"]:is([data-compact-group-labels],:has(.person-wrap:is(.selected,:hover,:focus-within))) .person-wrap:not(.selected):not(:hover):not(:focus-within) .node-name { display:none; }
 .redesign-app .contact-section { padding-block:var(--space-3); }
 .redesign-app .contact-heading { padding-bottom:var(--space-3); }
 .redesign-app .communication dl > div { padding-block:calc(var(--space-1) / 2); }
@@ -425,6 +440,8 @@
 .redesign-app .input-card > p {
   margin-block:var(--space-2) var(--space-3);
 }
+.input-help { margin-block:var(--space-2) var(--space-4); }
+.input-help summary { cursor:pointer; }
 .redesign-app .advanced-integration .integration-column {
   border:var(--border-width) solid var(--border);
   border-radius:var(--radius-m);
