@@ -3,20 +3,20 @@ body{font-family:var(--font-ui);font-size:var(--type-body);line-height:1.5}
 :where(h1,h2,h3,h4,strong,b){font-family:var(--font-ui);font-weight:600;letter-spacing:normal}
 :where(button,input,select,textarea){font-family:var(--font-ui);font-size:var(--type-section)}
 .page-heading h1,.feature-heading h1,.panel h2,.person-details .profile-head h2{font-size:var(--type-title);font-weight:600;letter-spacing:normal;line-height:1.3}
-.workspace-head h2,.integration-grid h2,.diff-intro h2,.time-top h3,.path-header h3,.profile-section h3,.coverage-popover h3,.risk-panel>summary,.missing-panel>summary,.filter-header,.advanced-brief .brief-card h3{font-family:var(--font-ui);font-size:var(--type-section);font-weight:600;letter-spacing:normal;color:var(--text-1)}
+.workspace-head h2,.integration-grid h2,.diff-intro h2,.profile-section h3,.coverage-popover h3,.risk-panel>summary,.missing-panel>summary,.filter-header,.advanced-brief .brief-card h3{font-family:var(--font-ui);font-size:var(--type-section);font-weight:600;letter-spacing:normal;color:var(--text-1)}
 .eyebrow,.section-title,.lens-heading span,.tour-kicker,.integration-label,.brief-number,.proposal-top,.orbit-key,.map-footer,.ring-label,.sector-label,.empty-sector-label,.coverage-value small{font-family:var(--font-ui);font-size:var(--type-caption);font-weight:400;letter-spacing:normal;text-transform:none;color:var(--text-2)}
 .eyebrow span,.section-title span,.orbit-key b{color:var(--text-2)}
-.page-heading p,.feature-heading p,.diff-intro p,.muted,.time-note,.path-note,.input-card p,.data-scheme>p{font-size:var(--type-caption);line-height:1.5;color:var(--text-2)}
+.page-heading p,.feature-heading p,.diff-intro p,.muted,.path-note,.input-card p,.data-scheme>p{font-size:var(--type-caption);line-height:1.5;color:var(--text-2)}
 .filter-panel legend,.filter-label,.panel form label,.proposal-fields label{font-family:var(--font-ui);font-size:var(--type-caption);font-weight:400;color:var(--text-2)}
 .ui-button,.ui-chip,.ui-input,button,select,input,textarea{font-size:var(--type-section);font-weight:400}
 .ui-button,.ui-chip,select,input,textarea,.ui-input{border-radius:var(--radius-s)}
 .ui-button--primary,.primary{font-weight:600}
 .coverage-value{font-family:var(--font-mono);font-size:var(--type-metric);font-weight:400;letter-spacing:normal}
 .coverage-value small{font-family:var(--font-ui);font-size:var(--type-caption)}
-time,.profile-date,.timeline-heading time,.metric,.coverage-component b,.history-list time,.month-ticks,.time-slider,.time-top h3 time{font-family:var(--font-mono);font-weight:400;font-variant-numeric:tabular-nums;letter-spacing:normal}
+time,.profile-date,.timeline-heading time,.metric,.coverage-component b{font-family:var(--font-mono);font-weight:400;font-variant-numeric:tabular-nums;letter-spacing:normal}
 .page-heading{margin-bottom:var(--space-4)}.page-heading h1{margin:var(--space-1) 0}.workspace-head{padding:var(--space-4) var(--space-5)}.lens-bar{padding:var(--space-2) var(--space-5)}.lens-bar p{margin:var(--space-1) 0 0}
-.workspace,.risk-panel,.missing-panel,.time-controls,.path-controls,.coverage-card,.input-card,.diff-panel,.data-scheme{border:0;border-radius:0;box-shadow:none}
-.workspace,.risk-panel,.missing-panel,.time-controls,.path-controls{background:var(--bg-1)}
+.workspace,.risk-panel,.missing-panel,.path-controls,.coverage-card,.input-card,.diff-panel,.data-scheme{border:0;border-radius:0;box-shadow:none}
+.workspace,.risk-panel,.missing-panel,.path-controls{background:var(--bg-1)}
 .risk-panel,.missing-panel{padding:var(--space-3) var(--space-4);margin-bottom:var(--space-2)}
 .risk-list{gap:0}.risk-card,.advanced-conflict{border:0;border-top:1px solid var(--border);border-radius:0;background:transparent;padding:var(--space-3) 0;box-shadow:none}.risk-card.high,.advanced-conflict{border-left:0}
 .missing-row{border-color:var(--border)}

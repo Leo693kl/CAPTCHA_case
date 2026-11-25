@@ -17,7 +17,6 @@ export function CoveragePopover({coverage,open,onToggle}:{coverage:CoverageResul
 }
 export function FilterPanel({filter,onChange,owners,shown,total}:{filter:MapFilter;onChange:(f:MapFilter)=>void;owners:string[];shown:number;total:number}){
  const group=(title:string,key:'department'|'role'|'stance',options:[string,string][])=> <label className="filter-select">{title}<Select value={filter[key]} onChange={e=>onChange({...filter,[key]:e.target.value})}><option value="">{key==='department'?'Все отделы':key==='role'?'Все роли':'Все позиции'}</option>{options.map(([value,label])=><option key={value} value={value}>{label}</option>)}</Select></label>;
- const steps=['','90','365','old'];const captions=['Любая дата','До 90 дней','До года','Более года / нет касаний'];
  return <section className="filter-panel" aria-label="Фильтры карты">
   <div className="filter-header"><strong>Фильтры</strong></div>
   <label className="filter-label" htmlFor="map-search">Поиск по имени</label>
@@ -25,8 +24,10 @@ export function FilterPanel({filter,onChange,owners,shown,total}:{filter:MapFilt
   {group('Подразделение','department',departments.map(x=>[x,x]))}
   {group('Роль в решении','role',Object.entries(roles))}
   {group('Позиция','stance',Object.entries(stances))}
-  <label className="filter-label" htmlFor="recent-range">Последнее касание <span>{captions[Math.max(0,steps.indexOf(filter.recent))]}</span></label>
-  <Input id="recent-range" type="range" min="0" max="3" step="1" value={Math.max(0,steps.indexOf(filter.recent))} aria-valuetext={captions[Math.max(0,steps.indexOf(filter.recent))]} onChange={e=>onChange({...filter,recent:steps[Number(e.target.value)]})}/>
+  <label className="filter-label" htmlFor="filter-recency">Последнее касание</label>
+  <Select id="filter-recency" value={filter.recent} onChange={e=>onChange({...filter,recent:e.target.value})}>
+   <option value="">Любая дата</option><option value="90">До 90 дней</option><option value="365">До года</option><option value="old">Более года / нет касаний</option>
+  </Select>
   <label className="filter-label" htmlFor="filter-owner">Владелец контакта</label>
   <Select id="filter-owner" value={filter.owner} onChange={e=>onChange({...filter,owner:e.target.value})}><option value="">Все владельцы</option>{owners.map(o=><option key={o}>{o}</option>)}</Select>
   <label className="filter-check"><input type="checkbox" checked={filter.candidatesOnly} onChange={e=>onChange({...filter,candidatesOnly:e.target.checked})}/> Кандидаты в ЛПР</label>
