@@ -3,6 +3,8 @@ import { prepareInteraction } from './interactionTransaction.ts';
 import { StorageError, assertCurrent, key, crmKey, readBaseline, readCurrent, storageLock, type StorageNotice } from './crmStorage.ts';
 const delay=()=>new Promise<void>(resolve=>setTimeout(resolve,150+Math.random()*250));
 export const crmApi={
+ async readRatingEvidence():Promise<Pick<CRMData,'ratingBases'|'ratingChanges'>> { const data=await this.load(); return {ratingBases:data.ratingBases??[],ratingChanges:data.ratingChanges??[]}; },
+ async saveRatingEvidence(data:CRMData,expected:CRMData,onCommit?:(next:CRMData)=>void):Promise<void> { return this.save(data,expected,onCommit); },
  async saveInteraction(data:CRMData,companyId:string,draft:InteractionDraft,change:EvidenceChange|undefined,today:string,onCommit:(next:CRMData)=>void):Promise<SaveResult>{
   try{
    const result=await storageLock(()=>{
@@ -26,6 +28,10 @@ export const crmApi={
  async confirmCompany(data:CRMData,companyId:string):Promise<CRMData>{
   await delay();return storageLock(()=>{assertCurrent(data,readCurrent(undefined,true));const baseline=readBaseline(undefined,true);const ids=new Set([...baseline.people,...data.people,...baseline.snapshots.map(s=>s.person),...data.snapshots.map(s=>s.person)].filter(p=>p.companyId===companyId).map(p=>p.id));
   const next:CRMData={...baseline,people:[...baseline.people.filter(p=>p.companyId!==companyId),...data.people.filter(p=>p.companyId===companyId)],relations:[...baseline.relations.filter(r=>r.companyId!==companyId),...data.relations.filter(r=>r.companyId===companyId)],interactions:[...baseline.interactions.filter(i=>!ids.has(i.personId)),...data.interactions.filter(i=>ids.has(i.personId))],snapshots:[...baseline.snapshots.filter(s=>s.person.companyId!==companyId),...data.snapshots.filter(s=>s.person.companyId===companyId)]};
+  const subjectIds=new Set([...ids,...baseline.relations.filter(r=>r.companyId===companyId).map(r=>r.id),...data.relations.filter(r=>r.companyId===companyId).map(r=>r.id)]);
+  next.ratingBases=[...(baseline.ratingBases??[]).filter(item=>!subjectIds.has(item.subjectId)),...(data.ratingBases??[]).filter(item=>subjectIds.has(item.subjectId))];
+  next.ratingChanges=[...(baseline.ratingChanges??[]).filter(item=>!subjectIds.has(item.subjectId)),...(data.ratingChanges??[]).filter(item=>subjectIds.has(item.subjectId))];
+  next.candidateResolutions=[...(baseline.candidateResolutions??[]).filter(item=>!ids.has(item.personId)),...(data.candidateResolutions??[]).filter(item=>ids.has(item.personId))];
   next.interactionRequests=[...(baseline.interactionRequests??[]).filter(request=>request.companyId!==companyId),...(data.interactionRequests??[]).filter(request=>request.companyId===companyId)];
   localStorage.setItem(crmKey,JSON.stringify(next));return next;});
  }

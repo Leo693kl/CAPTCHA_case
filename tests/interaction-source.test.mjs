@@ -9,9 +9,10 @@ import { buildMapSlice } from '../src/api/mapSlice.ts';
 import { prepareInteraction } from '../src/api/interactionTransaction.ts';
 import { interactionSource, sourcePerson } from '../src/lib/interactionSource.ts';
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
 const bundle=new URL('./.interaction-source-test-bundle.mjs',import.meta.url);
-await build({entryPoints:['src/components/SourceRecord.tsx'],bundle:true,platform:'node',format:'esm',outfile:bundle.pathname,external:['react','react/jsx-runtime'],loader:{'.css':'empty'},jsx:'automatic',logLevel:'silent'});
+await build({entryPoints:['src/components/SourceRecord.tsx'],bundle:true,platform:'node',format:'esm',outfile:fileURLToPath(bundle),external:['react','react/jsx-runtime'],loader:{'.css':'empty'},jsx:'automatic',logLevel:'silent'});
 const {SourceRecord}=await import(bundle.href);after(async()=>{await unlink(bundle)});globalThis.IS_REACT_ACT_ENVIRONMENT=true;
 const today='2026-11-19';
 const draft=JSON.parse(readFileSync(new URL('../docs/plans/demo-interview.json',import.meta.url)));

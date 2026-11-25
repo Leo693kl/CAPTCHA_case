@@ -6,8 +6,8 @@ import { warmthHistory } from '../lib/mapMetrics';
 import { roles, stances, relationTypes, type MapSlice, type Person } from '../types';
 
 const dateLabel=(date:string)=>date.split('-').reverse().join('.');
-export function ContactOverview({person,slice,onOpenSource,onAdd,onSelect,companyIndicators,children}:{
- person:Person;slice:MapSlice;onOpenSource:(id:string)=>void;onAdd:()=>void;onSelect:(id:string)=>void;companyIndicators:ReactNode;children:ReactNode;
+export function ContactOverview({person,slice,onOpenSource,onAdd,onSelect,companyIndicators,children,missingCount,candidateBlock}:{
+ candidateBlock?:ReactNode;missingCount:number;person:Person;slice:MapSlice;onOpenSource:(id:string)=>void;onAdd:()=>void;onSelect:(id:string)=>void;companyIndicators:ReactNode;children:ReactNode;
 }){
  const history=slice.interactions.filter(record=>record.personId===person.id).slice().reverse().sort((a,b)=>b.date.localeCompare(a.date));
  const last=history[0],observation=history.find(record=>record.evidence);
@@ -19,7 +19,8 @@ export function ContactOverview({person,slice,onOpenSource,onAdd,onSelect,compan
  });
  const linked=(items:typeof links)=>items.map(({edge,other})=><Button key={edge.id} variant="ghost" className="contact-related-row" onClick={()=>onSelect(other.id)}><span><strong>{other.name}</strong><small>{relationTypes[edge.type]} · {edge.strength}/5</small></span><ChevronRight size={16} strokeWidth={1.75} aria-hidden="true"/></Button>);
  return <div className="contact-overview">
-  <header className="contact-heading"><h2>{person.name}</h2><p><strong>{roles[person.decisionRole]}</strong><span aria-hidden="true"> · </span>{person.department}</p><small>{person.title}</small></header>
+  <header className="contact-heading"><h2>{person.name}</h2><p><strong>{roles[person.decisionRole]}</strong><span aria-hidden="true"> · </span>{person.department}</p><small>{person.title}</small><p><a href="#rating-evidence" onClick={()=>{const el=document.getElementById("rating-evidence");if(el?.parentElement instanceof HTMLDetailsElement)el.parentElement.open=true}}>{missingCount} оценок без основания</a></p></header>
+  {candidateBlock}
   <section className="contact-section last-touch" aria-label="Последнее касание"><h3>Последнее касание</h3>{last?<p><CalendarDays size={17} strokeWidth={1.75} aria-hidden="true"/><time dateTime={last.date}>{dateLabel(last.date)}</time><span>· {last.channel}</span></p>:<p className="muted">Касаний пока нет</p>}</section>
   <section className="contact-section communication" aria-label="Как общаться"><h3>Как общаться</h3>
    <dl><div><dt>Теплота отношений</dt><dd className="warmth-value"><span className="warmth-dots" aria-hidden="true">{[1,2,3,4,5].map(value=><i className={value<=person.warmth?'filled':''} key={value}/>)}</span>{person.warmth}/5</dd></div><div><dt>Позиция</dt><dd>{stances[person.stance]}</dd></div></dl>

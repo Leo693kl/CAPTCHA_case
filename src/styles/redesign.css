@@ -435,3 +435,7 @@
     font-weight:600;
   }
 }
+
+.redesign-app .candidate .person-bubble { outline: var(--node-outline-width) dashed var(--text-1); outline-offset: var(--space-1); }
+.redesign-app .candidate .node-name small { display:block; color:var(--text-1); font-size:var(--type-caption); }
+.redesign-app .candidate .node-name:has(small) { display:block; }

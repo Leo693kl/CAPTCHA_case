@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { findCandidates } from '../src/lib/candidates.ts';
+const person=(id,title='Специалист',decisionRole='user',companyId='a')=>({id,name:id,title,decisionRole,companyId,department:'ИТ',stance:'neutral',influence:3,warmth:3,owner:'',interests:[],consentMarketing:false});
+const rec=(id,personId,extra={})=>({id,personId,date:'2026-01-01',channel:'Встреча',ourOwner:'A',ourDepartment:'ИТ',summary:'',sentiment:'',...extra});
+const maker=person('m','Директор','decision_maker');
+test('no indicators produces no hypothesis',()=>assert.deepEqual(findCandidates([person('p')],[]),[]));
+test('decision maker is excluded',()=>assert.deepEqual(findCandidates([maker],[rec('r','m',{summary:'Поручил разработать план'})]),[]));
+test('leadership title is a low level reason',()=>{const [c]=findCandidates([person('p','Заместитель директора')],[]);assert.equal(c.level,'низкий');assert.equal(c.reasons[0].kind,'title')});
+test('directive attributed to the contact is medium and links its record',()=>{const [c]=findCandidates([person('p')],[rec('r','p',{summary:'Поручил подготовить план'})]);assert.equal(c.level,'средний');assert.equal(c.reasons[0].sourceId,'r')});
+test('title and directive give high without changing role',()=>{const p=person('p','CIO');const [c]=findCandidates([p],[rec('r','p',{summary:'Поручила подготовить план'})]);assert.equal(c.level,'высокий');assert.equal(p.decisionRole,'user')});
+test('meeting requires explicit participants including a known decision maker',()=>{const p=person('p');const [c]=findCandidates([p,maker],[rec('r','p',{participantIds:['p','m']})]);assert.equal(c.reasons[0].kind,'meeting');assert.deepEqual(findCandidates([p,maker],[rec('r','p')]),[])});
+test('another persons mention is a source, self mention is not',()=>{const p=person('p');const evidence={kind:'feedback',sourceLabel:'x',sourceExcerpt:'x',mentionedPersonIds:['p']};assert.equal(findCandidates([p,maker],[rec('r','m',{evidence})])[0].reasons[0].kind,'reference');assert.deepEqual(findCandidates([p],[rec('r','p',{evidence})]),[])});
+test('resolved hypotheses stay hidden',()=>assert.deepEqual(findCandidates([person('p','Директор')],[],[{personId:'p'}]),[]));
+test('records from another company are ignored',()=>assert.deepEqual(findCandidates([person('p'),person('x','Специалист','user','b')],[rec('r','x',{evidence:{kind:'feedback',sourceLabel:'',sourceExcerpt:'',mentionedPersonIds:['p']}})]),[]));
+test('independent rules determine level and sort highest first',()=>{const ps=[person('a','Руководитель'),person('b','Начальник'),maker];const records=[rec('r','m',{evidence:{kind:'feedback',sourceLabel:'x',sourceExcerpt:'x',mentionedPersonIds:['b']}})];assert.deepEqual(findCandidates(ps,records).map(c=>[c.personId,c.level]),[['b','средний'],['a','низкий']])});

@@ -555,7 +555,7 @@
       "companyId": "retail",
       "name": "Николай Ершов",
       "department": "Финансы",
-      "title": "Финансовый контролёр",
+      "title": "Заместитель ИТ-директора",
       "decisionRole": "influencer",
       "stance": "supporter",
       "influence": 2,
@@ -5100,6 +5100,48 @@
           }
         ]
       }
+    },
+    {
+      "id": "candidate-retail-directive",
+      "personId": "retail-p1",
+      "date": "2026-11-10",
+      "channel": "Встреча",
+      "ourOwner": "Менеджер CRM",
+      "ourDepartment": "Продажи",
+      "summary": "Поручил подготовить варианты архитектуры для обсуждения на комитете.",
+      "sentiment": "нейтрально"
+    },
+    {
+      "id": "candidate-industry-meeting",
+      "personId": "industry-p6",
+      "date": "2026-11-10",
+      "channel": "Встреча",
+      "ourOwner": "Менеджер CRM",
+      "ourDepartment": "Продажи",
+      "summary": "Обсудили варианты внедрения на встрече с ИТ-директором.",
+      "sentiment": "нейтрально",
+      "participantIds": [
+        "industry-p6",
+        "industry-p0"
+      ]
+    },
+    {
+      "id": "candidate-industry-reference",
+      "personId": "industry-p0",
+      "date": "2026-11-10",
+      "channel": "Встреча",
+      "ourOwner": "Менеджер CRM",
+      "ourDepartment": "Продажи",
+      "summary": "На встрече рекомендовал обсудить следующий этап с коллегой.",
+      "sentiment": "нейтрально",
+      "evidence": {
+        "kind": "feedback",
+        "sourceLabel": "Заметка встречи",
+        "sourceExcerpt": "На встрече рекомендовал обсудить следующий этап с коллегой.",
+        "mentionedPersonIds": [
+          "industry-p4"
+        ]
+      }
     }
   ],
   "snapshots": [
@@ -5846,7 +5888,7 @@
         "companyId": "retail",
         "name": "Николай Ершов",
         "department": "Финансы",
-        "title": "Финансовый контролёр",
+        "title": "Заместитель ИТ-директора",
         "decisionRole": "influencer",
         "stance": "supporter",
         "influence": 2,
@@ -7266,6 +7308,1006 @@
         "consentMarketing": false
       },
       "deleted": true
+    }
+  ],
+  "ratingBases": [
+    {
+      "id": "demo-bank-p0-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p0",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Ирина Белова",
+      "date": "2026-11-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-demo-mail-4"
+      ]
+    },
+    {
+      "id": "demo-bank-p0-role",
+      "subjectType": "person",
+      "subjectId": "bank-p0",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Ирина Белова",
+      "date": "2026-11-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-demo-mail-4"
+      ]
+    },
+    {
+      "id": "demo-bank-p1-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p1",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Ирина Белова",
+      "date": "2026-10-14",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p1-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p1-role",
+      "subjectType": "person",
+      "subjectId": "bank-p1",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Ирина Белова",
+      "date": "2026-10-14",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p1-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p2-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p2",
+      "field": "influence",
+      "value": 3,
+      "authorId": "Ирина Белова",
+      "date": "2026-11-12",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-demo-mail-zero"
+      ]
+    },
+    {
+      "id": "demo-bank-p2-role",
+      "subjectType": "person",
+      "subjectId": "bank-p2",
+      "field": "role",
+      "value": "evaluator",
+      "authorId": "Ирина Белова",
+      "date": "2026-11-12",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-demo-mail-zero"
+      ]
+    },
+    {
+      "id": "demo-bank-p3-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p3",
+      "field": "influence",
+      "value": 4,
+      "authorId": "Ирина Белова",
+      "date": "2026-09-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p3-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p3-role",
+      "subjectType": "person",
+      "subjectId": "bank-p3",
+      "field": "role",
+      "value": "user",
+      "authorId": "Ирина Белова",
+      "date": "2026-09-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p3-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p4-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p4",
+      "field": "influence",
+      "value": 5,
+      "authorId": "Ирина Белова",
+      "date": "2026-09-05",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p4-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p4-role",
+      "subjectType": "person",
+      "subjectId": "bank-p4",
+      "field": "role",
+      "value": "blocker",
+      "authorId": "Ирина Белова",
+      "date": "2026-09-05",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p4-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p5-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p5",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Ирина Белова",
+      "date": "2026-08-20",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p5-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p5-role",
+      "subjectType": "person",
+      "subjectId": "bank-p5",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Ирина Белова",
+      "date": "2026-08-20",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p5-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p6-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p6",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Ирина Белова",
+      "date": "2026-08-10",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p6-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p6-role",
+      "subjectType": "person",
+      "subjectId": "bank-p6",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Ирина Белова",
+      "date": "2026-08-10",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p6-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p7-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p7",
+      "field": "influence",
+      "value": 3,
+      "authorId": "Ирина Белова",
+      "date": "2026-07-28",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p7-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p7-role",
+      "subjectType": "person",
+      "subjectId": "bank-p7",
+      "field": "role",
+      "value": "evaluator",
+      "authorId": "Ирина Белова",
+      "date": "2026-07-28",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p7-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p8-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p8",
+      "field": "influence",
+      "value": 4,
+      "authorId": "Ирина Белова",
+      "date": "2026-07-15",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p8-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p8-role",
+      "subjectType": "person",
+      "subjectId": "bank-p8",
+      "field": "role",
+      "value": "user",
+      "authorId": "Ирина Белова",
+      "date": "2026-07-15",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p8-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p9-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p9",
+      "field": "influence",
+      "value": 5,
+      "authorId": "Ирина Белова",
+      "date": "2026-07-02",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p9-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p9-role",
+      "subjectType": "person",
+      "subjectId": "bank-p9",
+      "field": "role",
+      "value": "blocker",
+      "authorId": "Ирина Белова",
+      "date": "2026-07-02",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p9-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p10-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p10",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Ирина Белова",
+      "date": "2026-06-19",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p10-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p10-role",
+      "subjectType": "person",
+      "subjectId": "bank-p10",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Ирина Белова",
+      "date": "2026-06-19",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p10-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p11-influence",
+      "subjectType": "person",
+      "subjectId": "bank-p11",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Ирина Белова",
+      "date": "2026-06-06",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p11-i0"
+      ]
+    },
+    {
+      "id": "demo-bank-p11-role",
+      "subjectType": "person",
+      "subjectId": "bank-p11",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Ирина Белова",
+      "date": "2026-06-06",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "bank-p11-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p0-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p0",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Ирина Белова",
+      "date": "2026-10-27",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p0-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p0-role",
+      "subjectType": "person",
+      "subjectId": "retail-p0",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Ирина Белова",
+      "date": "2026-10-27",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p0-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p1-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p1",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Алексей Волков",
+      "date": "2026-10-14",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p1-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p1-role",
+      "subjectType": "person",
+      "subjectId": "retail-p1",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Алексей Волков",
+      "date": "2026-10-14",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p1-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p2-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p2",
+      "field": "influence",
+      "value": 3,
+      "authorId": "Мария Котова",
+      "date": "2026-10-01",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p2-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p2-role",
+      "subjectType": "person",
+      "subjectId": "retail-p2",
+      "field": "role",
+      "value": "evaluator",
+      "authorId": "Мария Котова",
+      "date": "2026-10-01",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p2-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p3-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p3",
+      "field": "influence",
+      "value": 4,
+      "authorId": "Ирина Белова",
+      "date": "2026-09-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p3-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p3-role",
+      "subjectType": "person",
+      "subjectId": "retail-p3",
+      "field": "role",
+      "value": "user",
+      "authorId": "Ирина Белова",
+      "date": "2026-09-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p3-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p4-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p4",
+      "field": "influence",
+      "value": 5,
+      "authorId": "Алексей Волков",
+      "date": "2026-09-05",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p4-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p4-role",
+      "subjectType": "person",
+      "subjectId": "retail-p4",
+      "field": "role",
+      "value": "blocker",
+      "authorId": "Алексей Волков",
+      "date": "2026-09-05",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p4-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p5-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p5",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Мария Котова",
+      "date": "2026-08-23",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p5-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p5-role",
+      "subjectType": "person",
+      "subjectId": "retail-p5",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Мария Котова",
+      "date": "2026-08-23",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p5-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p6-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p6",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Ирина Белова",
+      "date": "2026-08-10",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p6-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p6-role",
+      "subjectType": "person",
+      "subjectId": "retail-p6",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Ирина Белова",
+      "date": "2026-08-10",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p6-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p7-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p7",
+      "field": "influence",
+      "value": 3,
+      "authorId": "Алексей Волков",
+      "date": "2026-07-28",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p7-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p7-role",
+      "subjectType": "person",
+      "subjectId": "retail-p7",
+      "field": "role",
+      "value": "evaluator",
+      "authorId": "Алексей Волков",
+      "date": "2026-07-28",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p7-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p8-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p8",
+      "field": "influence",
+      "value": 4,
+      "authorId": "Мария Котова",
+      "date": "2026-07-15",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p8-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p8-role",
+      "subjectType": "person",
+      "subjectId": "retail-p8",
+      "field": "role",
+      "value": "user",
+      "authorId": "Мария Котова",
+      "date": "2026-07-15",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p8-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p9-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p9",
+      "field": "influence",
+      "value": 5,
+      "authorId": "Ирина Белова",
+      "date": "2026-07-02",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p9-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p9-role",
+      "subjectType": "person",
+      "subjectId": "retail-p9",
+      "field": "role",
+      "value": "blocker",
+      "authorId": "Ирина Белова",
+      "date": "2026-07-02",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p9-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p10-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p10",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Алексей Волков",
+      "date": "2026-06-19",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p10-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p10-role",
+      "subjectType": "person",
+      "subjectId": "retail-p10",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Алексей Волков",
+      "date": "2026-06-19",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p10-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p11-influence",
+      "subjectType": "person",
+      "subjectId": "retail-p11",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Мария Котова",
+      "date": "2026-06-06",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p11-i0"
+      ]
+    },
+    {
+      "id": "demo-retail-p11-role",
+      "subjectType": "person",
+      "subjectId": "retail-p11",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Мария Котова",
+      "date": "2026-06-06",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "retail-p11-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p0-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p0",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Ирина Белова",
+      "date": "2025-10-12",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p0-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p0-role",
+      "subjectType": "person",
+      "subjectId": "industry-p0",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Ирина Белова",
+      "date": "2025-10-12",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p0-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p1-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p1",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Алексей Волков",
+      "date": "2026-10-14",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p1-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p1-role",
+      "subjectType": "person",
+      "subjectId": "industry-p1",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Алексей Волков",
+      "date": "2026-10-14",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p1-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p2-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p2",
+      "field": "influence",
+      "value": 3,
+      "authorId": "Мария Котова",
+      "date": "2026-10-01",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p2-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p2-role",
+      "subjectType": "person",
+      "subjectId": "industry-p2",
+      "field": "role",
+      "value": "evaluator",
+      "authorId": "Мария Котова",
+      "date": "2026-10-01",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p2-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p3-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p3",
+      "field": "influence",
+      "value": 4,
+      "authorId": "Ирина Белова",
+      "date": "2026-09-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p3-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p3-role",
+      "subjectType": "person",
+      "subjectId": "industry-p3",
+      "field": "role",
+      "value": "user",
+      "authorId": "Ирина Белова",
+      "date": "2026-09-18",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p3-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p4-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p4",
+      "field": "influence",
+      "value": 5,
+      "authorId": "Алексей Волков",
+      "date": "2025-08-29",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p4-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p4-role",
+      "subjectType": "person",
+      "subjectId": "industry-p4",
+      "field": "role",
+      "value": "blocker",
+      "authorId": "Алексей Волков",
+      "date": "2025-08-29",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p4-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p5-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p5",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Мария Котова",
+      "date": "2026-08-23",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p5-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p5-role",
+      "subjectType": "person",
+      "subjectId": "industry-p5",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Мария Котова",
+      "date": "2026-08-23",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p5-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p6-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p6",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Ирина Белова",
+      "date": "2026-08-10",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p6-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p6-role",
+      "subjectType": "person",
+      "subjectId": "industry-p6",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Ирина Белова",
+      "date": "2026-08-10",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p6-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p7-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p7",
+      "field": "influence",
+      "value": 3,
+      "authorId": "Алексей Волков",
+      "date": "2026-07-28",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p7-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p7-role",
+      "subjectType": "person",
+      "subjectId": "industry-p7",
+      "field": "role",
+      "value": "evaluator",
+      "authorId": "Алексей Волков",
+      "date": "2026-07-28",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p7-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p8-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p8",
+      "field": "influence",
+      "value": 4,
+      "authorId": "Мария Котова",
+      "date": "2025-07-16",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p8-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p8-role",
+      "subjectType": "person",
+      "subjectId": "industry-p8",
+      "field": "role",
+      "value": "user",
+      "authorId": "Мария Котова",
+      "date": "2025-07-16",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p8-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p9-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p9",
+      "field": "influence",
+      "value": 5,
+      "authorId": "Ирина Белова",
+      "date": "2026-07-02",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p9-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p9-role",
+      "subjectType": "person",
+      "subjectId": "industry-p9",
+      "field": "role",
+      "value": "blocker",
+      "authorId": "Ирина Белова",
+      "date": "2026-07-02",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p9-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p10-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p10",
+      "field": "influence",
+      "value": 1,
+      "authorId": "Алексей Волков",
+      "date": "2026-06-19",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p10-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p10-role",
+      "subjectType": "person",
+      "subjectId": "industry-p10",
+      "field": "role",
+      "value": "decision_maker",
+      "authorId": "Алексей Волков",
+      "date": "2026-06-19",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p10-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p11-influence",
+      "subjectType": "person",
+      "subjectId": "industry-p11",
+      "field": "influence",
+      "value": 2,
+      "authorId": "Мария Котова",
+      "date": "2026-06-06",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p11-i0"
+      ]
+    },
+    {
+      "id": "demo-industry-p11-role",
+      "subjectType": "person",
+      "subjectId": "industry-p11",
+      "field": "role",
+      "value": "influencer",
+      "authorId": "Мария Котова",
+      "date": "2026-06-06",
+      "rationale": "Оценка зафиксирована по итогам общения.",
+      "sourceIds": [
+        "industry-p11-i0"
+      ]
+    }
+  ],
+  "ratingChanges": [
+    {
+      "id": "demo-change-bank-p0",
+      "subjectType": "person",
+      "subjectId": "bank-p0",
+      "field": "influence",
+      "before": 2,
+      "after": 1,
+      "authorId": "Ирина Белова",
+      "date": "2026-11-18"
+    },
+    {
+      "id": "demo-change-bank-p1",
+      "subjectType": "person",
+      "subjectId": "bank-p1",
+      "field": "influence",
+      "before": 1,
+      "after": 2,
+      "authorId": "Ирина Белова",
+      "date": "2026-10-14"
+    },
+    {
+      "id": "demo-change-retail-p0",
+      "subjectType": "person",
+      "subjectId": "retail-p0",
+      "field": "influence",
+      "before": 2,
+      "after": 1,
+      "authorId": "Ирина Белова",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "demo-change-retail-p1",
+      "subjectType": "person",
+      "subjectId": "retail-p1",
+      "field": "influence",
+      "before": 1,
+      "after": 2,
+      "authorId": "Алексей Волков",
+      "date": "2026-10-14"
+    },
+    {
+      "id": "demo-change-industry-p0",
+      "subjectType": "person",
+      "subjectId": "industry-p0",
+      "field": "influence",
+      "before": 2,
+      "after": 1,
+      "authorId": "Ирина Белова",
+      "date": "2025-10-12"
+    },
+    {
+      "id": "demo-change-industry-p1",
+      "subjectType": "person",
+      "subjectId": "industry-p1",
+      "field": "influence",
+      "before": 1,
+      "after": 2,
+      "authorId": "Алексей Волков",
+      "date": "2026-10-14"
     }
   ]
 }

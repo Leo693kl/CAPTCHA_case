@@ -26,6 +26,7 @@ export interface Interaction {
   channel: string;
   ourOwner: string;
   ourDepartment: string;
+  participantIds?: string[];
   summary: string;
   sentiment: string;
   opened?: boolean;
@@ -58,10 +59,13 @@ export interface MapSlice {
   snapshots: readonly PersonSnapshot[];
 }
 
+export type RatingField = 'influence'|'stance'|'warmth'|'role'|'strength'|'type';
+export interface RatingBasis { id:string; subjectType:'person'|'relation'; subjectId:string; field:RatingField; value:string|number; authorId:string; date:string; rationale:string; sourceIds:string[] }
+export interface RatingChange { id:string; subjectType:'person'|'relation'; subjectId:string; field:RatingField; before:string|number; after:string|number; authorId:string; date:string }
 export interface PersonSnapshot { personId:string; date:string; person:Person; deleted?:boolean }
 // Optional metadata keeps old localStorage readable; never shown as CRM fields.
 export interface InteractionRequest { companyId:string; requestId:string; interactionId:string; payload:string }
-export interface CRMData { companies:Company[]; people:Person[]; relations:Relation[]; interactions:Interaction[]; snapshots:PersonSnapshot[]; interactionRequests?:InteractionRequest[] }
+export interface CRMData { companies:Company[]; people:Person[]; relations:Relation[]; interactions:Interaction[]; snapshots:PersonSnapshot[]; interactionRequests?:InteractionRequest[]; ratingBases?:RatingBasis[]; ratingChanges?:RatingChange[]; candidateResolutions?:{personId:string; status:'rejected'|'confirmed'}[] }
 export const departments=['ИТ','ИБ','Закупки','Финансы','Бизнес','Прочее'];
 export const roles:Record<Role,string>={decision_maker:'ЛПР',influencer:'Влияющий',evaluator:'Эксперт',user:'Пользователь',blocker:'Блокирующий'};
 export const stances:Record<Stance,string>={champion:'Лидер поддержки',supporter:'Сторонник',neutral:'Нейтрален',skeptic:'Скептик'};

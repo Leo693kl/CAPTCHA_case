@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { communicationOverview } from '../src/lib/commOverview.ts';
+import seed from '../src/data/crm.json' with {type:'json'};
+const p=(id,companyId='a')=>({id,companyId,name:id,department:'ИТ',title:'',decisionRole:'user',stance:'neutral',influence:1,warmth:1,owner:'',interests:[],consentMarketing:false});
+const r=(id,personId,date,channel,participantIds=[])=>({id,personId,date,channel,participantIds,ourOwner:'',ourDepartment:'',summary:'',sentiment:''});
+const people=[p('a'),p('b'),p('c'),p('foreign','b')];
+const history=[r('1','a','2026-01-01','Почта',['a','b','b','foreign']),r('2','a','2026-02-10','Звонок'),r('3','b','2026-02-28','Почта'),r('4','foreign','2026-02-01','Встреча')];
+test('totals and contacts match history without counting repeated participants twice',()=>{const o=communicationOverview(people,history,'a',{asOf:'2026-02-28'});assert.equal(o.activityCount,3);assert.equal(o.activeCount,2);assert.equal(o.totalContacts,3);assert.deepEqual(o.withoutActivity.map(p=>p.id),['c']);assert.deepEqual(o.channels,[{channel:'Почта',count:2},{channel:'Звонок',count:1}]);assert.deepEqual(o.top.map(x=>[x.person.id,x.count]),[['a',2],['b',2]]);assert.equal(o.months.length,12);assert.equal(o.months.at(-1).count,2);assert.equal(o.months.at(-2).count,1)});
+test('period endpoints and channel filter apply consistently',()=>{const o=communicationOverview(people,history,'a',{start:'2026-02-10',end:'2026-02-28',channels:['Почта']});assert.equal(o.activityCount,1);assert.equal(o.activeCount,1);assert.deepEqual(o.withoutActivity.map(p=>p.id),['a','c']);assert.equal(o.months.at(-1).count,1)});
+test('empty client and future records are handled',()=>{const o=communicationOverview(people,history,'a',{asOf:'2025-12-31'});assert.equal(o.activityCount,0);assert.equal(o.withoutActivity.length,3);assert.equal(communicationOverview([],history,'a',{asOf:'2026-02-28'}).totalContacts,0)});
+test('demo clients contain at least 80 dated interactions across channels',()=>{for(const company of seed.companies){const o=communicationOverview(seed.people,seed.interactions,company.id,{asOf:'2026-11-25'});assert.ok(o.activityCount>=80,company.id);assert.ok(o.channels.length>=3,company.id);assert.equal(o.activityCount,o.channels.reduce((n,c)=>n+c.count,0));}});

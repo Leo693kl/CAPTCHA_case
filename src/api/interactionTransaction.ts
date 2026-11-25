@@ -28,6 +28,7 @@ export function prepareInteraction(data: CRMData, companyId: string, draft: Inte
   if (![draft.channel, draft.ourOwner, draft.ourDepartment, draft.summary, draft.sentiment].every(nonempty)) return fail('Заполните канал, автора, подразделение, содержание и тональность.');
   if (draft.opened !== undefined && (typeof draft.opened !== 'boolean' || draft.channel !== 'Почта' || !draft.openObservedOn)) return fail('Статус открытия требует письма и даты измерения.');
   if (draft.openObservedOn !== undefined && (typeof draft.opened !== 'boolean' || draft.channel !== 'Почта' || !calendarDate(draft.openObservedOn) || draft.openObservedOn < draft.date || draft.openObservedOn > today)) return fail('Проверьте дату измерения открытия письма.');
+  if (draft.participantIds?.some(id => !people.has(id))) return fail('Участник встречи не принадлежит текущему клиенту.');
   const evidence = draft.evidence;
   if (change && !evidence) return fail('Для изменения роли или связи нужен источник наблюдения.');
   if (evidence) {
@@ -51,11 +52,22 @@ export function prepareInteraction(data: CRMData, companyId: string, draft: Inte
   } else if (change && change.kind !== 'role') return fail('Неизвестное изменение наблюдения.');
   const interactionId = crypto.randomUUID();
   // Explicit fields prevent untrusted input from replacing generated IDs or metadata.
-  const interaction = { id: interactionId, personId: draft.personId, date: draft.date, channel: draft.channel, ourOwner: draft.ourOwner, ourDepartment: draft.ourDepartment, summary: draft.summary, sentiment: draft.sentiment, ...(draft.opened === undefined ? {} : { opened: draft.opened }), ...(draft.openObservedOn ? { openObservedOn: draft.openObservedOn } : {}), ...(evidence ? { evidence: { ...structuredClone(evidence), ...(evidence.mentionedPersonIds ? { mentionedPersonIds: [...new Set(evidence.mentionedPersonIds)] } : {}) } } : {}) };
+  const interaction = { id: interactionId, personId: draft.personId, date: draft.date, channel: draft.channel, ourOwner: draft.ourOwner, ourDepartment: draft.ourDepartment, summary: draft.summary, ...(draft.participantIds ? {participantIds:[...new Set(draft.participantIds)]} : {}), sentiment: draft.sentiment, ...(draft.opened === undefined ? {} : { opened: draft.opened }), ...(draft.openObservedOn ? { openObservedOn: draft.openObservedOn } : {}), ...(evidence ? { evidence: { ...structuredClone(evidence), ...(evidence.mentionedPersonIds ? { mentionedPersonIds: [...new Set(evidence.mentionedPersonIds)] } : {}) } } : {}) };
   const updatedPeople = data.people.map(person => change?.kind === 'role' && person.id === change.personId ? { ...person, decisionRole: change.role } : person);
   const changedPerson = change?.kind === 'role' ? updatedPeople.find(person => person.id === change.personId) : undefined;
+  const subjectType = change?.kind === 'role' ? 'person' as const : 'relation' as const;
+  const subjectId = change?.kind === 'role' ? change.personId : change?.relationId;
+  const field = change?.kind === 'role' ? 'role' as const : 'strength' as const;
+  const before = change?.kind === 'role' ? people.get(change.personId)?.decisionRole : data.relations.find(r => r.id === subjectId)?.strength;
+  const after = change?.kind === 'role' ? change.role : change?.strength;
+  const changed = change && subjectId && before !== undefined && after !== undefined && before !== after;
+  const ratingBases = changed ? [...(data.ratingBases ?? []).filter(b => !(b.subjectType === subjectType && b.subjectId === subjectId && b.field === field)), {id:crypto.randomUUID(),subjectType,subjectId,field,value:after,authorId:draft.ourOwner,date:today,rationale:'',sourceIds:[interactionId]}] : data.ratingBases;
+  const ratingChanges = changed ? [...(data.ratingChanges ?? []), {id:crypto.randomUUID(),subjectType,subjectId,field,before,after,authorId:draft.ourOwner,date:today}] : data.ratingChanges;
   const next: CRMData = {
     ...data,
+    ...(ratingBases ? {ratingBases} : {}),
+    ...(ratingChanges ? {ratingChanges} : {}),
+    ...(change?.kind === 'role' && change.role === 'decision_maker' ? {candidateResolutions:[...(data.candidateResolutions??[]).filter(x=>x.personId!==change.personId),{personId:change.personId,status:'confirmed' as const}]} : {}),
     people: updatedPeople,
     relations: data.relations.map(relation => change?.kind === 'relation-strength' && relation.id === change.relationId ? { ...relation, strength: change.strength } : relation),
     interactions: [...data.interactions, interaction],
