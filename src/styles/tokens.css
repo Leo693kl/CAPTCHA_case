@@ -101,6 +101,7 @@
   --control-height: 34px;
   --node-label-width: 102px;
   --node-detail-width: 176px;
+  --node-label-anchor: 78px;
   --group-radius: 22px;
   --chart-month-width: 28px;
   --chart-plot-height: 128px;

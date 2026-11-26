@@ -3,7 +3,7 @@ import './styles/group-layout.css';
 import { CommunicationOverview } from './components/CommunicationOverview';
 import { findCandidates } from './lib/candidates';
 import { RatingEvidence } from './components/RatingEvidence';
-import { memo, useState, useEffect, useMemo, useRef, useCallback, type CSSProperties } from 'react';
+import { memo, useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback, type CSSProperties, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { ReactFlow, ViewportPortal, useReactFlow, useUpdateNodeInternals, useViewport, type Node, type Edge, type NodeProps, Handle, Position, BaseEdge, getBezierPath, type EdgeProps } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { create } from 'zustand';
@@ -70,15 +70,39 @@ function Radar({people,radii,radarExtent,labels}:{people:Person[];radii:number[]
  {departments.map((dep,i)=>{const a=(-120+i*60)*Math.PI/180, b=a+Math.PI/3, mid=(a+b)/2; const start=point(a,outer),end=point(b,outer);const empty=!people.some(p=>p.department===dep);const wedge=`M 0 0 L ${start.x} ${start.y} A ${outer} ${outer} 0 0 1 ${end.x} ${end.y} Z`;return <g key={dep}><path d={wedge} fill={i%2?'var(--bg-0)':'var(--bg-1)'} fillOpacity=".25"/><path d={wedge} fill={empty?'url(#empty-hatch)':'none'} stroke={empty?'var(--border-strong)':'none'} strokeDasharray={empty?'4 4':undefined}/><line x1="0" y1="0" x2={start.x} y2={start.y} stroke="var(--border)" strokeOpacity=".6"/><text className="sector-label" x={Math.cos(mid)*(outer+24)} y={Math.sin(mid)*(outer+24)} textAnchor="middle">{dep}</text>{empty&&<text className="empty-sector-label" x={Math.cos(mid)*outer*.68} y={Math.sin(mid)*outer*.68} textAnchor="middle">Нет контактов</text>}</g>})}
  {radii.map((r,i)=><g key={r}><circle className={i===radii.length-1?"radar-ring radar-ring-outer":"radar-ring"} r={r} fill="none"/><text className="ring-label" x={-r} y={-8} textAnchor="middle">{labels[i]==='ЛПР'?'ЛПР':labels[i].toLocaleLowerCase('ru-RU')}</text></g>)}</svg>
 }
-function MapReadingScale(){
- const {zoom}=useViewport();
+function fitNodeLabels(area:HTMLElement){
+ const viewport=area.getBoundingClientRect();
+ if(!viewport.width||!viewport.height)return;
+ const inset=parseFloat(getComputedStyle(area).getPropertyValue('--space-2'));
+ const labels=area.querySelectorAll<HTMLElement>('.person-wrap:is(.selected,:hover,:focus-within) .node-name');
+ for(const label of labels){
+  label.removeAttribute('data-above-node');
+  label.style.removeProperty('--label-shift-x');
+  label.style.removeProperty('--label-shift-y');
+  const anchor=label.parentElement?.querySelector('.person-hit')?.getBoundingClientRect();
+  if(!anchor||anchor.right<viewport.left||anchor.left>viewport.right||anchor.bottom<viewport.top||anchor.top>viewport.bottom)continue;
+  let bounds=label.getBoundingClientRect();
+  if(bounds.bottom>viewport.bottom-inset&&anchor.top-viewport.top>viewport.bottom-anchor.bottom){
+   label.setAttribute('data-above-node','');
+   bounds=label.getBoundingClientRect();
+  }
+  const shiftX=Math.max(0,viewport.left+inset-bounds.left)-Math.max(0,bounds.right-viewport.right+inset);
+  const shiftY=Math.max(0,viewport.top+inset-bounds.top)-Math.max(0,bounds.bottom-viewport.bottom+inset);
+  label.style.setProperty('--label-shift-x',`${shiftX}px`);
+  label.style.setProperty('--label-shift-y',`${shiftY}px`);
+ }
+}
+function MapReadingScale({selected,hovered,focused}:{selected:string|null;hovered:string|null;focused:string|null}){
+ const {zoom,x,y}=useViewport();
  useEffect(()=>{
   const area=document.querySelector<HTMLElement>('.map-area');
   if(!area)return;
   area.style.setProperty('--map-zoom',String(zoom));
   const nameWidth=parseFloat(getComputedStyle(area).getPropertyValue('--node-label-width'));
   area.toggleAttribute('data-compact-group-labels',groupGeometry.slotWidth*zoom<nameWidth);
- },[zoom]);
+  const frame=requestAnimationFrame(()=>fitNodeLabels(area));
+  return()=>cancelAnimationFrame(frame);
+ },[zoom,x,y,selected,hovered,focused]);
  return null;
 }
 type GroupBounds = Pick<ReturnType<typeof planGroups>, 'halfWidth' | 'halfHeight'>;
@@ -138,11 +162,25 @@ function usePresenceNodes(nodes:Node[]):Node[]{
  useEffect(()=>{previous.current=nodes;setExiting(removed);if(!removed.length)return;const timer=setTimeout(()=>setExiting([]),320);return()=>clearTimeout(timer);},[ids]);
  const retained=new Map([...exiting,...removed].filter(node=>!present.has(node.id)).map(node=>[node.id,node]));return [...nodes,...retained.values()];
 }
+function keepDialogFocus(event:ReactKeyboardEvent<HTMLElement>){
+ if(event.key!=='Tab')return;
+ const stops=Array.from(event.currentTarget.querySelectorAll<HTMLElement>(
+  'button:not(:disabled), a[href], summary, input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]',
+ )).filter(element=>element.tabIndex>=0&&element.getClientRects().length>0&&
+  !element.closest('details:not([open]) > :not(summary)'));
+ const first=stops[0],last=stops.at(-1);
+ if(event.shiftKey&&document.activeElement===first){
+  event.preventDefault();last?.focus();
+ }else if(!event.shiftKey&&document.activeElement===last){
+  event.preventDefault();first?.focus();
+ }
+}
 function App(){const {data,setData}=useStore(); const [companyId,setCompany]=useState(()=>{const id=new URLSearchParams(location.search).get('company');return id&&['bank','retail','industry'].includes(id)?id:'bank'}); const [view,setView]=useState<'map'|'incoming'|'integration'>('map'); const [tourStep,setTourStep]=useState<number|null>(null); const [shortcutsOpen,setShortcutsOpen]=useState(false); const returnFocus=useRef<HTMLElement|null>(null); const tourBefore=useRef<{view:'map'|'incoming'|'integration';lens:Lens;expanded:boolean;sidebarPreference:boolean|null}|null>(null); const panelCloseRef=useRef<HTMLButtonElement>(null); const mapRef=useRef<HTMLDivElement>(null); const panelOpener=useRef<HTMLElement|null>(null); const [briefOpen,setBriefOpen]=useState(false); const [historyDate,setHistoryDate]=useState<string|null>(null); const [pathTarget,setPathTarget]=useState(''); const [ghostId,setGhostId]=useState<string|null>(null); const [lens,setLens]=useState<Lens>('decisions'); const [mapLayout,setMapLayout]=useState<'orbit'|'group'>(()=>{try{return localStorage.getItem('decision-radar-layout')==='group'?'group':'orbit'}catch{return 'orbit'}}); const [showCoverage,setShowCoverage]=useState(false); const [mapTool,setMapTool]=useState<MapTool|null>(null); const [selected,setSelected]=useState<string|null>(null); const [relationId,setRelation]=useState<string|null>(null); const [editing,setEditing]=useState(false); const [relationEditing,setRelationEditing]=useState(false); const [filter,setFilter]=useState(emptyFilter); const [busy,setBusy]=useState(false); const [modal,setModal]=useState<'delete'|'reset'|'relation'|null>(null); const [toast,setToast]=useState(''); const [centerId,setCenterId]=useState<string|null>(null); const [switching,setSwitching]=useState(false); const [pendingCount,setPendingCount]=useState(0); useEffect(()=>{if(!toast)return;const timer=setTimeout(()=>setToast(''),4000);return()=>clearTimeout(timer)},[toast]);
  const [storageNotice,setStorageNotice]=useState('');
  const [writeError,setWriteError]=useState('');const persisting=useRef(false);
  useEffect(()=>{crmApi.load(setStorageNotice).then(setData)},[setData]);
  const [desktop,setDesktop]=useState(()=>window.matchMedia('(min-width: 901px)').matches);
+ const [compact,setCompact]=useState(()=>window.matchMedia('(max-width: 560px)').matches);
  const [sidebarPreference,setSidebarPreference]=useState<boolean|null>(null);
  const [graphExpanded,setGraphExpanded]=useState(false);
  const [showAllEdges,setShowAllEdges]=useState(false);
@@ -151,10 +189,16 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
 
  const sidebarOpen=sidebarPreference??desktop;
  useEffect(()=>{
-  const media=window.matchMedia('(min-width: 901px)');
-  const update=(event:MediaQueryListEvent)=>setDesktop(event.matches);
-  media.addEventListener('change',update);
-  return()=>media.removeEventListener('change',update);
+  const desktopQuery=window.matchMedia('(min-width: 901px)');
+  const compactQuery=window.matchMedia('(max-width: 560px)');
+  const updateDesktop=(event:MediaQueryListEvent)=>setDesktop(event.matches);
+  const updateCompact=(event:MediaQueryListEvent)=>setCompact(event.matches);
+  desktopQuery.addEventListener('change',updateDesktop);
+  compactQuery.addEventListener('change',updateCompact);
+  return()=>{
+   desktopQuery.removeEventListener('change',updateDesktop);
+   compactQuery.removeEventListener('change',updateCompact);
+  };
  },[]);
  const toggleSidebar=(open:boolean)=>{
   setSidebarPreference(open);
@@ -236,15 +280,23 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
  const neighborhood=useMemo(()=>getHoverNeighborhood(hoverActive?activeContact:null,relations),[hoverActive,activeContact,relations]);
  const filterSignature=JSON.stringify(filter); const previousFilter=useRef(filterSignature);
  useEffect(()=>{if(previousFilter.current===filterSignature)return;previousFilter.current=filterSignature;const map=mapRef.current;if(!map)return;const eligible=new Set(people.filter(p=>path?pathNodes.has(p.id):matches(p)).map(p=>p.id));const targets=Array.from(map.querySelectorAll<HTMLElement>('.react-flow__node')).filter(node=>eligible.has(node.dataset.id??'')).flatMap(node=>{const wrap=node.querySelector<HTMLElement>('.person-wrap');return wrap?[wrap]:[]});targets.forEach(node=>node.classList.remove('filter-flash'));const frame=requestAnimationFrame(()=>targets.forEach(node=>node.classList.add('filter-flash')));const timer=setTimeout(()=>targets.forEach(node=>node.classList.remove('filter-flash')),320);return()=>{cancelAnimationFrame(frame);clearTimeout(timer);targets.forEach(node=>node.classList.remove('filter-flash'))}},[filterSignature]);
- const selectPerson=useCallback((id:string)=>{panelOpener.current=document.activeElement instanceof HTMLElement?document.activeElement:null;setSourceId(null);setCenterId(id);setSelected(id);setRelation(null);setGhostId(null);setBriefOpen(false);setEditing(false)},[]);
+ const rememberPanelOpener=useCallback(()=>{
+  const active=document.activeElement;
+  if(active instanceof HTMLElement&&!panelCloseRef.current?.parentElement?.contains(active))panelOpener.current=active;
+ },[]);
+ const selectPerson=useCallback((id:string)=>{
+  rememberPanelOpener();
+  setSourceId(null);setCenterId(id);setSelected(id);setRelation(null);setGhostId(null);
+  setBriefOpen(false);setEditing(false);setRelationEditing(false);
+ },[rememberPanelOpener]);
  const orderedForEntrance=[...people].sort((a,b)=>departments.indexOf(a.department)-departments.indexOf(b.department));const entranceOrder=new Map(orderedForEntrance.map((person,index)=>[person.id,Math.min(index*10,400)]));
  const personNodes:PersonNode[]=people.map(p=>({id:p.id,type:'person',className:neighborhood.nodes.has(p.id)?'hover-connected':undefined,initialWidth:100,initialHeight:100,position:{x:positions[p.id].x-50,y:positions[p.id].y-50},data:{person:p,candidate:activeCandidates.some(candidate=>candidate.personId===p.id),hypothesisLabel:lens==='decisions'&&activeCandidates.some(candidate=>candidate.personId===p.id),color:colors[p.warmth-1]??colors[0],category:lensOptions[lens].rings[getRing(p)],conflict:conflicts.get(p.id)??[],dim:path?!pathNodes.has(p.id):!matches(p),onPath:pathNodes.has(p.id),isTarget:path?.target===p.id,entranceDelay:entranceOrder.get(p.id)??0,selected:p.id===selected,onSelect:selectPerson,onHover:setHoveredContact,onFocusContact:setFocusedContact},draggable:false}));
  const openMissingRole=(id:string)=>{
-  panelOpener.current=document.activeElement instanceof HTMLElement?document.activeElement:null;
+  rememberPanelOpener();
   setGhostId(id);setSelected(null);setRelation(null);setEditing(false);setRelationEditing(false);
  };
  const ghostNodes:GhostNode[]=missing.map(role=>({id:'ghost-'+role.id,type:'ghost',initialWidth:160,initialHeight:110,position:{x:positions['ghost-'+role.id].x-80,y:positions['ghost-'+role.id].y-55},data:{role,onFind:openMissingRole},draggable:false})); const nodes:Node[]=[...personNodes,...ghostNodes]; const animatedNodes=useAnimatedNodes(nodes,mapLayout); const visibleNodes=usePresenceNodes(animatedNodes);
- const openRelation=(id:string)=>{setCenterId(null);setSourceId(null);panelOpener.current=document.activeElement instanceof HTMLElement?document.activeElement:null;setRelation(id);setSelected(null);setGhostId(null);setEditing(false);setRelationEditing(false);setBriefOpen(false)};
+ const openRelation=(id:string)=>{setCenterId(null);setSourceId(null);rememberPanelOpener();setRelation(id);setSelected(null);setGhostId(null);setEditing(false);setRelationEditing(false);setBriefOpen(false)};
  const edges:Edge[]=relations.filter(r=>showAllEdges||neighborhood.edges.has(r.id)||pathEdges.has(r.id)).map(r=>({id:r.id,source:r.from,target:r.to,type:'relation',focusable:true,ariaRole:'button',domAttributes:{onKeyDown:event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openRelation(r.id)}}},ariaLabel:`Связь: ${people.find(p=>p.id===r.from)?.name??r.from} — ${people.find(p=>p.id===r.to)?.name??r.to}, ${relationTypes[r.type]}`,className:[pathEdges.has(r.id)?'path-highlight':'',neighborhood.edges.has(r.id)?'hover-connected':'',!pathEdges.has(r.id)&&(relationId===r.id||selected===r.from||selected===r.to)?'map-edge-active':''].filter(Boolean).join(' '),style:{stroke:pathEdges.has(r.id)?'var(--brand-green)':relationId===r.id?'var(--brand-sky)':mapLayout==='group'?'var(--map-line)':'url(#relation-gradient)',strokeWidth:pathEdges.has(r.id)?3:1+(r.strength-1)*.75,strokeDasharray:pathEdges.has(r.id)?'8 6':r.type==='informal'?'4 4':undefined,opacity:path?(pathEdges.has(r.id)?1:.3):.75}}));
  const persist=async(next:CRMData):Promise<boolean>=>{if(!data||persisting.current)return false;persisting.current=true;setWriteError('');try{await crmApi.saveRatingEvidence(next,data,setData);return true}catch(error){setWriteError(error instanceof Error?error.message:'Не удалось сохранить изменения в браузере. Повторите сохранение.');return false}finally{persisting.current=false}};
  const savePerson=async(p:Person,meta:RatingMeta)=>{if(!data)return; const ratings=recordRatings(data,'person',p.id,person ? {influence:person.influence,stance:person.stance,warmth:person.warmth,role:person.decisionRole} : {},{influence:p.influence,stance:p.stance,warmth:p.warmth,role:p.decisionRole},meta,today); const candidateResolutions=p.decisionRole==='decision_maker'&&person?.decisionRole!=='decision_maker'?[...(data.candidateResolutions??[]).filter(x=>x.personId!==p.id),{personId:p.id,status:'confirmed' as const}]:data.candidateResolutions; if(!await persist({...data,...ratings,candidateResolutions,people:data.people.some(x=>x.id===p.id)?data.people.map(x=>x.id===p.id?p:x):[...data.people,p],snapshots:[...data.snapshots,{personId:p.id,date:today,person:structuredClone(p)}]}))return;setToast('Контакт сохранён');setSelected(p.id);setEditing(false);setConfirmCandidate(false)};
@@ -289,13 +341,31 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
   setBriefOpen(false);setSelected(null);setRelation(null);setGhostId(null);
   setEditing(false);setRelationEditing(false);setPathTarget('');
  };
- const closePanel=()=>{setWriteError('');setCenterId(null);setSourceId(null);sourceReturn.current=null;setSelected(null);setRelation(null);setGhostId(null);setEditing(false);setRelationEditing(false);setBriefOpen(false);requestAnimationFrame(()=>panelOpener.current?.focus())};
+ const panelOpen=Boolean(sourceId||selected||ghostId||editing||relationId||relationEditing);
+ const mobilePanel=compact&&view==='map'&&panelOpen&&!graphExpanded;
+ const mobileMapTool=compact&&view==='map'&&Boolean(mapTool)&&!graphExpanded&&tourStep===null&&!mobilePanel;
+ const mobileSidebar=compact&&view==='map'&&sidebarOpen&&!graphExpanded&&tourStep===null&&!mobilePanel&&!mobileMapTool;
+ const closePanel=()=>{
+  const opener=sourceReturn.current?.opener??panelOpener.current;
+  setWriteError('');setCenterId(null);setSourceId(null);sourceReturn.current=null;
+  setSelected(null);setRelation(null);setGhostId(null);setEditing(false);setRelationEditing(false);setBriefOpen(false);
+  requestAnimationFrame(()=>{
+   const target=opener?.isConnected?opener:document.getElementById('map-tab');
+   target?.focus({preventScroll:true});
+  });
+ };
  const applyTourStep=(step:number)=>{setView('map');if(step===0)setLens(tourBefore.current?.lens??'decisions');else if(step===1)setLens('marketing');else if(step===4)setLens('risks');setTourStep(step)};
  const startTour=()=>{setSourceId(null);returnFocus.current=document.activeElement instanceof HTMLElement?document.activeElement:null;tourBefore.current={view,lens,expanded:graphExpanded,sidebarPreference};setGraphExpanded(false);setSidebarPreference(true);setSelected(null);setRelation(null);setGhostId(null);setEditing(false);setRelationEditing(false);setBriefOpen(false);setShortcutsOpen(false);applyTourStep(0)};
  const closeTour=()=>{setTourStep(null);if(tourBefore.current){setView(tourBefore.current.view);setLens(tourBefore.current.lens);setGraphExpanded(tourBefore.current.expanded);setSidebarPreference(tourBefore.current.sidebarPreference)}requestAnimationFrame(()=>{const target=returnFocus.current?.isConnected?returnFocus.current:document.getElementById('demo-button');target?.focus()})};
  const openShortcuts=()=>{returnFocus.current=document.activeElement instanceof HTMLElement?document.activeElement:null;setShortcutsOpen(true)};
  const closeShortcuts=()=>{setShortcutsOpen(false);requestAnimationFrame(()=>returnFocus.current?.focus())};
- useEffect(()=>{if(!sourceId&&view==='map'&&(selected||ghostId||relationId||editing||relationEditing))panelCloseRef.current?.focus()},[view,selected,ghostId,relationId,editing,relationEditing,sourceId]);
+ useLayoutEffect(()=>{
+  if(view!=='map')return;
+  const close=panelCloseRef.current;
+  const panel=close?.parentElement;
+  if(panel)panel.scrollTop=0;
+  if(!sourceId&&panelOpen)close?.focus({preventScroll:true});
+ },[view,selected,ghostId,relationId,editing,relationEditing,briefOpen,sourceId,panelOpen]);
  useEffect(()=>{
   const handle=(event:KeyboardEvent)=>{
    if(event.defaultPrevented||tourStep!==null||shortcutsOpen||modal||!data)return;
@@ -307,8 +377,10 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
      requestAnimationFrame(()=>document.getElementById('expand-graph')?.focus());
      return;
     }
+    if(view==='map'&&mobilePanel){event.preventDefault();closePanel();return}
+    if(mobileSidebar){event.preventDefault();toggleSidebar(false);return}
     if(view==='map'&&mapTool){event.preventDefault();closeMapTool();return}
-    if(selected||ghostId||relationId||editing||relationEditing){event.preventDefault();closePanel();return}
+    if(view==='map'&&panelOpen){event.preventDefault();closePanel();return}
     if(showCoverage){event.preventDefault();setShowCoverage(false);return}
    }
    if(typing)return;
@@ -325,7 +397,7 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
   };
   window.addEventListener('keydown',handle);
   return()=>window.removeEventListener('keydown',handle);
- },[view,lens,tourStep,shortcutsOpen,modal,data,selected,ghostId,relationId,editing,relationEditing,showCoverage,graphExpanded,sidebarPreference,mapTool]);
+ },[view,lens,tourStep,shortcutsOpen,modal,data,selected,ghostId,relationId,editing,relationEditing,showCoverage,graphExpanded,sidebarPreference,mapTool,panelOpen,mobilePanel,mobileSidebar,sourceId]);
  if(!data||!company||!slice)return <LoadingSkeleton/>;
  const sharedProps={slice,companyId,onSaveInteraction,onOpenSource:openSource,selectedPersonId:selected,initialPersonId:entryPerson,highlightedInteractionId:sourceId,today};
  const timeline=interactions.filter(i=>i.personId===selected).sort((a,b)=>b.date.localeCompare(a.date)); const owners=[...new Set(people.map(p=>p.owner))];
@@ -355,22 +427,23 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
    </details>}
   </details>
  </>;
- return <div className="app redesign-app" data-view={view}><header className="topbar surround-header">
- <div className="app-wordmark">Карта ЛПР <small>Клоднусоурсники</small></div>
- <Select className="header-company" aria-label="Выбрать клиента" value={companyId} onChange={e=>changeCompany(e.target.value)}>{data.companies.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</Select>
- <nav className="header-nav" aria-label="Разделы приложения"><Button variant="ghost" aria-current={view==='map'?'page':undefined} onClick={()=>setView('map')}>Карта</Button><Button variant="ghost" aria-current={view==='incoming'?'page':undefined} onClick={()=>setView('incoming')}>Входящие {pendingCount>0&&<Badge className="pending-count">{pendingCount}</Badge>}</Button><Button variant="ghost" aria-current={view==='integration'?'page':undefined} onClick={()=>setView('integration')}>CRM</Button></nav>
+ return <div className="app redesign-app" data-view={view}><header className="topbar surround-header" inert={mobilePanel||mobileMapTool||mobileSidebar}>
+ <div className="header-identity"><div className="app-wordmark">Карта ЛПР <small>Клоднусоурсники</small></div>
+ <Select className="header-company" aria-label="Выбрать клиента" value={companyId} onChange={e=>changeCompany(e.target.value)}>{data.companies.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</Select></div>
+ <nav className="header-nav" aria-label="Разделы приложения"><Button id="map-tab" variant="ghost" aria-current={view==='map'?'page':undefined} onClick={()=>setView('map')}>Карта</Button><Button variant="ghost" aria-current={view==='incoming'?'page':undefined} onClick={()=>setView('incoming')}>Входящие {pendingCount>0&&<Badge className="pending-count">{pendingCount}</Badge>}</Button><Button variant="ghost" aria-current={view==='integration'?'page':undefined} onClick={()=>setView('integration')}>CRM</Button></nav>
  <Button variant="ghost" id="demo-button" onClick={startTour}>Демо</Button><Button variant="ghost" aria-label="Горячие клавиши" onClick={openShortcuts}>?</Button><CoveragePopover coverage={coverage} open={showCoverage} onToggle={()=>setShowCoverage(!showCoverage)}/>
  </header>
- {storageNotice&&<p className="success-note" role="status">{storageNotice}</p>}<main hidden={view!=='map'} className="map-main" data-sidebar-open={sidebarOpen} data-graph-expanded={graphExpanded}>
- <aside id="map-sidebar" className="map-sidebar" aria-label="Легенда и фильтры" hidden={!sidebarOpen||graphExpanded}>
+ {storageNotice&&<p className="success-note" role="status">{storageNotice}</p>}<main hidden={view!=='map'} inert={mobilePanel} className="map-main" data-sidebar-open={sidebarOpen} data-graph-expanded={graphExpanded}>
+ <aside id="map-sidebar" className="map-sidebar" aria-label="Легенда и фильтры" hidden={!sidebarOpen||graphExpanded} inert={mobileMapTool}
+ role={mobileSidebar?'dialog':undefined} aria-modal={mobileSidebar||undefined} onKeyDown={mobileSidebar?keepDialogFocus:undefined}>
   <div className="map-sidebar-toolbar"><Button id="collapse-map-sidebar" variant="ghost" aria-controls="map-sidebar" aria-expanded={true} onClick={()=>toggleSidebar(false)}><PanelLeftClose size={16} strokeWidth={1.75} aria-hidden="true"/>Свернуть</Button></div>
   <MapLegend lens={mapLayout==='orbit'?lens:undefined}/><FilterPanel filter={filter} onChange={setFilter} owners={owners} shown={people.filter(matches).length} total={people.length}/>
  <details className="map-settings"><summary>Настройки</summary><p>Данные для демонстрации</p><Button variant="ghost" onClick={()=>{const enabled=!demoMode;setDemoMode(enabled);setHistoryDate(null);setSourceId(null);setSelected(null);setRelation(null);setEditing(false);setRelationEditing(false);setEntryVersion(value=>value+1);const url=new URL(location.href);if(enabled)url.searchParams.set('demo','2026-11-19');else url.searchParams.delete('demo');window.history.replaceState(null,'',url)}}>{demoMode?'Использовать текущую дату':'Демодата 19.11.2026'}</Button><Button variant="ghost" disabled={busy} onClick={()=>setModal('reset')}>Сбросить к данным CRM</Button></details></aside>
- <section className="workspace" aria-label="Карта связей"><div className="workspace-head"><div className="workspace-heading">
+ <section className="workspace" aria-label="Карта связей" inert={mobileSidebar}><div className="workspace-head" inert={mobileMapTool}><div className="workspace-heading">
  {!sidebarOpen&&<Button id="open-map-sidebar" variant="ghost" aria-expanded={false} aria-controls="map-sidebar" onClick={()=>toggleSidebar(true)}><PanelLeftOpen size={16} strokeWidth={1.75} aria-hidden="true"/>Легенда и фильтры</Button>}
- <h1>Карта связей <span className="count">{people.length}</span></h1></div><div className="actions"><Button disabled={historical} data-tour="observation-entry" onClick={openEntry}>Добавить наблюдение</Button><Button disabled={historical||people.length<2} title={people.length<2?'Для связи нужны два контакта':historical?'Редактирование доступно на текущей карте':undefined} onClick={()=>{panelOpener.current=document.activeElement instanceof HTMLElement?document.activeElement:null;setSourceId(null);setSelected(null);setRelation(null);setGhostId(null);setRelationEditing(true)}}><Plus size={15} strokeWidth={1.75} aria-hidden="true"/>Связь</Button><Button disabled={historical} title={historical?'Редактирование доступно на текущей карте':undefined} onClick={()=>{panelOpener.current=document.activeElement instanceof HTMLElement?document.activeElement:null;setSourceId(null);setSelected(null);setRelation(null);setGhostId(null);setEditing(true)}}><Plus size={15} strokeWidth={1.75} aria-hidden="true"/>Контакт</Button></div></div>
- <div className="layout-switch"><SegmentedControl label="Вид карты" value={mapLayout} options={[{value:'orbit',label:'Орбиты'},{value:'group',label:'По подразделениям'}]} onChange={value=>{setMapLayout(value);try{localStorage.setItem('decision-radar-layout',value)}catch{/* Вид остаётся доступен в текущем сеансе. */}}}/></div><div className="lens-bar"><div data-tour="lenses"><SegmentedControl label="Линза карты" value={lens} options={(Object.keys(lensOptions) as Lens[]).map(value=>({value,label:lensOptions[value].label}))} onChange={setLens}/></div></div>
- <div className="map-tool-bar" role="group" aria-label="Инструменты карты">
+ <h1>Карта связей <span className="count">{people.length}</span></h1></div><div className="actions"><Button disabled={historical} data-tour="observation-entry" onClick={openEntry}>Добавить наблюдение</Button><Button disabled={historical||people.length<2} title={people.length<2?'Для связи нужны два контакта':historical?'Редактирование доступно на текущей карте':undefined} onClick={()=>{rememberPanelOpener();setSourceId(null);setSelected(null);setRelation(null);setGhostId(null);setRelationEditing(true)}}><Plus size={15} strokeWidth={1.75} aria-hidden="true"/>Связь</Button><Button disabled={historical} title={historical?'Редактирование доступно на текущей карте':undefined} onClick={()=>{rememberPanelOpener();setSourceId(null);setSelected(null);setRelation(null);setGhostId(null);setEditing(true)}}><Plus size={15} strokeWidth={1.75} aria-hidden="true"/>Контакт</Button></div></div>
+ <div className="layout-switch" inert={mobileMapTool}><SegmentedControl label="Вид карты" value={mapLayout} options={[{value:'orbit',label:'Орбиты'},{value:'group',label:'По подразделениям'}]} onChange={value=>{setMapLayout(value);try{localStorage.setItem('decision-radar-layout',value)}catch{/* Вид остаётся доступен в текущем сеансе. */}}}/></div><div className="lens-bar" inert={mobileMapTool}><div data-tour="lenses"><SegmentedControl label="Линза карты" value={lens} options={(Object.keys(lensOptions) as Lens[]).map(value=>({value,label:lensOptions[value].label}))} onChange={setLens}/></div></div>
+ <div className="map-tool-bar" inert={mobileMapTool} role="group" aria-label="Инструменты карты">
   {(Object.keys(mapTools) as MapTool[]).map(tool=>{
    const {label,icon:Icon}=mapTools[tool];
    return <Button key={tool} id={`map-tool-${tool}`} variant="ghost" aria-expanded={mapTool===tool&&!graphExpanded}
@@ -382,7 +455,7 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
   })}
  </div>
  <div className="map-stage">
-  <section id="map-tool-panel" className="map-tool-panel" aria-labelledby="map-tool-title" hidden={!mapTool||graphExpanded||tourStep!==null}>
+  <section id="map-tool-panel" className="map-tool-panel" role={mobileMapTool?'dialog':undefined} aria-modal={mobileMapTool||undefined} onKeyDown={mobileMapTool?keepDialogFocus:undefined} aria-labelledby="map-tool-title" hidden={!mapTool||graphExpanded||tourStep!==null}>
    {mapTool&&<><header className="map-tool-heading">
     <h2 id="map-tool-title">{mapTools[mapTool].label}</h2>
     <IconButton id="close-map-tool" variant="ghost" aria-label={`Закрыть: ${mapTools[mapTool].label}`} onClick={closeMapTool}>
@@ -397,7 +470,7 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
    }}/>}
    </>}
   </section>
- <div className={`map-area${hoverActive?' hover-active':''}`} data-layout={mapLayout} ref={mapRef}>{switching&&<div className="switch-skeleton" role="status" aria-label="Загрузка карты клиента"><Skeleton/><Skeleton/><Skeleton/></div>}{people.length===0?<NoContacts/>:people.filter(matches).length===0?<NoResults onReset={()=>setFilter(emptyFilter)}/>:null}<ReactFlow nodes={visibleNodes} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes} minZoom={0.05} maxZoom={1.5} defaultViewport={{x:0,y:0,zoom:.25}} onEdgeClick={(_,edge)=>openRelation(edge.id)} nodesConnectable={false} elementsSelectable={false} proOptions={{hideAttribution:true}}><MapViewport positions={positions} radarExtent={orbit.radii[orbit.radii.length-1]+140} groupBounds={groupBounds} fitKey={`${companyId}-${lens}-${activeDate}-${people.length}-${mapLayout}`}/><MapReadingScale/><MapControls showAllEdges={showAllEdges} onToggleEdges={()=>setShowAllEdges(value=>!value)} groupBounds={groupBounds} expanded={graphExpanded} onToggleExpanded={()=>{setMapTool(null);setGraphExpanded(value=>!value)}}/><ViewportPortal>{mapLayout==='group'?<div className="group-layer" aria-hidden="true">{groupPlan.zones.map(zone=><div
+ <div className={`map-area${hoverActive?' hover-active':''}`} data-layout={mapLayout} inert={mobileMapTool} ref={mapRef}>{switching&&<div className="switch-skeleton" role="status" aria-label="Загрузка карты клиента"><Skeleton/><Skeleton/><Skeleton/></div>}{people.length===0?<NoContacts/>:people.filter(matches).length===0?<NoResults onReset={()=>setFilter(emptyFilter)}/>:null}<ReactFlow nodes={visibleNodes} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes} minZoom={0.05} maxZoom={1.5} defaultViewport={{x:0,y:0,zoom:.25}} onEdgeClick={(_,edge)=>openRelation(edge.id)} nodesConnectable={false} elementsSelectable={false} proOptions={{hideAttribution:true}}><MapViewport positions={positions} radarExtent={orbit.radii[orbit.radii.length-1]+140} groupBounds={groupBounds} fitKey={`${companyId}-${lens}-${activeDate}-${people.length}-${mapLayout}`}/><MapReadingScale selected={selected} hovered={hoveredContact} focused={focusedContact}/><MapControls showAllEdges={showAllEdges} onToggleEdges={()=>setShowAllEdges(value=>!value)} groupBounds={groupBounds} expanded={graphExpanded} onToggleExpanded={()=>{setMapTool(null);setGraphExpanded(value=>!value)}}/><ViewportPortal>{mapLayout==='group'?<div className="group-layer" aria-hidden="true">{groupPlan.zones.map(zone=><div
  key={zone.department} className={`group-zone ${zone.lowCoverage?'low-coverage':''}`}
  style={{left:zone.x,top:zone.y,width:zone.width,height:zone.height,'--group-header':`${zone.header}px`} as CSSProperties}>
  <header className="group-zone-heading"><strong>{zone.department}</strong><time dateTime={activeDate}>{activeDate.split('-').reverse().join('.')}</time></header>
@@ -406,7 +479,9 @@ function App(){const {data,setData}=useStore(); const [companyId,setCompany]=use
  </main>
  <main id="incoming-workspace" hidden={view==='map'}><div className="feature-company"><label htmlFor="feature-company">Клиент</label><select id="feature-company" value={companyId} onChange={e=>changeCompany(e.target.value)}>{data.companies.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></div><div hidden={view!=='incoming'}><Incoming {...sharedProps} key={`${companyId}-${today}-${entryVersion}`} evidence={{companyId,people:slice.people,relations:slice.relations,saveInteraction:onSaveInteraction,selectedPersonId:entryPerson,asOf:activeDate,disabled:historical,onOpenSaved:openSource,initialChange:entryChange}} people={livePeople} relations={data.relations.filter(r=>r.companyId===companyId)} onAccept={acceptProposal} disabled={historical} onCount={setPendingCount}/></div>{view==='integration'&&<Integration {...sharedProps} key={companyId} data={data} companyId={companyId} companyName={company.name}/>}</main>
 
- {view==='map'&&<aside className={`panel ${sourceId||person||ghost||editing||relation||relationEditing?'':'panel-empty'}`} aria-label="Карточка контакта"><button ref={panelCloseRef} className="close" aria-label="Закрыть панель" onClick={closePanel}>×</button>{writeError&&<p className="proposal-error" role="alert">{writeError}</p>}{sourceId&&interactionSource(slice,sourceId)?<SourceRecord interaction={interactionSource(slice,sourceId)!} slice={slice} onBack={returnFromSource}/>:editing?<PersonForm key={person?.id??'new'} person={person} confirmCandidate={confirmCandidate} candidateSource={currentCandidate?.reasons.find(r=>r.sourceId)?.sourceId} companyId={companyId} records={interactions.filter(i=>i.personId===person?.id||i.id===currentCandidate?.reasons.find(r=>r.sourceId)?.sourceId)} onSave={savePerson} onCancel={()=>{setConfirmCandidate(false);person?setEditing(false):closePanel()}}/>:relationEditing?<RelationForm key={relation?.id??'new'} relation={relation} people={people} companyId={companyId} records={interactions.filter(i=>i.personId===relation?.from||i.personId===relation?.to)} onSave={saveRelation} onCancel={()=>relation?setRelationEditing(false):closePanel()}/>:ghost?<><div className="eyebrow">Отсутствующая роль</div><h2>{ghost.label}</h2><p>{ghost.description}, на карте отсутствует</p><div className="panel-section"><h3>Кого попросить познакомить</h3>{[...people].sort((a,b)=>b.warmth-a.warmth||b.influence-a.influence).slice(0,3).map(candidate=><button className="entry-candidate" key={candidate.id} onClick={()=>{setGhostId(null);setBriefOpen(false);setSelected(candidate.id)}}><strong>{candidate.name}</strong><span>{candidate.department}, теплота {candidate.warmth}/5, влияние {candidate.influence}/5</span></button>)}{people.length===0&&<p className="muted">Нет контактов для рекомендации.</p>}
+ {view==='map'&&<aside className={`panel ${panelOpen?'':'panel-empty'}`} aria-label="Карточка контакта"
+ role={mobilePanel?'dialog':undefined} aria-modal={mobilePanel||undefined}
+ onKeyDown={mobilePanel?keepDialogFocus:undefined}><button ref={panelCloseRef} className="close" aria-label="Закрыть панель" onClick={closePanel}>×</button>{writeError&&<p className="proposal-error" role="alert">{writeError}</p>}{sourceId&&interactionSource(slice,sourceId)?<SourceRecord interaction={interactionSource(slice,sourceId)!} slice={slice} onBack={returnFromSource}/>:editing?<PersonForm key={person?.id??'new'} person={person} confirmCandidate={confirmCandidate} candidateSource={currentCandidate?.reasons.find(r=>r.sourceId)?.sourceId} companyId={companyId} records={interactions.filter(i=>i.personId===person?.id||i.id===currentCandidate?.reasons.find(r=>r.sourceId)?.sourceId)} onSave={savePerson} onCancel={()=>{setConfirmCandidate(false);person?setEditing(false):closePanel()}}/>:relationEditing?<RelationForm key={relation?.id??'new'} relation={relation} people={people} companyId={companyId} records={interactions.filter(i=>i.personId===relation?.from||i.personId===relation?.to)} onSave={saveRelation} onCancel={()=>relation?setRelationEditing(false):closePanel()}/>:ghost?<><div className="eyebrow">Отсутствующая роль</div><h2>{ghost.label}</h2><p>{ghost.description}, на карте отсутствует</p><div className="panel-section"><h3>Кого попросить познакомить</h3>{[...people].sort((a,b)=>b.warmth-a.warmth||b.influence-a.influence).slice(0,3).map(candidate=><button className="entry-candidate" key={candidate.id} onClick={()=>{setGhostId(null);setBriefOpen(false);setSelected(candidate.id)}}><strong>{candidate.name}</strong><span>{candidate.department}, теплота {candidate.warmth}/5, влияние {candidate.influence}/5</span></button>)}{people.length===0&&<p className="muted">Нет контактов для рекомендации.</p>}
  <details className="panel-disclosure"><summary>Как выбраны контакты</summary><p>Сначала тёплые и влиятельные контакты. Связь с нужной ролью ещё предстоит проверить.</p><p>{ghost.id==='ciso'?'Для CISO проверяется должность руководителя ИБ.':ghost.id==='business'?'Для бизнес-заказчика проверяется должность или роль ЛПР в бизнес-подразделении.':'Роль определяется по подразделению.'}</p></details></div></>:person&&briefOpen?<MeetingBrief {...sharedProps} onOpenSource={openSource} person={person} companyName={company.name} initiative={company.initiative} people={people} relations={relations} interactions={interactions} asOf={activeDate} onBack={()=>setBriefOpen(false)}/>:person?<ContactOverview key={person.id} person={person} slice={slice} onOpenSource={openSource} onAdd={openEntry} onSelect={selectPerson} companyIndicators={companyOverview}
  candidateBlock={currentCandidate&&<section className="contact-section candidate-summary">
   <h3>Возможный ЛПР</h3>
