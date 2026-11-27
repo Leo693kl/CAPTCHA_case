@@ -83,7 +83,13 @@
   --type-contact: 28px;
   --type-wordmark: 20px;
   --type-node: 11px;
-  --type-initial: 8px;
+  --type-initial: 10px;
+  --type-initial-compact: 7px;
+  --contact-marker-base: 14px;
+  --contact-marker-step: 2px;
+  --contact-marker-step-compact: 1.5px;
+  --contact-marker-reference-zoom: .17;
+  --contact-hit-compact: 18px;
   --header-height: 56px;
   --sidebar-width: clamp(264px, 17vw, 304px);
   --contact-width: 384px;
@@ -94,6 +100,10 @@
   --type-panel-body: 17px;
   --type-panel-title: 23px;
   --type-panel-contact: 32px;
+  --type-demo-body: 18px;
+  --type-demo-title: 24px;
+  --demo-panel-width: clamp(420px, 35vw, 560px);
+  --demo-tour-width: 520px;
   --map-tool-width: 864px;
   --border-width: 1px;
   --focus-width: 2px;

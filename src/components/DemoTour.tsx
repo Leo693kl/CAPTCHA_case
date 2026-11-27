@@ -5,8 +5,9 @@ const steps = [
   {
     role: 'Карта',
     title: 'Прочитайте легенду',
-    text: 'Размер узла показывает влияние, заливка — теплоту, обводка — позицию. Звезда отмечает ЛПР. Толщина ребра показывает силу связи, пунктир — её тип или маршрут. Откройте легенду для образцов.',
+    text: 'Размер узла показывает влияние, заливка — теплоту, обводка — позицию. Звезда отмечает ЛПР. Образцы узлов и связей доступны по кнопке «Легенда и фильтры».',
     target: '[data-tour="legend"], .map-legend',
+    fallback: '#open-map-sidebar',
   },
   {
     role: 'Маркетинг и производство',
@@ -36,7 +37,7 @@ const steps = [
 ] as const;
 
 export function DemoTour({ step, onStep, onClose }: { step: number; onStep: (step: number) => void; onClose: () => void }) {
-  const [layout, setLayout] = useState<{ rect: DOMRect | null; cardHeight: number }>({ rect: null, cardHeight: 0 });
+  const [layout, setLayout] = useState<{ rect: DOMRect | null; cardHeight: number; cardWidth: number }>({ rect: null, cardHeight: 0, cardWidth: 0 });
   const dialog = useRef<HTMLDivElement>(null);
   const current = steps[step];
   const last = step === steps.length - 1;
@@ -49,7 +50,7 @@ export function DemoTour({ step, onStep, onClose }: { step: number; onStep: (ste
     const card = dialog.current;
     if (!card) return;
 
-    const measure = () => setLayout({ rect: anchor?.getBoundingClientRect() ?? null, cardHeight: card.offsetHeight });
+    const measure = () => setLayout({ rect: anchor?.getBoundingClientRect() ?? null, cardHeight: card.offsetHeight, cardWidth: card.offsetWidth });
     anchor?.scrollIntoView({ block: 'center', behavior: 'instant' });
     measure();
     card.querySelector<HTMLButtonElement>('[data-tour-next]')?.focus({ preventScroll: true });
@@ -66,12 +67,11 @@ export function DemoTour({ step, onStep, onClose }: { step: number; onStep: (ste
     };
   }, [current]);
 
-  const { rect, cardHeight } = layout;
+  const { rect, cardHeight, cardWidth } = layout;
   const inset = 16;
   const gap = 8;
   const viewportWidth = document.documentElement.clientWidth;
   const viewportHeight = document.documentElement.clientHeight;
-  const cardWidth = Math.min(390, viewportWidth - 2 * inset);
   const left = Math.max(0, (rect?.left ?? 0) - gap);
   const top = Math.max(0, (rect?.top ?? 0) - gap);
   const right = Math.min(viewportWidth, (rect?.right ?? 0) + gap);
@@ -109,7 +109,7 @@ export function DemoTour({ step, onStep, onClose }: { step: number; onStep: (ste
     {rect && right > left && bottom > top && <div className="tour-spotlight"
       style={{ left, top, width: right - left, height: bottom - top }} aria-hidden="true"/>}
     <div className="tour-card map-tour-card" ref={dialog} role="dialog" aria-modal="true"
-      aria-labelledby="tour-title" aria-describedby="tour-description" style={{ top: cardTop, left: cardLeft, width: cardWidth }}>
+      aria-labelledby="tour-title" aria-describedby="tour-description" style={{ top: cardTop, left: cardLeft }}>
       <div className="tour-kicker"><span>{current.role}</span><span>{step + 1} / {steps.length}</span></div>
       <h2 id="tour-title">{current.title}</h2>
       <p id="tour-description">{current.text}</p>

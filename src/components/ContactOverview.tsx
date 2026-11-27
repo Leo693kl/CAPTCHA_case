@@ -6,8 +6,8 @@ import { warmthHistory } from '../lib/mapMetrics';
 import { roles, stances, relationTypes, type MapSlice, type Person } from '../types';
 
 const dateLabel=(date:string)=>date.split('-').reverse().join('.');
-export function ContactOverview({person,slice,onOpenSource,onAdd,onSelect,companyIndicators,ratings,children,candidateBlock}:{
- candidateBlock?:ReactNode;person:Person;slice:MapSlice;onOpenSource:(id:string)=>void;onAdd:()=>void;onSelect:(id:string)=>void;companyIndicators:ReactNode;ratings:ReactNode;children:ReactNode;
+export function ContactOverview({person,slice,onOpenSource,onAdd,onSelect,companyIndicators,ratings,children,candidateBlock,guide,showHistory}:{
+ candidateBlock?:ReactNode;guide?:ReactNode;showHistory?:boolean;person:Person;slice:MapSlice;onOpenSource:(id:string)=>void;onAdd:()=>void;onSelect:(id:string)=>void;companyIndicators:ReactNode;ratings:ReactNode;children:ReactNode;
 }){
  const history=slice.interactions.filter(record=>record.personId===person.id).slice().reverse().sort((a,b)=>b.date.localeCompare(a.date));
  const last=history[0],observation=history.find(record=>record.evidence);
@@ -22,6 +22,7 @@ export function ContactOverview({person,slice,onOpenSource,onAdd,onSelect,compan
   <header className="contact-heading"><h2>{person.name}</h2><p className="record-meta"><strong>{roles[person.decisionRole]}</strong><span>{person.department}</span></p><small>{person.title}</small></header>
   <section className="contact-section last-touch" aria-label="Последнее касание"><h3>Последнее касание</h3>{last?<p><CalendarDays size={17} strokeWidth={1.75} aria-hidden="true"/><time dateTime={last.date}>{dateLabel(last.date)}</time><span>{last.channel}</span></p>:<p className="muted">Касаний пока нет</p>}</section>
   <Button className="contact-add" variant="primary" disabled={slice.historical} onClick={onAdd}><Plus size={18} strokeWidth={1.75} aria-hidden="true"/>Добавить наблюдение</Button>
+  {guide}
   {candidateBlock}
   <section className="contact-section communication" aria-label="Как общаться"><h3>Как общаться</h3>
    <dl><div><dt>Теплота отношений</dt><dd><strong className="warmth-rating">{person.warmth}/5</strong></dd></div><div><dt>Позиция</dt><dd>{stances[person.stance]}</dd></div></dl>
@@ -31,7 +32,7 @@ export function ContactOverview({person,slice,onOpenSource,onAdd,onSelect,compan
   <section className="contact-section contact-observation" aria-label="Последнее наблюдение"><h3>{observation?.evidence?.kind==='feedback'?'Обратная связь':observation?'Интервью':'Наблюдения'}</h3>{observation?<><blockquote>{observation.evidence!.sourceExcerpt}</blockquote><Button variant="ghost" className="source-action" onClick={()=>onOpenSource(observation.id)}>Открыть источник<ArrowUpRight size={15} strokeWidth={1.75} aria-hidden="true"/></Button></>:<p className="muted">Подтверждённых наблюдений пока нет.</p>}</section>
   <section className="contact-section contact-related"><h3>Связанные контакты</h3>{linked(links.slice(0,3))}{links.length>3&&<details><summary>Все связанные контакты</summary>{linked(links.slice(3))}</details>}{!links.length&&<p className="muted">Связей пока нет.</p>}</section>
   {ratings}
-  <details className="full-contact"><summary>Полная карточка, история и действия</summary>{children}</details>
+  <details className="full-contact" open={showHistory}><summary>Полная карточка, история и действия</summary>{children}</details>
   <details className="panel-disclosure"><summary>Обзор компании</summary>{companyIndicators}</details>
  </div>;
 }

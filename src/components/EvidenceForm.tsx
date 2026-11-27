@@ -8,20 +8,24 @@ export interface EvidenceFormProps {
  selectedPersonId?: string | null; asOf: string; disabled?: boolean;
  onOpenSaved: (interactionId: string) => void;
  initialChange?: EvidenceChange;
+ initialDraft?: InteractionDraft;
 }
 const newRequestId = () => crypto.randomUUID();
-export function EvidenceForm({companyId, people, relations = [], saveInteraction, selectedPersonId, asOf, disabled, onOpenSaved, initialChange}: EvidenceFormProps) {
- const requestId = useRef(newRequestId());
- const [personId,setPersonId]=useState(selectedPersonId ?? ''); const [date,setDate]=useState(asOf);
- const [kind,setKind]=useState<'interview'|'feedback'>('interview'); const [source,setSource]=useState('');
- const [excerpt,setExcerpt]=useState(''); const [owner,setOwner]=useState(''); const [department,setDepartment]=useState('');
- const [summary,setSummary]=useState(''); const [channel,setChannel]=useState('Встреча'); const [sentiment,setSentiment]=useState('Нейтральная');
- const [mentioned,setMentioned]=useState<string[]>([]); const [format,setFormat]=useState(''); const [topic,setTopic]=useState('');
- const [preferredChannel,setPreferredChannel]=useState('');
- const [initiative,setInitiative]=useState(false); const [resumption,setResumption]=useState(false);
- const [approval,setApproval]=useState(false); const [requestedOn,setRequestedOn]=useState('');
- const [competitor,setCompetitor]=useState(''); const [reason,setReason]=useState(''); const [outcome,setOutcome]=useState<'previous'|'current'|'unknown'>('unknown');
- const [ambiguous,setAmbiguous]=useState<string[]>([]); const [reviewed,setReviewed]=useState(false); const [saving,setSaving]=useState(false);
+export function EvidenceForm({companyId, people, relations = [], saveInteraction, selectedPersonId, asOf, disabled, onOpenSaved, initialChange, initialDraft}: EvidenceFormProps) {
+ const evidence = initialDraft?.evidence;
+ const requestId = useRef(initialDraft?.requestId ?? newRequestId());
+ const [personId,setPersonId]=useState(initialDraft?.personId ?? selectedPersonId ?? ''); const [date,setDate]=useState(initialDraft?.date ?? asOf);
+ const [kind,setKind]=useState<'interview'|'feedback'>(evidence?.kind ?? 'interview'); const [source,setSource]=useState(evidence?.sourceLabel ?? '');
+ const [excerpt,setExcerpt]=useState(evidence?.sourceExcerpt ?? ''); const [owner,setOwner]=useState(initialDraft?.ourOwner ?? ''); const [department,setDepartment]=useState(initialDraft?.ourDepartment ?? '');
+ const [summary,setSummary]=useState(initialDraft?.summary ?? ''); const [channel,setChannel]=useState(initialDraft?.channel ?? 'Встреча'); const [sentiment,setSentiment]=useState(initialDraft?.sentiment ?? 'Нейтральная');
+ const [mentioned,setMentioned]=useState<string[]>(evidence?.mentionedPersonIds ?? []); const [format,setFormat]=useState(evidence?.preferences?.format ?? ''); const [topic,setTopic]=useState(evidence?.preferences?.topics?.join(', ') ?? '');
+ const [preferredChannel,setPreferredChannel]=useState(evidence?.preferences?.channel ?? '');
+ const [initiative,setInitiative]=useState(evidence?.signals?.some(signal=>signal.kind==='initiative') ?? false); const [resumption,setResumption]=useState(evidence?.signals?.some(signal=>signal.kind==='resumption') ?? false);
+ const approvalSignal=evidence?.signals?.find(signal=>signal.kind==='approval');
+ const [approval,setApproval]=useState(Boolean(approvalSignal)); const [requestedOn,setRequestedOn]=useState(approvalSignal?.requestedOn ?? '');
+ const [competitor,setCompetitor]=useState(evidence?.competitor?.name ?? ''); const [reason,setReason]=useState(evidence?.competitor?.reason ?? ''); const [outcome,setOutcome]=useState<'previous'|'current'|'unknown'>(evidence?.competitor?.outcome ?? 'unknown');
+ const [ambiguous,setAmbiguous]=useState<string[]>([]); const [reviewed,setReviewed]=useState(Boolean(initialDraft)); const [saving,setSaving]=useState(false);
+ const [showPreparedFields,setShowPreparedFields]=useState(false);
  const [error,setError]=useState(''); const [saved,setSaved]=useState('');
  const inFlight=useRef(false);
  const [changeKind,setChangeKind]=useState<'none'|'role'|'relation-strength'>(initialChange?.kind ?? 'none');
@@ -52,6 +56,13 @@ export function EvidenceForm({companyId, people, relations = [], saveInteraction
  return <section className="input-card" aria-label="Новое наблюдение"><h2>Интервью или обратная связь</h2>
  {saved ? <><p role="status">Запись сохранена.</p><Button onClick={()=>onOpenSaved(saved)}>Открыть на карте</Button></> : <>
  <fieldset disabled={saving} aria-label="Черновик наблюдения">
+ {initialDraft&&<div className="demo-prepared">
+  <strong>{name(personId)}</strong>
+  <p className="demo-touch"><time dateTime={date}>{date.split('-').reverse().join('.')}</time><span>{channel}</span></p>
+  <p>{summary}</p>
+  <Button variant="ghost" aria-expanded={showPreparedFields} aria-controls="prepared-fields" onClick={()=>setShowPreparedFields(value=>!value)}>Поля наблюдения</Button>
+ </div>}
+ <div id={initialDraft?'prepared-fields':undefined} hidden={Boolean(initialDraft)&&!showPreparedFields}>
  <div className="proposal-fields">
  <label>Контакт<Select value={personId} onChange={e=>setPersonId(e.target.value)}><option value="">Выберите контакт</option>{people.map(p=><option key={p.id} value={p.id}>{p.name} — {p.title} ({p.department})</option>)}</Select></label>
  <label>Дата<Input type="date" value={date} max={asOf} onChange={e=>setDate(e.target.value)}/></label>
@@ -82,7 +93,9 @@ export function EvidenceForm({companyId, people, relations = [], saveInteraction
  <label><input type="checkbox" checked={confirmed} disabled={!change} onChange={e=>setConfirmed(e.target.checked)}/> Подтверждаю эту правку вместе с интервью</label>
  <Button onClick={rejectChange}>Отклонить правку</Button></>}
  </fieldset>
- <Button variant="primary" disabled={disabled||saving} onClick={()=>void save()}>{saving?'Сохраняем…':'Сохранить'}</Button></div>}
+ </div>}
+ </div>
+ {reviewed&&<div className={initialDraft?'demo-prepared-controls':undefined}><Button variant="primary" disabled={disabled||saving} onClick={()=>void save()}>{saving?'Сохраняем…':'Сохранить'}</Button></div>}
  {error&&<p role="alert" className="proposal-error">{error}</p>}</fieldset></>}
  </section>
 }

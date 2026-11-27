@@ -69,9 +69,17 @@
 .redesign-app .decision svg { width:calc(var(--space-4) / var(--map-zoom,1)); height:calc(var(--space-4) / var(--map-zoom,1)); color:var(--text-1); }
 .redesign-app .decision strong { font:600 calc(var(--type-caption) / var(--map-zoom,1))/1.2 var(--font-ui); max-width:100%; }
 .redesign-app .decision small { display:none; }
-.redesign-app .person-bubble { font-size:clamp(var(--type-node),calc(var(--type-initial) / var(--map-zoom,1)),var(--space-5)); }
+.redesign-app .map-area[data-layout="orbit"] {
+  --contact-density-scale:min(1,calc(var(--map-zoom,1) / var(--contact-marker-reference-zoom)));
+}
+.redesign-app .person-wrap {
+  --contact-visual-size:max(var(--contact-size),calc((var(--contact-marker-base) + var(--influence) * var(--contact-marker-step)) * var(--contact-density-scale,1) / var(--map-zoom,1)));
+  --contact-hit-size:max(var(--contact-hit-compact),calc(var(--space-5) * var(--contact-density-scale,1)));
+  --contact-label-offset:max(var(--node-label-anchor),calc(50% + var(--contact-visual-size) / 2 + var(--space-1) / var(--map-zoom,1)));
+}
+.redesign-app .person-bubble { font-size:max(var(--type-node),calc(max(var(--type-initial-compact),var(--type-initial) * var(--contact-density-scale,1)) / var(--map-zoom,1))); }
 .redesign-app .selected .person-bubble { outline:var(--node-outline-width) solid var(--action-primary); outline-offset:var(--space-1); }
-.redesign-app .node-name { width:var(--node-label-width); transform:translateX(-50%) scale(calc(1 / var(--map-zoom,1))); transform-origin:top center; border-radius:var(--radius-s); border:var(--border-width) solid transparent; padding:var(--space-1); background:var(--bg-0); pointer-events:none; }
+.redesign-app .node-name { top:var(--contact-label-offset); width:var(--node-label-width); transform:translateX(-50%) scale(calc(1 / var(--map-zoom,1))); transform-origin:top center; border-radius:var(--radius-s); border:var(--border-width) solid transparent; padding:var(--space-1); background:var(--bg-0); pointer-events:none; }
 .redesign-app .node-name b, .redesign-app .node-name span { font-size:var(--type-node); line-height:1.25; }
 .redesign-app .person-wrap.decision-maker:not(.selected):not(:hover):not(:focus-within) .node-name span { display:none; }
 .redesign-app .selected .node-name { border-color:var(--text-1); }
@@ -243,15 +251,14 @@
 }
 @media (max-width:900px) {
   :root { --header-height:104px; }
-  .redesign-app .topbar { display:grid; grid-template-columns:minmax(0,1fr) repeat(3,max-content); grid-template-rows:repeat(2,minmax(0,1fr)); gap:var(--space-1) var(--space-2); }
+  .redesign-app .topbar { display:grid; grid-template-columns:minmax(0,1fr) repeat(2,max-content); grid-template-rows:repeat(2,minmax(0,1fr)); gap:var(--space-1) var(--space-2); }
   .header-identity { display:flex; align-items:center; min-width:0; gap:var(--space-3); grid-column:1/-1; grid-row:1; }
   .app-wordmark { font-size:var(--type-body); }
   .app-wordmark small { display:block; }
   .redesign-app .header-company { flex:1; width:0; max-width:none; margin:0; font-size:var(--type-caption); padding:var(--space-1) var(--space-2); }
   .redesign-app .header-nav { grid-column:1; grid-row:2; }
-  .redesign-app #demo-button { grid-column:2; grid-row:2; justify-self:end; }
-  .redesign-app .topbar > [aria-label="Горячие клавиши"] { grid-column:3; grid-row:2; }
-  .redesign-app .coverage-header { grid-column:4; grid-row:2; justify-self:end; }
+  .redesign-app .topbar > [aria-label="Горячие клавиши"] { grid-column:2; grid-row:2; }
+  .redesign-app .coverage-header { grid-column:3; grid-row:2; justify-self:end; }
   .redesign-app .topbar .ui-button { font-size:var(--type-caption); padding:var(--space-2); }
   .redesign-app .map-main { right:0; grid-template-columns:minmax(0,1fr); grid-template-rows:auto minmax(0,1fr); }
   .redesign-app .map-sidebar { max-height:50dvh; border:0; border-bottom:var(--border-width) solid var(--border); }
@@ -314,7 +321,7 @@
   transform:translate(calc(-50% + var(--label-shift-x,0px) / var(--map-zoom,1)),calc(var(--label-shift-y,0px) / var(--map-zoom,1))) scale(calc(1 / var(--map-zoom,1)));
 }
 .redesign-app .person-wrap:is(.selected,:hover,:focus-within) .node-name[data-above-node] {
-  top:auto; bottom:var(--node-label-anchor); transform-origin:bottom center;
+  top:auto; bottom:var(--contact-label-offset); transform-origin:bottom center;
 }
 .redesign-app .person-wrap:is(.selected,:hover,:focus-within) .node-name b { font-size:var(--type-caption); }
 .redesign-app .person-wrap:is(.selected,:hover,:focus-within) .node-specialty {
@@ -330,9 +337,9 @@
 .redesign-app .warmth-change { display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--space-2); margin:var(--space-1) 0; }
 .redesign-app .warmth-change small { font-size:var(--type-node); }
 .redesign-app .contact-add { margin-bottom:var(--space-2); }
-/* The visible dot encodes influence; the native button stays at least 24px on screen. */
-.redesign-app .person-hit { display:grid; place-items:center; flex:none; padding:0; border:0; border-radius:50%; background:transparent; width:max(var(--contact-size),calc(var(--space-5) / var(--map-zoom,1))); height:max(var(--contact-size),calc(var(--space-5) / var(--map-zoom,1))); }
-.redesign-app .person-bubble { position:relative; border-radius:50%; }
+/* Leave room between contacts when the full orbit is fitted into a small viewport. */
+.redesign-app .person-hit { display:grid; place-items:center; flex:none; padding:0; border:0; border-radius:50%; background:transparent; width:max(var(--contact-visual-size),calc(var(--contact-hit-size) / var(--map-zoom,1))); height:max(var(--contact-visual-size),calc(var(--contact-hit-size) / var(--map-zoom,1))); }
+.redesign-app .person-bubble { position:relative; border-radius:50%; width:var(--contact-visual-size); height:var(--contact-visual-size); }
 .redesign-app .person-hit:hover .person-bubble { transform:scale(1.08); }
 .redesign-app .panel > .close { position:fixed; top:calc(var(--header-height) + var(--space-3)); right:var(--space-3); background:var(--bg-0); z-index:var(--layer-sidebar); }
 .redesign-app:has(> .success-note) .panel > .close { top:calc(var(--header-height) + var(--notice-height) + var(--space-3)); }
@@ -355,8 +362,8 @@
   content:"";
   position:absolute;
   inset:50% auto auto 50%;
-  width:calc(var(--contact-size) * 1.08 + (2 * var(--space-1) + 2 * var(--node-outline-width)) / var(--map-zoom,1));
-  height:calc(var(--contact-size) * 1.08 + (2 * var(--space-1) + 2 * var(--node-outline-width)) / var(--map-zoom,1));
+  width:calc(var(--contact-visual-size) * 1.08 + (2 * var(--space-1) + 2 * var(--node-outline-width)) / var(--map-zoom,1));
+  height:calc(var(--contact-visual-size) * 1.08 + (2 * var(--space-1) + 2 * var(--node-outline-width)) / var(--map-zoom,1));
   transform:translate(-50%,-50%);
   border:calc(var(--border-width) / var(--map-zoom,1)) solid var(--text-1);
   border-radius:50%;
@@ -546,6 +553,10 @@
 }
 
 @media (max-width:560px) {
+  .redesign-app .map-area {
+    --contact-marker-base:var(--space-3);
+    --contact-marker-step:var(--contact-marker-step-compact);
+  }
   .redesign-app .diff-fields > div {
     grid-template-columns:minmax(0,1fr) minmax(0,1fr);
     gap:var(--space-2);
